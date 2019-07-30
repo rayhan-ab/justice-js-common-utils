@@ -24,14 +24,11 @@ build:
 	$(RUN) $(BUILDER_IMAGE) yarn install
 	$(RUN) $(BUILDER_IMAGE) yarn build
 
-publish:
-    $(RUN) $(BUILDER_IMAGE) yarn install
-	$(RUN) $(BUILDER_IMAGE) yarn build
-	$(RUN) $(BUILDER_IMAGE) yarn run prepare-release
-	$(RUN) $(BUILDER_IMAGE) npm publish
+run:
+	$(RUN) -it $(BUILDER_IMAGE) yarn watch
 
 clean:
-    $(RUN) $(BUILDER_IMAGE) yarn run clean
+	$(RUN) $(BUILDER_IMAGE) yarn run clean
 	-$(RUN) --user=root $(BUILDER_IMAGE) rm -rf node_modules
 	-$(RUN) --user=root $(BUILDER_IMAGE) rm -rf build
 	-docker rmi -f $(BUILDER_IMAGE) $(SERVICE):$(REVISION_ID)
@@ -43,3 +40,6 @@ rebuild:
 test:
 	$(RUN) $(BUILDER_IMAGE) yarn test
 
+publish:
+	echo 'registry=${NEXUS_REPOSITORY_URL}\nemail=${NEXUS_EMAIL}\nalways-auth=true\n_auth=${NEXUS_AUTH}' > .npmrc
+	npm publish

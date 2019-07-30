@@ -1,33 +1,13 @@
 {
-  "extends": ["tslint:latest", "tslint-config-prettier", "tslint-immutable"],
+  "extends": ["tslint:latest", "tslint-config-prettier"],
   "rules": {
     "interface-name": [true, "never-prefix"],
     "no-implicit-dependencies": [true, "dev"],
-    "max-line-length": [true, 120],
     "no-console": false,
-
-    /* tslint-immutable rules */
-    // Recommended built-in rules
-    "no-var-keyword": true,
-    "no-parameter-reassignment": true,
-    "typedef": [true, "call-signature"],
-
-    // Immutability rules
-    "readonly-keyword": true,
-    "readonly-array": true,
-    "no-let": true,
-    "no-object-mutation": true,
-    "no-delete": true,
-    "no-method-signature": true,
-
-    // Functional style rules
-    "no-this": false,
-    "no-class": false,
-    "no-mixed-interface": false,
-    "no-expression-statement": [
-      false
-    ],
-    "no-if-statement": false
-    /* end tslint-immutable rules */
+    "import-name": [false],
+    "member-access": [true],
+    "max-line-length": [true, 120],
+    "ordered-imports": [true],
+    "variable-name": [true, "ban-keywords", "check-format", "allow-pascal-case"]
   }
 }

@@ -1,1 +1,1 @@
-export * from "./lib/input-validation/Validation";
+export * from "./lib/input-validation";

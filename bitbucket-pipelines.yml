@@ -1,0 +1,38 @@
+# Copyright (c) 2018-2019 AccelByte Inc. All Rights Reserved.
+# This is licensed software from AccelByte Inc, for limitations
+# and restrictions contact your company contract manager.
+
+image: atlassian/default-image:2
+clone:
+  depth: 2
+
+pipelines:
+  default:
+    - step:
+        name: Build
+        script:
+          - export NEXUS_AUTH=$NEXUS_AUTH
+          - export NEXUS_REPOSITORY_URL=$NEXUS_REPOSITORY_URL
+          - export NEXUS_EMAIL=$NEXUS_EMAIL
+          - make build
+          - make test
+
+  branches:
+    master:
+      - step:
+          name: Build and publish to npm
+          script:
+            - export NEXUS_AUTH=$NEXUS_AUTH
+            - export NEXUS_REPOSITORY_URL=$NEXUS_REPOSITORY_URL
+            - export NEXUS_EMAIL=$NEXUS_EMAIL
+            - make build
+            - make test
+            - make publish
+
+options:
+  docker: true
+
+definitions:
+  services:
+    docker:
+      memory: 3072

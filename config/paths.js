@@ -65,7 +65,6 @@ const resolveModule = (resolveFn, filePath) => {
 module.exports = {
   appBuild: resolveApp("dist"),
   appPackageJson: resolveApp("package.json"),
-  appVersionJson: resolveApp("version.json"),
   changelog: resolveApp("CHANGELOG.md"),
   appSrc: resolveApp("packages"),
   appTsConfig: resolveApp("tsconfig.json"),

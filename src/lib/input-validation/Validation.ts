@@ -4,4 +4,37 @@
  * and restrictions contact your company contract manager.
  */
 
-export const Validation = {};
+export class Validation<T> {
+  private validationMap: Map<keyof T, T[keyof T] | null> = new Map();
+  private subscriber: Set<() => unknown> = new Set();
+
+  public set(key: keyof T, value: T[typeof key] | null) {
+    this.validationMap.set(key, value);
+    this.notifySubscribers();
+  }
+
+  public get(key: keyof T): T[typeof key] | null {
+    return this.validationMap.get(key) || null;
+  }
+
+  public clear() {
+    this.validationMap = new Map();
+    this.notifySubscribers();
+  }
+
+  public listen(listener: () => unknown) {
+    this.subscriber.add(listener);
+  }
+
+  public unlisten(listener: () => unknown) {
+    this.subscriber.delete(listener);
+  }
+
+  public clearSubscriber() {
+    this.subscriber = new Set();
+  }
+
+  private notifySubscribers() {
+    Array.from(this.subscriber).forEach((a) => a());
+  }
+}

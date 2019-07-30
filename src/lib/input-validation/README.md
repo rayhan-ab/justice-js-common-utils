@@ -1,0 +1,92 @@
+# Input Validation
+
+## Overview
+
+Input Validation is a library used for validating string inputs, the library consist of:
+- _Validation Class_, used to initialize validation object, see example below for more detail
+- _Validation utility functions_, collection of functions that when being passed a string, will return the error type for that string for a specific function (e.g 'empty' when given empty string, 'invalidFormat' when the string is not in an expected format, etc)
+- _Validation error types_, collection of error type for each utility function. e.g for validatelength, the error type can be empty, lessThanLengthLimit, exceedLengthLimit, invalidOption.
+
+## List of Utility Functions
+- _validateAlphanumeric_, with _ValidateAlphanumericErrorType_ for the error type.
+- _validateComplexPassword_, with _ValidateComplexPasswordErrorType_ for the error type.
+- _validateCpuSize_, with _ValidateCpuSizeErrorType_ for the error type.
+- _validateDisplayName_, with _ValidateDisplayNameErrorType_ for the error type.
+- _validateDockerImage_, with _ValidateDockerImageErrorType_ for the error type.
+- _validateEmail_, with _ValidateEmailErrorType_ for the error type.
+- _validateLength_, with _ValidateLengthErrorType_ for the error type.
+- _validateMemorySize_, with _ValidateMemorySizeErrorType_ for the error type.
+- _validateNumeric_, with _ValidateNumericErrorType_ for the error type.
+- _validateOrderNumber_, with _ValidateOrderNumberErrorType_ for the error type.
+- _validatePath_, with _ValidatePathErrorType_ for the error type.
+- _validatePermissionResource_, with _ValidatePermissionResourceErrorType_ for the error type.
+- _validateTag_, with _ValidateTagErrorType_ for the error type.
+- _validateTemplateSlug_, with _ValidateTemplateSlugErrorType_ for the error type.
+- _validateTopic_, with _ValidateTopicErrorType_ for the error type.
+- _validateUrl_, with _ValidateUrlErrorType_ for the error type.
+- _validateUserDisplayName_, with _ValidateUserDisplayNameErrorType_ for the error type.
+- _validateUuidV4WithoutHyphen_, with _ValidateUuidV4WithoutHyphenErrorType_ for the error type.
+
+The functionality of each function is as what is implied in the function name, e.g validateAlphanumeric will validate if a string is a valid Alphanumeric only string.
+
+Run `yarn doc`, to generate a html documentation from the code and automatically open it in a browser.
+
+## Usage Example
+In this example, we have a username input field that we will need to validate. More explanation will be in-line in the example code below.
+```
+import { 
+  Validation, // the validation class
+  validateUserDisplayName, // validation function for User Display Name
+  ValidateUserDisplayNameErrorType, // error type for User Display Name
+} from "justice-js-common-utils"
+
+class Component extends React.Component {
+  constructor(){
+    // set username input value as state
+    this.state = ({ 
+      username: "",
+    })
+
+    // Initiate validation class, specifying the type of fields that need validation, and give each its validation error type.
+    this.validation = new Validation<{
+      username: ValidateUserDisplayNameErrorType,
+    }>()
+    
+    // add listener so the component wil re-render whenever the validation object is updated
+    this.validation.listen(() => this.setState({}))
+  }
+  
+  onUsernameChange(username: string){
+    // update username value state
+    this.setState({
+        username,    
+    })
+    // validate and set validation value for username
+    validation.set("username", validateUserDisplayName(username))
+  }
+
+  // method that handle errors based on errorType
+  renderErrorType(errorType: string) {
+    if (errorType === ValidateUserDisplayNameErrorType.empty) {
+        return 'Username is empty and it is required'
+    }
+    if (errorType === ValidateUserDisplayNameErrorType.invalidFormat) {
+        return 'Username format is invalid'
+    }
+    // etc
+    return null;
+  }
+  
+  render(){
+    return (
+      <div>
+        <input onChange={this.onUsernameChange} value={this.state.username}/>
+        // render the error if username validation has any error
+        {validation.get("username") && (
+          renderErrorType(validation.get("username"))
+        )}
+      </div>
+    )
+  }
+}
+```
