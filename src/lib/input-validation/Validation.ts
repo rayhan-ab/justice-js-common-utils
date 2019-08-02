@@ -34,6 +34,16 @@ export class Validation<T> {
     this.subscriber = new Set();
   }
 
+  public isAllValid() {
+    if (this.validationMap.size === 0) {
+      return true;
+    }
+    const mapArray = Array.from(this.validationMap.values());
+    return mapArray.every((value) => {
+      return value === null;
+    });
+  }
+
   private notifySubscribers() {
     Array.from(this.subscriber).forEach((a) => a());
   }
