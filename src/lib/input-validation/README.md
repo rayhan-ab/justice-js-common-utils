@@ -41,6 +41,10 @@ import {
 } from "justice-js-common-utils"
 
 class Component extends React.Component {
+  // Declare validation as class property 
+  private validation: Validation<{
+    username: ValidateUserDisplayNameErrorType;
+  }>;
   constructor(){
     // set username input value as state
     this.state = ({ 
@@ -48,9 +52,7 @@ class Component extends React.Component {
     })
 
     // Initiate validation class, specifying the type of fields that need validation, and give each its validation error type.
-    this.validation = new Validation<{
-      username: ValidateUserDisplayNameErrorType,
-    }>()
+    this.validation = new Validation()
     
     // add listener so the component wil re-render whenever the validation object is updated
     this.validation.listen(() => this.setState({}))
@@ -62,7 +64,7 @@ class Component extends React.Component {
         username,    
     })
     // validate and set validation value for username
-    validation.set("username", validateUserDisplayName(username))
+    this.validation.set("username", validateUserDisplayName(username))
   }
 
   // method that handle errors based on errorType
@@ -82,9 +84,7 @@ class Component extends React.Component {
       <div>
         <input onChange={this.onUsernameChange} value={this.state.username}/>
         // render the error if username validation has any error
-        {validation.get("username") && (
-          renderErrorType(validation.get("username"))
-        )}
+        {renderErrorType(validation.get("username")}
       </div>
     )
   }
