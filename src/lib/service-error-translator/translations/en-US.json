@@ -1,0 +1,5 @@
+{
+  "serviceError.1014002": "User already exist",
+  "serviceError.1014047": "Failed to create User. Date of birth does not meet the age requirement.",
+  "serviceError.unknown": "Failed to complete the request"
+}

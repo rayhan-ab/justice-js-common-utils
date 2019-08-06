@@ -8,6 +8,7 @@ Justice JS Common Utils
 
 Common Javascript utilities for Justice Platform, including:
 - Input Validation
+- Service Error Translator
 
 And fully containerized development
 

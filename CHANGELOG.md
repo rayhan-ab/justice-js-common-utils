@@ -42,3 +42,4 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Fixed validatePersonName regex to not allow double white space as separator
 - Change some validate functions that has `invalidOption` error, to throw error on `invalidOption` instead of returning it.
 - Update regex for UUID
+- Added Justice service error translator library
