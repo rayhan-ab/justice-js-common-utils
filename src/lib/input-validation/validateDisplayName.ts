@@ -13,7 +13,7 @@ export const ValidateDisplayNameErrorType = ExtendEnum(ValidateLengthErrorType, 
 export type ValidateDisplayNameErrorType = Enum<typeof ValidateDisplayNameErrorType>;
 
 export const validateDisplayName = (value: string) => {
-  const REGEX = "^[a-zA-Z0-9]+(([a-zA-Z0-9 ])?[a-zA-Z0-9]*)*$";
+  const REGEX = "^[a-zA-Z0-9]+(([',. -][a-zA-Z0-9 ])?[a-zA-Z0-9]*)*$";
   if (isEmpty(value)) {
     return ValidateDisplayNameErrorType.empty;
   }
