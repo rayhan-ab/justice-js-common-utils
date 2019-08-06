@@ -9,16 +9,16 @@ import { Enum, ExtendEnum } from "../../types/types";
 import { ErrorTypes } from "./constant/errorTypes";
 import { validateLength, ValidateLengthErrorType } from "./validateLength";
 
-export const ValidateUserDisplayNameErrorType = ExtendEnum(ValidateLengthErrorType, ErrorTypes.invalidFormat);
-export type ValidateUserDisplayNameErrorType = Enum<typeof ValidateUserDisplayNameErrorType>;
+export const ValidatePersonNameErrorType = ExtendEnum(ValidateLengthErrorType, ErrorTypes.invalidFormat);
+export type ValidatePersonNameErrorType = Enum<typeof ValidatePersonNameErrorType>;
 
-export const validateUserDisplayName = (value: string) => {
+export const validatePersonName = (value: string) => {
   const REGEX = "^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$";
   if (isEmpty(value)) {
-    return ValidateUserDisplayNameErrorType.empty;
+    return ValidatePersonNameErrorType.empty;
   }
   if (!matches(value, REGEX)) {
-    return ValidateUserDisplayNameErrorType.invalidFormat;
+    return ValidatePersonNameErrorType.invalidFormat;
   }
   return validateLength(value);
 };

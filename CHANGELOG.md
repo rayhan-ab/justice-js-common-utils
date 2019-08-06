@@ -21,10 +21,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Added validateOrderNumber
 - Added validatePath
 - Added validatePermissionResource
+- Added validatePersonName
 - Added validateTag
 - Added validateTemplateSlug
 - Added validateTopic
 - Added validateUrl
-- Added validateUserDisplayName
 - Added validateUuidV4WithoutHyphen
 

@@ -35,6 +35,30 @@ describe("validateDisplayName returns correct output", () => {
     expect(mockValidateDisplayName).toHaveReturnedWith(null);
   });
 
+  it("returns empty error string when given alphabet only display name with the symbol `'`", () => {
+    mockValidateDisplayName("John'Doe");
+    expect(mockValidateDisplayName).toHaveBeenCalledTimes(1);
+    expect(mockValidateDisplayName).toHaveReturnedWith(null);
+  });
+
+  it("returns empty error string when given alphabet only display name with the symbol `,`", () => {
+    mockValidateDisplayName("John,Doe");
+    expect(mockValidateDisplayName).toHaveBeenCalledTimes(1);
+    expect(mockValidateDisplayName).toHaveReturnedWith(null);
+  });
+
+  it("returns empty error string when given alphabet only display name with the symbol `.`", () => {
+    mockValidateDisplayName("John.Doe");
+    expect(mockValidateDisplayName).toHaveBeenCalledTimes(1);
+    expect(mockValidateDisplayName).toHaveReturnedWith(null);
+  });
+
+  it("returns empty error string when given alphabet only display name with the symbol `-`", () => {
+    mockValidateDisplayName("John-Doe");
+    expect(mockValidateDisplayName).toHaveBeenCalledTimes(1);
+    expect(mockValidateDisplayName).toHaveReturnedWith(null);
+  });
+
   it("returns empty error string when given alphanumeric with length of 256 (the default maxLength)", () => {
     mockValidateDisplayName(
       "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzab" +
@@ -63,8 +87,8 @@ describe("validateDisplayName returns correct output", () => {
     expect(mockValidateDisplayName).toHaveReturnedWith(ValidateDisplayNameErrorType.empty);
   });
 
-  it("returns error string invalidFormat when given string with at least 1 symbols", () => {
-    mockValidateDisplayName("AccelByte !@#$%^&**()_+=`~");
+  it("returns error string invalidFormat when given string with at least 1 symbol other than `',. -`", () => {
+    mockValidateDisplayName("$$$$ John Doe!!!");
     expect(mockValidateDisplayName).toHaveBeenCalledTimes(1);
     expect(mockValidateDisplayName).toHaveReturnedWith(ValidateDisplayNameErrorType.invalidFormat);
   });
