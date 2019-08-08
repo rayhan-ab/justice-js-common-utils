@@ -11,6 +11,12 @@ afterEach(mockValidateAlphaNumeric.mockClear);
 afterAll(mockValidateAlphaNumeric.mockRestore);
 
 describe("validateAlphanumeric returns correct output", () => {
+  it("returns empty error string when given empty string, but it is not a required field", () => {
+    mockValidateAlphaNumeric("", { isRequired: false });
+    expect(mockValidateAlphaNumeric).toHaveBeenCalledTimes(1);
+    expect(mockValidateAlphaNumeric).toHaveReturnedWith(null);
+  });
+
   it("returns empty error string when given alphanumeric", () => {
     mockValidateAlphaNumeric("alpha123");
     expect(mockValidateAlphaNumeric).toHaveBeenCalledTimes(1);

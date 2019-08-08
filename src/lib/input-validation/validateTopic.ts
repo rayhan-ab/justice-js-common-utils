@@ -12,9 +12,16 @@ import { validateLength, ValidateLengthErrorType } from "./validateLength";
 export const ValidateTopicErrorType = ExtendEnum(ValidateLengthErrorType, ErrorTypes.invalidFormat);
 export type ValidateTopicErrorType = Enum<typeof ValidateTopicErrorType>;
 
-export const validateTopic = (value: string) => {
+export interface ValidateTopicOptions {
+  isRequired?: boolean;
+}
+
+export const validateTopic = (value: string, { isRequired = true }: ValidateTopicOptions = {}) => {
   const REGEX = "^[A-Z]+([_]{1}[A-Z]+)*$";
   if (isEmpty(value)) {
+    if (!isRequired) {
+      return null;
+    }
     return ValidateTopicErrorType.empty;
   }
   if (!matches(value, REGEX)) {

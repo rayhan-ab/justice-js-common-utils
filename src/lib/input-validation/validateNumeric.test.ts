@@ -11,6 +11,12 @@ afterEach(mockValidateNumeric.mockClear);
 afterAll(mockValidateNumeric.mockRestore);
 
 describe("validateNumeric returns correct output", () => {
+  it("returns empty error string when given empty string, but it is not a required field", () => {
+    mockValidateNumeric("", { isRequired: false });
+    expect(mockValidateNumeric).toHaveBeenCalledTimes(1);
+    expect(mockValidateNumeric).toHaveReturnedWith(null);
+  });
+
   it("returns empty error string when given a number within the default range", () => {
     mockValidateNumeric("100");
     expect(mockValidateNumeric).toHaveBeenCalledTimes(1);

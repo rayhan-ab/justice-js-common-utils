@@ -12,10 +12,17 @@ import { validateLength, ValidateLengthErrorType } from "./validateLength";
 export const ValidateEmailErrorType = ExtendEnum(ValidateLengthErrorType, ErrorTypes.invalidFormat);
 export type ValidateEmailErrorType = Enum<typeof ValidateEmailErrorType>;
 
-export const validateEmail = (value: string) => {
+export interface ValidateEmailOptions {
+  isRequired?: boolean;
+}
+
+export const validateEmail = (value: string, { isRequired = true }: ValidateEmailOptions = {}) => {
   const REGEX = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
   const MAX_EMAIL_LENGTH = 254;
   if (isEmpty(value)) {
+    if (!isRequired) {
+      return null;
+    }
     return ValidateEmailErrorType.empty;
   }
   if (!matches(value, REGEX)) {

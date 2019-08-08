@@ -11,6 +11,12 @@ afterEach(mockValidateDisplayName.mockClear);
 afterAll(mockValidateDisplayName.mockRestore);
 
 describe("validateDisplayName returns correct output", () => {
+  it("returns empty error string when given empty string, but it is not a required field", () => {
+    mockValidateDisplayName("", { isRequired: false });
+    expect(mockValidateDisplayName).toHaveBeenCalledTimes(1);
+    expect(mockValidateDisplayName).toHaveReturnedWith(null);
+  });
+
   it("returns empty error string when given alphabet only display name", () => {
     mockValidateDisplayName("AccelByte");
     expect(mockValidateDisplayName).toHaveBeenCalledTimes(1);

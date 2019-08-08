@@ -11,6 +11,12 @@ afterEach(mockValidateTemplateSlug.mockClear);
 afterAll(mockValidateTemplateSlug.mockRestore);
 
 describe("validateTemplateSlug returns correct output", () => {
+  it("returns empty error string when given empty string, but it is not a required field", () => {
+    mockValidateTemplateSlug("", { isRequired: false });
+    expect(mockValidateTemplateSlug).toHaveBeenCalledTimes(1);
+    expect(mockValidateTemplateSlug).toHaveReturnedWith(null);
+  });
+
   it("returns empty error string when given uppercase alphabets without separators", () => {
     mockValidateTemplateSlug("ABC");
     expect(mockValidateTemplateSlug).toHaveBeenCalledTimes(1);

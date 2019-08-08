@@ -12,9 +12,16 @@ import { validateLength, ValidateLengthErrorType } from "./validateLength";
 export const ValidatePersonNameErrorType = ExtendEnum(ValidateLengthErrorType, ErrorTypes.invalidFormat);
 export type ValidatePersonNameErrorType = Enum<typeof ValidatePersonNameErrorType>;
 
-export const validatePersonName = (value: string) => {
+export interface ValidatePersonNameOptions {
+  isRequired?: boolean;
+}
+
+export const validatePersonName = (value: string, { isRequired = true }: ValidatePersonNameOptions = {}) => {
   const REGEX = "^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$";
   if (isEmpty(value)) {
+    if (!isRequired) {
+      return null;
+    }
     return ValidatePersonNameErrorType.empty;
   }
   if (!matches(value, REGEX)) {

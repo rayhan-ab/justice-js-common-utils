@@ -11,6 +11,12 @@ afterEach(mockValidatePermissionResource.mockClear);
 afterAll(mockValidatePermissionResource.mockRestore);
 
 describe("validatePermissionResource returns correct output", () => {
+  it("returns empty error string when given empty string, but it is not a required field", () => {
+    mockValidatePermissionResource("", { isRequired: false });
+    expect(mockValidatePermissionResource).toHaveBeenCalledTimes(1);
+    expect(mockValidatePermissionResource).toHaveReturnedWith(null);
+  });
+
   it("returns empty error string when given uppercase alphabet only", () => {
     mockValidatePermissionResource("PERMISSION");
     expect(mockValidatePermissionResource).toHaveBeenCalledTimes(1);

@@ -11,6 +11,12 @@ afterEach(mockValidateLength.mockClear);
 afterAll(mockValidateLength.mockRestore);
 
 describe("validateLength returns correct output", () => {
+  it("returns empty error string when given empty string, but it is not a required field", () => {
+    mockValidateLength("", { isRequired: false });
+    expect(mockValidateLength).toHaveBeenCalledTimes(1);
+    expect(mockValidateLength).toHaveReturnedWith(null);
+  });
+
   it("returns empty error string when given a string with length of the default min length (1)", () => {
     mockValidateLength("1");
     expect(mockValidateLength).toHaveBeenCalledTimes(1);

@@ -20,29 +20,30 @@ export type ValidateNumericErrorType = Enum<typeof ValidateNumericErrorType>;
 export interface ValidateNumericOption {
   min?: number;
   max?: number;
+  isRequired?: boolean;
 }
 
-export const validateNumeric = (value: string, option?: ValidateNumericOption) => {
-  const DEFAULT_MAX_VALUE = Number.MAX_SAFE_INTEGER;
-  const DEFAULT_MIN_VALUE = Number.MIN_SAFE_INTEGER;
-
-  const maximumValue = option && option.max !== undefined ? option.max : DEFAULT_MAX_VALUE;
-  const minimumValue = option && option.min !== undefined ? option.min : DEFAULT_MIN_VALUE;
-
-  const isMaxOptionSmallerThanMinOption = maximumValue < minimumValue;
+export const validateNumeric = (
+  value: string,
+  { min = Number.MIN_SAFE_INTEGER, max = Number.MAX_SAFE_INTEGER, isRequired = true }: ValidateNumericOption = {}
+) => {
+  const isMaxOptionSmallerThanMinOption = max < min;
   if (isMaxOptionSmallerThanMinOption) {
     return ValidateNumericErrorType.invalidOption;
   }
   if (isEmpty(value)) {
+    if (!isRequired) {
+      return null;
+    }
     return ValidateNumericErrorType.empty;
   }
   if (!isNumeric(value)) {
     return ValidateNumericErrorType.notANumber;
   }
-  if (Number(value) < minimumValue) {
+  if (Number(value) < min) {
     return ValidateNumericErrorType.lessThanMinimumValue;
   }
-  if (Number(value) > maximumValue) {
+  if (Number(value) > max) {
     return ValidateNumericErrorType.exceedMaximumValue;
   }
 

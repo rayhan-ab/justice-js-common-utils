@@ -12,9 +12,16 @@ import { validateLength, ValidateLengthErrorType } from "./validateLength";
 export const ValidatePathErrorType = ExtendEnum(ValidateLengthErrorType, ErrorTypes.invalidFormat);
 export type ValidatePathErrorType = Enum<typeof ValidatePathErrorType>;
 
-export const validatePath = (value: string) => {
+export interface ValidatePathSizeOptions {
+  isRequired?: boolean;
+}
+
+export const validatePath = (value: string, { isRequired = true }: ValidatePathSizeOptions = {}) => {
   const REGEX = "^(\\/[a-zA-Z0-9]+)+$";
   if (isEmpty(value)) {
+    if (!isRequired) {
+      return null;
+    }
     return ValidatePathErrorType.empty;
   }
   if (!matches(value, REGEX)) {

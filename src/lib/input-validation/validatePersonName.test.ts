@@ -11,6 +11,12 @@ afterEach(mockValidatePersonName.mockClear);
 afterAll(mockValidatePersonName.mockRestore);
 
 describe("validatePersonName returns correct output", () => {
+  it("returns empty error string when given empty string, but it is not a required field", () => {
+    mockValidatePersonName("", { isRequired: false });
+    expect(mockValidatePersonName).toHaveBeenCalledTimes(1);
+    expect(mockValidatePersonName).toHaveReturnedWith(null);
+  });
+
   it("returns empty error string when given alphabet only display name", () => {
     mockValidatePersonName("JohnDoe");
     expect(mockValidatePersonName).toHaveBeenCalledTimes(1);

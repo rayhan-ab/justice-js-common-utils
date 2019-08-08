@@ -13,6 +13,7 @@ export * from "./validateDockerImage";
 export * from "./validateEmail";
 export * from "./validateLength";
 export * from "./validateMemorySize";
+export * from "./validateNotEmpty";
 export * from "./validateNumeric";
 export * from "./validateOrderNumber";
 export * from "./validatePath";

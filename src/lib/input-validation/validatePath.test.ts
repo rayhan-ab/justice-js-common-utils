@@ -11,6 +11,12 @@ afterEach(mockValidatePath.mockClear);
 afterAll(mockValidatePath.mockRestore);
 
 describe("validatePath returns correct output", () => {
+  it("returns empty error string when given empty string, but it is not a required field", () => {
+    mockValidatePath("", { isRequired: false });
+    expect(mockValidatePath).toHaveBeenCalledTimes(1);
+    expect(mockValidatePath).toHaveReturnedWith(null);
+  });
+
   it("returns empty error string when given a path", () => {
     mockValidatePath("/path");
     expect(mockValidatePath).toHaveBeenCalledTimes(1);

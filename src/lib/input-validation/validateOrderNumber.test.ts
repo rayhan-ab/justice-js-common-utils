@@ -11,6 +11,12 @@ afterEach(mockValidateOrderNumber.mockClear);
 afterAll(mockValidateOrderNumber.mockRestore);
 
 describe("validateOrderNumber returns correct output", () => {
+  it("returns empty error string when given empty string, but it is not a required field", () => {
+    mockValidateOrderNumber("", { isRequired: false });
+    expect(mockValidateOrderNumber).toHaveBeenCalledTimes(1);
+    expect(mockValidateOrderNumber).toHaveReturnedWith(null);
+  });
+
   it("returns empty error string when given an order number with correct format", () => {
     mockValidateOrderNumber("O1234567890123456");
     expect(mockValidateOrderNumber).toHaveBeenCalledTimes(1);

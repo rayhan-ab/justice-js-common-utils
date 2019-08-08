@@ -11,6 +11,12 @@ afterEach(mockValidateDockerImage.mockClear);
 afterAll(mockValidateDockerImage.mockRestore);
 
 describe("validateDockerImage returns correct output", () => {
+  it("returns empty error string when given empty string, but it is not a required field", () => {
+    mockValidateDockerImage("", { isRequired: false });
+    expect(mockValidateDockerImage).toHaveBeenCalledTimes(1);
+    expect(mockValidateDockerImage).toHaveReturnedWith(null);
+  });
+
   it("returns empty error string when given all lowercase only", () => {
     mockValidateDockerImage("accelbyte");
     expect(mockValidateDockerImage).toHaveBeenCalledTimes(1);

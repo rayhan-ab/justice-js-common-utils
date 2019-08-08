@@ -11,6 +11,11 @@ afterEach(mockValidateComplexPassword.mockClear);
 afterAll(mockValidateComplexPassword.mockRestore);
 
 describe("validateComplexPassword returns correct output", () => {
+  it("returns empty error string when given empty string, but it is not a required field", () => {
+    mockValidateComplexPassword("", { isRequired: false });
+    expect(mockValidateComplexPassword).toHaveBeenCalledTimes(1);
+    expect(mockValidateComplexPassword).toHaveReturnedWith(null);
+  });
   // tslint:disable-next-line
   it("returns empty error string when given at least 3 out of 4 rule (uppercase, lowercase, numbers, special characters) with 8 character (minimum)", () => {
     mockValidateComplexPassword("asdASD12");

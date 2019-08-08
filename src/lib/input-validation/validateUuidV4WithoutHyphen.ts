@@ -11,9 +11,19 @@ import { ErrorTypes } from "./constant/errorTypes";
 export const ValidateUuidV4WithoutHyphenErrorType = Enum(ErrorTypes.empty, ErrorTypes.invalidFormat);
 export type ValidateUuidV4WithoutHyphenErrorType = Enum<typeof ValidateUuidV4WithoutHyphenErrorType>;
 
-export const validateUuidV4WithoutHyphen = (value: string) => {
+export interface ValidateUuidV4WithoutHyphenOptions {
+  isRequired?: boolean;
+}
+
+export const validateUuidV4WithoutHyphen = (
+  value: string,
+  { isRequired = true }: ValidateUuidV4WithoutHyphenOptions = {}
+) => {
   const REGEX = "^[0-9a-f]{16}[89ab][0-9a-f]{15}$";
   if (isEmpty(value)) {
+    if (!isRequired) {
+      return null;
+    }
     return ValidateUuidV4WithoutHyphenErrorType.empty;
   }
   if (!matches(value, REGEX)) {
