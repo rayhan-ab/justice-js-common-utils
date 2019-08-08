@@ -12,12 +12,19 @@ import { validateLength, ValidateLengthErrorType } from "./validateLength";
 export const ValidateUrlErrorType = ExtendEnum(ValidateLengthErrorType, ErrorTypes.invalidFormat);
 export type ValidateUrlErrorType = Enum<typeof ValidateUrlErrorType>;
 
-export const validateUrl = (value: string) => {
+export interface ValidateUrlOptions {
+  isRequired?: boolean;
+}
+
+export const validateUrl = (value: string, { isRequired = true }: ValidateUrlOptions = {}) => {
   const DEFAULT_MAX_URL_LENGTH = 2000;
   const REGEX =
     // tslint:disable-next-line
     "^((((https?|ftps?|gopher|telnet|nntp):\\/\\/)|(mailto:|news:))(%[0-9A-Fa-f]{2}|[-()_.!~*';/?:@&=+$,A-Za-z0-9])+)([).!';/?:,][[:blank:]])?$";
   if (isEmpty(value)) {
+    if (!isRequired) {
+      return null;
+    }
     return ValidateUrlErrorType.empty;
   }
   if (!matches(value, REGEX)) {

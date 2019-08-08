@@ -12,10 +12,17 @@ import { validateLength, ValidateLengthErrorType } from "./validateLength";
 export const ValidateCpuSizeErrorType = ExtendEnum(ValidateLengthErrorType, ErrorTypes.invalidFormat);
 export type ValidateCpuSizeErrorType = Enum<typeof ValidateCpuSizeErrorType>;
 
-export const validateCpuSize = (value: string) => {
+export interface ValidateCpuSizeOptions {
+  isRequired?: boolean;
+}
+
+export const validateCpuSize = (value: string, { isRequired = true }: ValidateCpuSizeOptions = {}) => {
   const MAX_LENGTH = 8;
   const REGEX = "^[0-9]+m$";
   if (isEmpty(value)) {
+    if (!isRequired) {
+      return null;
+    }
     return ValidateCpuSizeErrorType.empty;
   }
   if (!matches(value, REGEX)) {

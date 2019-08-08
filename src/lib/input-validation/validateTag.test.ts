@@ -11,6 +11,12 @@ afterEach(mockValidateTag.mockClear);
 afterAll(mockValidateTag.mockRestore);
 
 describe("validateTag returns correct output", () => {
+  it("returns empty error string when given empty string, but it is not a required field", () => {
+    mockValidateTag("", { isRequired: false });
+    expect(mockValidateTag).toHaveBeenCalledTimes(1);
+    expect(mockValidateTag).toHaveReturnedWith(null);
+  });
+
   it("returns empty error string when given uppercase alphabets without separators ", () => {
     mockValidateTag("ABC");
     expect(mockValidateTag).toHaveBeenCalledTimes(1);

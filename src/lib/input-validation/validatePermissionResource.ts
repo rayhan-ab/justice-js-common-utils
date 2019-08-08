@@ -12,9 +12,19 @@ import { validateLength, ValidateLengthErrorType } from "./validateLength";
 export const ValidatePermissionResourceErrorType = ExtendEnum(ValidateLengthErrorType, ErrorTypes.invalidFormat);
 export type ValidatePermissionResourceErrorType = Enum<typeof ValidatePermissionResourceErrorType>;
 
-export const validatePermissionResource = (value: string) => {
+export interface ValidatePermissionResourceOptions {
+  isRequired?: boolean;
+}
+
+export const validatePermissionResource = (
+  value: string,
+  { isRequired = true }: ValidatePermissionResourceOptions = {}
+) => {
   const REGEX = "^[A-Z]+([:]{1}([A-Z]+|{[a-zA-Z]+}))*$";
   if (isEmpty(value)) {
+    if (!isRequired) {
+      return null;
+    }
     return ValidatePermissionResourceErrorType.empty;
   }
   if (!matches(value, REGEX)) {

@@ -11,6 +11,12 @@ afterEach(mockValidateEmail.mockClear);
 afterAll(mockValidateEmail.mockRestore);
 
 describe("validateEmail returns correct output", () => {
+  it("returns empty error string when given empty string, but it is not a required field", () => {
+    mockValidateEmail("", { isRequired: false });
+    expect(mockValidateEmail).toHaveBeenCalledTimes(1);
+    expect(mockValidateEmail).toHaveReturnedWith(null);
+  });
+
   it("returns empty error string when given all lowercase, complete email", () => {
     mockValidateEmail("test@accelbyte.net");
     expect(mockValidateEmail).toHaveBeenCalledTimes(1);

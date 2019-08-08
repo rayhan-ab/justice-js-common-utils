@@ -13,15 +13,22 @@ export const ValidateAlphaNumericErrorType = ExtendEnum(ValidateLengthErrorType,
 export type ValidateAlphaNumericErrorType = Enum<typeof ValidateAlphaNumericErrorType>;
 
 export interface ValidateAlphanumericOptions {
-  maxLength: number;
+  maxLength?: number;
+  isRequired?: boolean;
 }
 
-export const validateAlphanumeric = (value: string, options: ValidateAlphanumericOptions = { maxLength: 256 }) => {
+export const validateAlphanumeric = (
+  value: string,
+  { maxLength = 256, isRequired = true }: ValidateAlphanumericOptions = {}
+) => {
   if (isEmpty(value)) {
+    if (!isRequired) {
+      return null;
+    }
     return ValidateAlphaNumericErrorType.empty;
   }
   if (!isAlphanumeric(value)) {
     return ValidateAlphaNumericErrorType.invalidFormat;
   }
-  return validateLength(value, { max: options.maxLength });
+  return validateLength(value, { max: maxLength });
 };

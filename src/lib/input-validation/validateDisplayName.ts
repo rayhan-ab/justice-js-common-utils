@@ -12,9 +12,16 @@ import { validateLength, ValidateLengthErrorType } from "./validateLength";
 export const ValidateDisplayNameErrorType = ExtendEnum(ValidateLengthErrorType, ErrorTypes.invalidFormat);
 export type ValidateDisplayNameErrorType = Enum<typeof ValidateDisplayNameErrorType>;
 
-export const validateDisplayName = (value: string) => {
+export interface ValidateDisplayNameOptions {
+  isRequired?: boolean;
+}
+
+export const validateDisplayName = (value: string, { isRequired = true }: ValidateDisplayNameOptions = {}) => {
   const REGEX = "^[a-zA-Z0-9]+(([',. -][a-zA-Z0-9 ])?[a-zA-Z0-9]*)*$";
   if (isEmpty(value)) {
+    if (!isRequired) {
+      return null;
+    }
     return ValidateDisplayNameErrorType.empty;
   }
   if (!matches(value, REGEX)) {

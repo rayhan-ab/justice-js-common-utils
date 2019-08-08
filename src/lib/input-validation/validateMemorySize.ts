@@ -12,10 +12,17 @@ import { validateLength, ValidateLengthErrorType } from "./validateLength";
 export const ValidateMemorySizeErrorType = ExtendEnum(ValidateLengthErrorType, ErrorTypes.invalidFormat);
 export type ValidateMemorySizeErrorType = Enum<typeof ValidateMemorySizeErrorType>;
 
-export const validateMemorySize = (value: string) => {
+export interface ValidateMemorySizeOptions {
+  isRequired?: boolean;
+}
+
+export const validateMemorySize = (value: string, { isRequired = true }: ValidateMemorySizeOptions = {}) => {
   const MAX_LENGTH = 9;
   const REGEX = "^[0-9]+Mi$";
   if (isEmpty(value)) {
+    if (!isRequired) {
+      return null;
+    }
     return ValidateMemorySizeErrorType.empty;
   }
   if (!matches(value, REGEX)) {

@@ -11,6 +11,12 @@ afterEach(mockValidateCpuSize.mockClear);
 afterAll(mockValidateCpuSize.mockRestore);
 
 describe("validateCpuSize returns correct output", () => {
+  it("returns empty error string when given empty string, but it is not a required field", () => {
+    mockValidateCpuSize("", { isRequired: false });
+    expect(mockValidateCpuSize).toHaveBeenCalledTimes(1);
+    expect(mockValidateCpuSize).toHaveReturnedWith(null);
+  });
+
   it("returns empty error string when given a string started in numbers and ended in `m`", () => {
     mockValidateCpuSize("100m");
     expect(mockValidateCpuSize).toHaveBeenCalledTimes(1);

@@ -12,10 +12,17 @@ import { validateLength, ValidateLengthErrorType } from "./validateLength";
 export const ValidateTagErrorType = ExtendEnum(ValidateLengthErrorType, ErrorTypes.invalidFormat);
 export type ValidateTagErrorType = Enum<typeof ValidateTagErrorType>;
 
-export const validateTag = (value: string) => {
+export interface ValidateTagOptions {
+  isRequired?: boolean;
+}
+
+export const validateTag = (value: string, { isRequired = true }: ValidateTagOptions = {}) => {
   const MAXIMUM_TAG_LENGTH = 30;
   const REGEX = "^[a-zA-Z0-9]+([_:-]{1}[a-zA-Z0-9]+)*$";
   if (isEmpty(value)) {
+    if (!isRequired) {
+      return null;
+    }
     return ValidateTagErrorType.empty;
   }
   if (!matches(value, REGEX)) {

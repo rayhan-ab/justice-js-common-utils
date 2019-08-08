@@ -11,9 +11,16 @@ import { ErrorTypes } from "./constant/errorTypes";
 export const ValidateOrderNumberErrorType = Enum(ErrorTypes.empty, ErrorTypes.invalidFormat);
 export type ValidateOrderNumberErrorType = Enum<typeof ValidateOrderNumberErrorType>;
 
-export const validateOrderNumber = (value: string) => {
+export interface ValidateOrderNumberOptions {
+  isRequired?: boolean;
+}
+
+export const validateOrderNumber = (value: string, { isRequired = true }: ValidateOrderNumberOptions = {}) => {
   const REGEX = "^O[0-9]{16}$";
   if (isEmpty(value)) {
+    if (!isRequired) {
+      return null;
+    }
     return ValidateOrderNumberErrorType.empty;
   }
   if (!matches(value, REGEX)) {

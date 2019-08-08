@@ -11,6 +11,12 @@ afterEach(mockValidateMemorySize.mockClear);
 afterAll(mockValidateMemorySize.mockRestore);
 
 describe("validateMemorySize returns correct output", () => {
+  it("returns empty error string when given empty string, but it is not a required field", () => {
+    mockValidateMemorySize("", { isRequired: false });
+    expect(mockValidateMemorySize).toHaveBeenCalledTimes(1);
+    expect(mockValidateMemorySize).toHaveReturnedWith(null);
+  });
+
   it("returns empty error string when given a string started in numbers and ended in `Mi`", () => {
     mockValidateMemorySize("100Mi");
     expect(mockValidateMemorySize).toHaveBeenCalledTimes(1);

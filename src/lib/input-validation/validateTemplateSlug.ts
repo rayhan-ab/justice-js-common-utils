@@ -12,9 +12,16 @@ import { validateLength, ValidateLengthErrorType } from "./validateLength";
 export const ValidateTemplateSlugErrorType = ExtendEnum(ValidateLengthErrorType, ErrorTypes.invalidFormat);
 export type ValidateTemplateSlugErrorType = Enum<typeof ValidateTemplateSlugErrorType>;
 
-export const validateTemplateSlug = (value: string) => {
+export interface ValidateTemplateSlugOptions {
+  isRequired?: boolean;
+}
+
+export const validateTemplateSlug = (value: string, { isRequired = true }: ValidateTemplateSlugOptions = {}) => {
   const REGEX = "^[a-zA-Z]+([-]{1}[a-zA-Z]+)*$";
   if (isEmpty(value)) {
+    if (!isRequired) {
+      return null;
+    }
     return ValidateTemplateSlugErrorType.empty;
   }
   if (!matches(value, REGEX)) {

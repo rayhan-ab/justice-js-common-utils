@@ -11,6 +11,12 @@ afterEach(mockValidateTopic.mockClear);
 afterAll(mockValidateTopic.mockRestore);
 
 describe("validateTopic returns correct output", () => {
+  it("returns empty error string when given empty string, but it is not a required field", () => {
+    mockValidateTopic("", { isRequired: false });
+    expect(mockValidateTopic).toHaveBeenCalledTimes(1);
+    expect(mockValidateTopic).toHaveReturnedWith(null);
+  });
+
   it("returns empty error string when given uppercase alphabets without separators", () => {
     mockValidateTopic("ABC");
     expect(mockValidateTopic).toHaveBeenCalledTimes(1);

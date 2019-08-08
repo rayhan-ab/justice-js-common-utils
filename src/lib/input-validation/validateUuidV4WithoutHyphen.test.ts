@@ -11,6 +11,12 @@ afterEach(mockValidateUuidV4WithoutHyphen.mockClear);
 afterAll(mockValidateUuidV4WithoutHyphen.mockRestore);
 
 describe("validateUuidV4WithoutHyphen returns correct output", () => {
+  it("returns empty error string when given empty string, but it is not a required field", () => {
+    mockValidateUuidV4WithoutHyphen("", { isRequired: false });
+    expect(mockValidateUuidV4WithoutHyphen).toHaveBeenCalledTimes(1);
+    expect(mockValidateUuidV4WithoutHyphen).toHaveReturnedWith(null);
+  });
+
   it("returns empty error string when given a uuid v4 format without Hyphen", () => {
     mockValidateUuidV4WithoutHyphen("ee796cd4ee9449748268b77c4343e147");
     expect(mockValidateUuidV4WithoutHyphen).toHaveBeenCalledTimes(1);

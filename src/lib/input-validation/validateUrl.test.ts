@@ -11,8 +11,8 @@ afterEach(mockValidateUrl.mockClear);
 afterAll(mockValidateUrl.mockRestore);
 
 describe("validateUrl returns correct output", () => {
-  it("returns empty error string when given valid url format", () => {
-    mockValidateUrl("https://www.owasp.org/index.php/Main_Page");
+  it("returns empty error string when given empty string, but it is not a required field", () => {
+    mockValidateUrl("", { isRequired: false });
     expect(mockValidateUrl).toHaveBeenCalledTimes(1);
     expect(mockValidateUrl).toHaveReturnedWith(null);
   });
