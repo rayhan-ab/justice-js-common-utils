@@ -41,10 +41,10 @@ describe("validateNumeric returns correct output", () => {
     expect(mockValidateNumeric).toHaveReturnedWith(null);
   });
 
-  it("returns error string 'notANumber' when given string that is not a number", () => {
+  it("returns error string 'invalidValue' when given string that is not a number", () => {
     mockValidateNumeric("a");
     expect(mockValidateNumeric).toHaveBeenCalledTimes(1);
-    expect(mockValidateNumeric).toHaveReturnedWith(ValidateNumericErrorType.notANumber);
+    expect(mockValidateNumeric).toHaveReturnedWith(ValidateNumericErrorType.invalidValue);
   });
 
   it("returns error string 'lessThanMinimumValue' when given a number less than min option", () => {
@@ -69,5 +69,17 @@ describe("validateNumeric returns correct output", () => {
     mockValidateNumeric("1", { min: 10, max: -99 });
     expect(mockValidateNumeric).toHaveBeenCalledTimes(1);
     expect(mockValidateNumeric).toHaveReturnedWith(ValidateNumericErrorType.invalidOption);
+  });
+
+  it("returns error string 'containsExcludedNumber' when given a string should excluded", () => {
+    mockValidateNumeric("0", { min: -1, excludedNumbers: [0] });
+    expect(mockValidateNumeric).toHaveBeenCalledTimes(1);
+    expect(mockValidateNumeric).toHaveReturnedWith(ValidateNumericErrorType.invalidValue);
+  });
+
+  it("returns empty error string when given a string not excluded string", () => {
+    mockValidateNumeric("-1", { min: -1, excludedNumbers: [0] });
+    expect(mockValidateNumeric).toHaveBeenCalledTimes(1);
+    expect(mockValidateNumeric).toHaveReturnedWith(null);
   });
 });

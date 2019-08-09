@@ -15,5 +15,5 @@ export const CommonValidationErrorType = Enum(
   "invalidFormat",
   "lessThanMinimumValue",
   "exceedMaximumValue",
-  "notANumber"
+  "invalidValue"
 );

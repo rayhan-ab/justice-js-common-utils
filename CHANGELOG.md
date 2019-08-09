@@ -29,4 +29,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Added validateTopic
 - Added validateUrl
 - Added validateUuidV4WithoutHyphen
+- Added validateAlpha
+- Exposed commonValidationErrorType
+- Added invalidValue in commonValidationErrorType
+- Added validation excluded numbers in validateNumeric
 
