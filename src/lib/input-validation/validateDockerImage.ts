@@ -6,10 +6,13 @@
 
 import { isEmpty, matches } from "validator";
 import { Enum, ExtendEnum } from "../../types/types";
-import { ErrorTypes } from "./constant/errorTypes";
+import { CommonValidationErrorType } from "./constant/errorType";
 import { validateLength, ValidateLengthErrorType } from "./validateLength";
 
-export const ValidateDockerImageErrorType = ExtendEnum(ValidateLengthErrorType, ErrorTypes.invalidFormat);
+export const ValidateDockerImageErrorType = ExtendEnum(
+  ValidateLengthErrorType,
+  CommonValidationErrorType.invalidFormat
+);
 export type ValidateDockerImageErrorType = Enum<typeof ValidateDockerImageErrorType>;
 
 export interface ValidateDockerImageOptions {

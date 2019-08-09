@@ -6,7 +6,8 @@
 
 import { Enum } from "../../../types/types";
 
-export const ErrorTypes = Enum(
+export type CommonValidationErrorType = Enum<typeof CommonValidationErrorType>;
+export const CommonValidationErrorType = Enum(
   "empty",
   "lessThanLengthLimit",
   "exceedLengthLimit",

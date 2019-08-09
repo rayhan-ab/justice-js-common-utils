@@ -6,13 +6,13 @@
 
 import { isEmpty } from "validator";
 import { Enum } from "../../types/types";
-import { ErrorTypes } from "./constant/errorTypes";
+import { CommonValidationErrorType } from "./constant/errorType";
 
 export const ValidateLengthErrorType = Enum(
-  ErrorTypes.empty,
-  ErrorTypes.lessThanLengthLimit,
-  ErrorTypes.exceedLengthLimit,
-  ErrorTypes.invalidOption
+  CommonValidationErrorType.empty,
+  CommonValidationErrorType.lessThanLengthLimit,
+  CommonValidationErrorType.exceedLengthLimit,
+  CommonValidationErrorType.invalidOption
 );
 export type ValidateLengthErrorType = Enum<typeof ValidateLengthErrorType>;
 

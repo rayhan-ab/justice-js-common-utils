@@ -6,9 +6,12 @@
 
 import { isEmpty, matches } from "validator";
 import { Enum } from "../../types/types";
-import { ErrorTypes } from "./constant/errorTypes";
+import { CommonValidationErrorType } from "./constant/errorType";
 
-export const ValidateOrderNumberErrorType = Enum(ErrorTypes.empty, ErrorTypes.invalidFormat);
+export const ValidateOrderNumberErrorType = Enum(
+  CommonValidationErrorType.empty,
+  CommonValidationErrorType.invalidFormat
+);
 export type ValidateOrderNumberErrorType = Enum<typeof ValidateOrderNumberErrorType>;
 
 export interface ValidateOrderNumberOptions {

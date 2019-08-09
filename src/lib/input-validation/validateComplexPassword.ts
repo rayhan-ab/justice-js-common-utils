@@ -6,9 +6,12 @@
 
 import { isEmpty, matches } from "validator";
 import { Enum } from "../../types/types";
-import { ErrorTypes } from "./constant/errorTypes";
+import { CommonValidationErrorType } from "./constant/errorType";
 
-export const ValidateComplexPasswordErrorType = Enum(ErrorTypes.empty, ErrorTypes.invalidFormat);
+export const ValidateComplexPasswordErrorType = Enum(
+  CommonValidationErrorType.empty,
+  CommonValidationErrorType.invalidFormat
+);
 export type ValidateComplexPasswordErrorType = Enum<typeof ValidateComplexPasswordErrorType>;
 
 export interface ValidateComplexPasswordOptions {

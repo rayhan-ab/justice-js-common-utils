@@ -6,9 +6,12 @@
 
 import { isEmpty, matches } from "validator";
 import { Enum } from "../../types/types";
-import { ErrorTypes } from "./constant/errorTypes";
+import { CommonValidationErrorType } from "./constant/errorType";
 
-export const ValidateUuidV4WithoutHyphenErrorType = Enum(ErrorTypes.empty, ErrorTypes.invalidFormat);
+export const ValidateUuidV4WithoutHyphenErrorType = Enum(
+  CommonValidationErrorType.empty,
+  CommonValidationErrorType.invalidFormat
+);
 export type ValidateUuidV4WithoutHyphenErrorType = Enum<typeof ValidateUuidV4WithoutHyphenErrorType>;
 
 export interface ValidateUuidV4WithoutHyphenOptions {

@@ -6,9 +6,9 @@
 
 import { isEmpty } from "validator";
 import { Enum } from "../../types/types";
-import { ErrorTypes } from "./constant/errorTypes";
+import { CommonValidationErrorType } from "./constant/errorType";
 
-export const ValidateNotEmptyErrorType = Enum(ErrorTypes.empty);
+export const ValidateNotEmptyErrorType = Enum(CommonValidationErrorType.empty);
 export type ValidateNotEmptyErrorType = Enum<typeof ValidateNotEmptyErrorType>;
 
 export const validateNotEmpty = (value: string) => {

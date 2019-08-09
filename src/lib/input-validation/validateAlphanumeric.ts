@@ -6,10 +6,13 @@
 
 import { isAlphanumeric, isEmpty } from "validator";
 import { Enum, ExtendEnum } from "../../types/types";
-import { ErrorTypes } from "./constant/errorTypes";
+import { CommonValidationErrorType } from "./constant/errorType";
 import { validateLength, ValidateLengthErrorType } from "./validateLength";
 
-export const ValidateAlphaNumericErrorType = ExtendEnum(ValidateLengthErrorType, ErrorTypes.invalidFormat);
+export const ValidateAlphaNumericErrorType = ExtendEnum(
+  ValidateLengthErrorType,
+  CommonValidationErrorType.invalidFormat
+);
 export type ValidateAlphaNumericErrorType = Enum<typeof ValidateAlphaNumericErrorType>;
 
 export interface ValidateAlphanumericOptions {
