@@ -6,10 +6,10 @@
 
 import { isEmpty, matches } from "validator";
 import { Enum, ExtendEnum } from "../../types/types";
-import { ErrorTypes } from "./constant/errorTypes";
+import { CommonValidationErrorType } from "./constant/errorType";
 import { validateLength, ValidateLengthErrorType } from "./validateLength";
 
-export const ValidateCpuSizeErrorType = ExtendEnum(ValidateLengthErrorType, ErrorTypes.invalidFormat);
+export const ValidateCpuSizeErrorType = ExtendEnum(ValidateLengthErrorType, CommonValidationErrorType.invalidFormat);
 export type ValidateCpuSizeErrorType = Enum<typeof ValidateCpuSizeErrorType>;
 
 export interface ValidateCpuSizeOptions {

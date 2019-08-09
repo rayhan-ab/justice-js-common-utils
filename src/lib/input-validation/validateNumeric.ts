@@ -6,14 +6,14 @@
 
 import { isEmpty, isNumeric } from "validator";
 import { Enum } from "../../types/types";
-import { ErrorTypes } from "./constant/errorTypes";
+import { CommonValidationErrorType } from "./constant/errorType";
 
 export const ValidateNumericErrorType = Enum(
-  ErrorTypes.empty,
-  ErrorTypes.lessThanMinimumValue,
-  ErrorTypes.exceedMaximumValue,
-  ErrorTypes.notANumber,
-  ErrorTypes.invalidOption
+  CommonValidationErrorType.empty,
+  CommonValidationErrorType.lessThanMinimumValue,
+  CommonValidationErrorType.exceedMaximumValue,
+  CommonValidationErrorType.notANumber,
+  CommonValidationErrorType.invalidOption
 );
 export type ValidateNumericErrorType = Enum<typeof ValidateNumericErrorType>;
 

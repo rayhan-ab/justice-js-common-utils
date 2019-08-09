@@ -6,10 +6,13 @@
 
 import { isEmpty, matches } from "validator";
 import { Enum, ExtendEnum } from "../../types/types";
-import { ErrorTypes } from "./constant/errorTypes";
+import { CommonValidationErrorType } from "./constant/errorType";
 import { validateLength, ValidateLengthErrorType } from "./validateLength";
 
-export const ValidatePermissionResourceErrorType = ExtendEnum(ValidateLengthErrorType, ErrorTypes.invalidFormat);
+export const ValidatePermissionResourceErrorType = ExtendEnum(
+  ValidateLengthErrorType,
+  CommonValidationErrorType.invalidFormat
+);
 export type ValidatePermissionResourceErrorType = Enum<typeof ValidatePermissionResourceErrorType>;
 
 export interface ValidatePermissionResourceOptions {
