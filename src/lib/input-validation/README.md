@@ -5,7 +5,7 @@
 Input Validation is a library used for validating string inputs, the library consist of:
 - _Validation Class_, used to initialize validation object, see example below for more detail
 - _Validation utility functions_, collection of functions that when being passed a string, will return the error type for that string for a specific function (e.g 'empty' when given empty string, 'invalidFormat' when the string is not in an expected format, etc)
-- _Validation error types_, collection of error type for each utility function. e.g for validatelength, the error type can be empty, lessThanLengthLimit, exceedLengthLimit, invalidOption.
+- _Validation error types_, collection of error type for each utility function. e.g for validatelength, the error type can be empty, lessThanLengthLimit, exceedLengthLimit.
 
 ## List of Utility Functions
 - _validateAlphanumeric_, with _ValidateAlphanumericErrorType_ for the error type.
