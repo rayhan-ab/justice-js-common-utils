@@ -4,6 +4,7 @@
  * and restrictions contact your company contract manager.
  */
 
+import { ThrownErrorType } from "./constant/errorType";
 import { validateLength, ValidateLengthErrorType } from "./validateLength";
 
 const mockValidateLength = jest.fn(validateLength);
@@ -62,21 +63,18 @@ describe("validateLength returns correct output", () => {
     expect(mockValidateLength).toHaveReturnedWith(ValidateLengthErrorType.empty);
   });
 
-  it("returns error string 'invalidOption' when given minus min option", () => {
-    mockValidateLength("1", { min: -5 });
-    expect(mockValidateLength).toHaveBeenCalledTimes(1);
-    expect(mockValidateLength).toHaveReturnedWith(ValidateLengthErrorType.invalidOption);
+  it("Throws error 'invalid option' when given minus min option", () => {
+    const invalidOptionMock = () => mockValidateLength("1", { min: -5 });
+    expect(invalidOptionMock).toThrowError(ThrownErrorType.invalidOption);
   });
 
-  it("returns error string 'invalidOption' when given minus max option", () => {
-    mockValidateLength("1", { max: -10 });
-    expect(mockValidateLength).toHaveBeenCalledTimes(1);
-    expect(mockValidateLength).toHaveReturnedWith(ValidateLengthErrorType.invalidOption);
+  it("Throws error 'invalid option' when given minus max option", () => {
+    const invalidOptionMock = () => mockValidateLength("1", { max: -10 });
+    expect(invalidOptionMock).toThrowError(ThrownErrorType.invalidOption);
   });
 
-  it("returns error string 'invalidOption' when given max option smaller than min option", () => {
-    mockValidateLength("1", { min: 10, max: 3 });
-    expect(mockValidateLength).toHaveBeenCalledTimes(1);
-    expect(mockValidateLength).toHaveReturnedWith(ValidateLengthErrorType.invalidOption);
+  it("Throws error 'invalid option' when given max option smaller than min option", () => {
+    const invalidOptionMock = () => mockValidateLength("1", { min: 10, max: 3 });
+    expect(invalidOptionMock).toThrowError(ThrownErrorType.invalidOption);
   });
 });

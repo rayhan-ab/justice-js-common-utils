@@ -6,13 +6,12 @@
 
 import { isEmpty, isNumeric } from "validator";
 import { Enum } from "../../types/types";
-import { CommonValidationErrorType } from "./constant/errorType";
+import { CommonValidationErrorType, ThrownErrorType } from "./constant/errorType";
 
 export const ValidateNumericErrorType = Enum(
   CommonValidationErrorType.empty,
   CommonValidationErrorType.lessThanMinimumValue,
   CommonValidationErrorType.exceedMaximumValue,
-  CommonValidationErrorType.invalidOption,
   CommonValidationErrorType.invalidValue
 );
 export type ValidateNumericErrorType = Enum<typeof ValidateNumericErrorType>;
@@ -35,7 +34,7 @@ export const validateNumeric = (
 ) => {
   const isMaxOptionSmallerThanMinOption = max < min;
   if (isMaxOptionSmallerThanMinOption) {
-    return ValidateNumericErrorType.invalidOption;
+    throw new Error(ThrownErrorType.invalidOption);
   }
   if (isEmpty(value)) {
     if (!isRequired) {

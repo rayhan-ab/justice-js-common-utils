@@ -23,7 +23,7 @@ export const validatePermissionResource = (
   value: string,
   { isRequired = true }: ValidatePermissionResourceOptions = {}
 ) => {
-  const REGEX = "^[A-Z]+([:]{1}([A-Z]+|{[a-zA-Z]+}))*$";
+  const REGEX = "^[A-Z]+([:]{1}([A-Z]+|(({[a-zA-Z]+})|\\*)))*$";
   if (isEmpty(value)) {
     if (!isRequired) {
       return null;

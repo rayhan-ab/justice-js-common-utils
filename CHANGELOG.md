@@ -7,8 +7,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 ### Added
-- Adding isRequired option for some validate function
-- Adding isAllValid method, to check whether all value in validation is valid or not
 - Added Validation class
 - Added validateAlphanumeric
 - Added validateComplexPassword
@@ -30,7 +28,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Added validateUrl
 - Added validateUuidV4WithoutHyphen
 - Added validateAlpha
+- Adding isRequired option for some validate function
+- Adding isAllValid method, to check whether all value in validation is valid or not
 - Exposed commonValidationErrorType
 - Added invalidValue in commonValidationErrorType
 - Added validation excluded numbers in validateNumeric
-
+- Fixed validatePermissionResource regex to allow `*` as variable
+- Change some validate functions that has `invalidOption` error, to throw error on `invalidOption` instead of returning it.

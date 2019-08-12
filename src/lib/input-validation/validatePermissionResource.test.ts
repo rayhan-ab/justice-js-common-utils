@@ -47,6 +47,20 @@ describe("validatePermissionResource returns correct output", () => {
     expect(mockValidatePermissionResource).toHaveReturnedWith(null);
   });
 
+  // tslint:disable-next-line
+  it("returns empty error string when given uppercase alphabet, followed by a variable, and then another variable that is a *", () => {
+    mockValidatePermissionResource("PERMISSION:{variable}:RESOURCE:*");
+    expect(mockValidatePermissionResource).toHaveBeenCalledTimes(1);
+    expect(mockValidatePermissionResource).toHaveReturnedWith(null);
+  });
+
+  // tslint:disable-next-line
+  it("returns empty error string when given uppercase alphabet, followed by * variable, two times", () => {
+    mockValidatePermissionResource("PERMISSION:*:RESOURCE:*");
+    expect(mockValidatePermissionResource).toHaveBeenCalledTimes(1);
+    expect(mockValidatePermissionResource).toHaveReturnedWith(null);
+  });
+
   it("returns error string 'empty' when given empty string", () => {
     mockValidatePermissionResource("");
     expect(mockValidatePermissionResource).toHaveBeenCalledTimes(1);

@@ -11,9 +11,11 @@ export const CommonValidationErrorType = Enum(
   "empty",
   "lessThanLengthLimit",
   "exceedLengthLimit",
-  "invalidOption",
   "invalidFormat",
   "lessThanMinimumValue",
   "exceedMaximumValue",
   "invalidValue"
 );
+
+export type ThrownErrorType = Enum<typeof ThrownErrorType>;
+export const ThrownErrorType = Enum("invalidOption");

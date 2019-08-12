@@ -4,6 +4,7 @@
  * and restrictions contact your company contract manager.
  */
 
+import { ThrownErrorType } from "./constant/errorType";
 import { validateNumeric, ValidateNumericErrorType } from "./validateNumeric";
 
 const mockValidateNumeric = jest.fn(validateNumeric);
@@ -65,10 +66,9 @@ describe("validateNumeric returns correct output", () => {
     expect(mockValidateNumeric).toHaveReturnedWith(ValidateNumericErrorType.empty);
   });
 
-  it("returns error string 'invalidOption' when given max option smaller than min option", () => {
-    mockValidateNumeric("1", { min: 10, max: -99 });
-    expect(mockValidateNumeric).toHaveBeenCalledTimes(1);
-    expect(mockValidateNumeric).toHaveReturnedWith(ValidateNumericErrorType.invalidOption);
+  it("Throws error invalid option' when given max option smaller than min option", () => {
+    const invalidOptionMock = () => mockValidateNumeric("1", { min: 10, max: -99 });
+    expect(invalidOptionMock).toThrowError(ThrownErrorType.invalidOption);
   });
 
   it("returns error string 'containsExcludedNumber' when given a string should excluded", () => {
