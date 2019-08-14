@@ -28,6 +28,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Added validateUrl
 - Added validateUuidV4WithoutHyphen
 - Added validateAlpha
+- Added validateSecretKey
 - Adding isRequired option for some validate function
 - Adding isAllValid method, to check whether all value in validation is valid or not
 - Exposed commonValidationErrorType
