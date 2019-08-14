@@ -61,6 +61,13 @@ describe("validatePermissionResource returns correct output", () => {
     expect(mockValidatePermissionResource).toHaveReturnedWith(null);
   });
 
+  // tslint:disable-next-line
+  it("returns empty error string when given uppercase alphabet, followed by alphanumeric string as variable, two times", () => {
+    mockValidatePermissionResource("PERMISSION:accelbyte:RESOURCE:12345");
+    expect(mockValidatePermissionResource).toHaveBeenCalledTimes(1);
+    expect(mockValidatePermissionResource).toHaveReturnedWith(null);
+  });
+
   it("returns error string 'empty' when given empty string", () => {
     mockValidatePermissionResource("");
     expect(mockValidatePermissionResource).toHaveBeenCalledTimes(1);
@@ -97,8 +104,14 @@ describe("validatePermissionResource returns correct output", () => {
     expect(mockValidatePermissionResource).toHaveReturnedWith(ValidatePermissionResourceErrorType.invalidFormat);
   });
   // tslint:disable-next-line
-  it("returns error string 'invalidFormat' when given uppercase alphabets, followed by a variable, but in numeric characters", () => {
+  it("returns error string 'invalidFormat' when given uppercase alphabets, followed by a variable placeholder, but in numeric characters", () => {
     mockValidatePermissionResource("PERMISSION:{1234}");
+    expect(mockValidatePermissionResource).toHaveBeenCalledTimes(1);
+    expect(mockValidatePermissionResource).toHaveReturnedWith(ValidatePermissionResourceErrorType.invalidFormat);
+  });
+  // tslint:disable-next-line
+  it("returns error string 'invalidFormat' when given uppercase alphabets, followed by a variable with value other than * or alphanumeric", () => {
+    mockValidatePermissionResource("PERMISSION:$$$$:RESOURCE");
     expect(mockValidatePermissionResource).toHaveBeenCalledTimes(1);
     expect(mockValidatePermissionResource).toHaveReturnedWith(ValidatePermissionResourceErrorType.invalidFormat);
   });
