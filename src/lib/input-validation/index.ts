@@ -5,6 +5,7 @@
  */
 
 export * from "./Validation";
+export * from "./validateSecretKey";
 export * from "./validateAlpha";
 export * from "./validateAlphanumeric";
 export * from "./validateComplexPassword";
