@@ -23,6 +23,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Added validatePermissionResource
 - Added validatePersonName
 - Added validateTag
+- Added validateSku
 - Added validateTemplateSlug
 - Added validateTopic
 - Added validateUrl

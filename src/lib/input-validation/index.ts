@@ -22,6 +22,7 @@ export * from "./validatePath";
 export * from "./validatePermissionResource";
 export * from "./validatePersonName";
 export * from "./validateTag";
+export * from "./validateSku";
 export * from "./validateTemplateSlug";
 export * from "./validateTopic";
 export * from "./validateUrl";
