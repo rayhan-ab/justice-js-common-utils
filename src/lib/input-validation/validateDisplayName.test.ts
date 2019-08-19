@@ -98,4 +98,10 @@ describe("validateDisplayName returns correct output", () => {
     expect(mockValidateDisplayName).toHaveBeenCalledTimes(1);
     expect(mockValidateDisplayName).toHaveReturnedWith(ValidateDisplayNameErrorType.invalidFormat);
   });
+
+  it("returns error string invalidFormat when 2 empty string in a row", () => {
+    mockValidateDisplayName("John  Doe");
+    expect(mockValidateDisplayName).toHaveBeenCalledTimes(1);
+    expect(mockValidateDisplayName).toHaveReturnedWith(ValidateDisplayNameErrorType.invalidFormat);
+  });
 });

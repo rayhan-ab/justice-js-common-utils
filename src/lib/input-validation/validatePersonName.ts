@@ -17,7 +17,7 @@ export interface ValidatePersonNameOptions {
 }
 
 export const validatePersonName = (value: string, { isRequired = true }: ValidatePersonNameOptions = {}) => {
-  const REGEX = "^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$";
+  const REGEX = "^[a-zA-Z]+(([',. -][a-zA-Z])?[a-zA-Z]*)*$";
   if (isEmpty(value)) {
     if (!isRequired) {
       return null;

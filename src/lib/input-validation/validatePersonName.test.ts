@@ -92,4 +92,10 @@ describe("validatePersonName returns correct output", () => {
     expect(mockValidatePersonName).toHaveBeenCalledTimes(1);
     expect(mockValidatePersonName).toHaveReturnedWith(ValidatePersonNameErrorType.invalidFormat);
   });
+
+  it("returns error string invalidFormat when given 2 empty string in a row", () => {
+    mockValidatePersonName("John  Doe");
+    expect(mockValidatePersonName).toHaveBeenCalledTimes(1);
+    expect(mockValidatePersonName).toHaveReturnedWith(ValidatePersonNameErrorType.invalidFormat);
+  });
 });

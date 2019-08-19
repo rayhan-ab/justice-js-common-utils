@@ -20,7 +20,7 @@ export interface ValidateDisplayNameOptions {
 }
 
 export const validateDisplayName = (value: string, { isRequired = true }: ValidateDisplayNameOptions = {}) => {
-  const REGEX = "^[a-zA-Z0-9]+(([',. -][a-zA-Z0-9 ])?[a-zA-Z0-9]*)*$";
+  const REGEX = "^[a-zA-Z0-9]+(([',. -][a-zA-Z0-9])?[a-zA-Z0-9]*)*$";
   if (isEmpty(value)) {
     if (!isRequired) {
       return null;
