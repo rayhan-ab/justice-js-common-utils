@@ -23,26 +23,26 @@ describe("validateTag returns correct output", () => {
     expect(mockValidateTag).toHaveReturnedWith(null);
   });
 
-  it("returns empty error string when given uppercase alphabets with single `-` separators ", () => {
-    mockValidateTag("abc-123");
+  it("returns empty error string when given alphabets with single `-` separators ", () => {
+    mockValidateTag("abc-ABC");
     expect(mockValidateTag).toHaveBeenCalledTimes(1);
     expect(mockValidateTag).toHaveReturnedWith(null);
   });
 
-  it("returns empty error string when given uppercase alphabets with single `:` separators ", () => {
-    mockValidateTag("abc:123");
+  it("returns empty error string when given alphabets with single `:` separators ", () => {
+    mockValidateTag("abc:ABC");
     expect(mockValidateTag).toHaveBeenCalledTimes(1);
     expect(mockValidateTag).toHaveReturnedWith(null);
   });
 
-  it("returns empty error string when given uppercase alphabets with single `_` separators ", () => {
-    mockValidateTag("abc_123");
+  it("returns empty error string when given alphabets with single `_` separators ", () => {
+    mockValidateTag("abc_ABC");
     expect(mockValidateTag).toHaveBeenCalledTimes(1);
     expect(mockValidateTag).toHaveReturnedWith(null);
   });
 
-  it("returns empty error string when given uppercase alphabets with 2 different separators `-` and `:` ", () => {
-    mockValidateTag("abc-123:ABC");
+  it("returns empty error string when given alphabets with 2 different separators `-` and `:` ", () => {
+    mockValidateTag("abc-abc:ABC");
     expect(mockValidateTag).toHaveBeenCalledTimes(1);
     expect(mockValidateTag).toHaveReturnedWith(null);
   });
@@ -54,9 +54,15 @@ describe("validateTag returns correct output", () => {
   });
 
   it("returns error string `exceedLengthLimit` when given string with length more than default max length (30)", () => {
-    mockValidateTag("abc-123-abc-123abc-123-abc-1234");
+    mockValidateTag("abc-ABC-abc-ABCabc-ABC-abc-ABCD");
     expect(mockValidateTag).toHaveBeenCalledTimes(1);
     expect(mockValidateTag).toHaveReturnedWith(ValidateTagErrorType.exceedLengthLimit);
+  });
+
+  it("returns error string `invalidFormat` when given numeric", () => {
+    mockValidateTag("123");
+    expect(mockValidateTag).toHaveBeenCalledTimes(1);
+    expect(mockValidateTag).toHaveReturnedWith(ValidateTagErrorType.invalidFormat);
   });
 
   it("returns error string `invalidFormat` when given symbol only", () => {
