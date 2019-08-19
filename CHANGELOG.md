@@ -36,4 +36,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Added validation excluded numbers in validateNumeric
 - Fixed validatePermissionResource regex to allow `*` as variable
 - Fixed validatePermissionResource regex to allow alphanumeric as variable
+- Fixed validateDisplayName regex to not allow double white space as separator
+- Fixed validatePersonName regex to not allow double white space as separator
 - Change some validate functions that has `invalidOption` error, to throw error on `invalidOption` instead of returning it.
