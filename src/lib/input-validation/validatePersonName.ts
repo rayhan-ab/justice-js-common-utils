@@ -7,7 +7,7 @@
 import { isEmpty, matches } from "validator";
 import { Enum, ExtendEnum } from "../../types/types";
 import { CommonValidationErrorType } from "./constant/errorType";
-import { validateLength, ValidateLengthErrorType } from "./validateLength";
+import { validateLength, ValidateLengthErrorType, ValidateLengthOption } from "./validateLength";
 
 export const ValidatePersonNameErrorType = ExtendEnum(ValidateLengthErrorType, CommonValidationErrorType.invalidFormat);
 export type ValidatePersonNameErrorType = Enum<typeof ValidatePersonNameErrorType>;
@@ -18,6 +18,7 @@ export interface ValidatePersonNameOptions {
 
 export const validatePersonName = (value: string, { isRequired = true }: ValidatePersonNameOptions = {}) => {
   const REGEX = "^[a-zA-Z]+(([',. -][a-zA-Z])?[a-zA-Z]*)*$";
+  const validateLengthOptions: ValidateLengthOption = { min: 2, max: 32, isRequired: true };
   if (isEmpty(value)) {
     if (!isRequired) {
       return null;
@@ -27,5 +28,5 @@ export const validatePersonName = (value: string, { isRequired = true }: Validat
   if (!matches(value, REGEX)) {
     return ValidatePersonNameErrorType.invalidFormat;
   }
-  return validateLength(value);
+  return validateLength(value, validateLengthOptions);
 };
