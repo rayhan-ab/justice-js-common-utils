@@ -14,7 +14,10 @@ export const CommonValidationErrorType = Enum(
   "invalidFormat",
   "lessThanMinimumValue",
   "exceedMaximumValue",
-  "invalidValue"
+  "invalidValue",
+  "notContainsLetterAndNumber",
+  "notContainsUpperCaseAndLowerCase",
+  "containsTwoCharactersInArrow"
 );
 
 export type ThrownErrorType = Enum<typeof ThrownErrorType>;
