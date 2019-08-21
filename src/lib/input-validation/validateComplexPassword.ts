@@ -18,6 +18,9 @@ export interface ValidateComplexPasswordOptions {
   isRequired?: boolean;
 }
 
+/*DEPRECATED
+ * please use validateComplexPasswordAsObject instead of this function
+ * */
 export const validateComplexPassword = (value: string, { isRequired = true }: ValidateComplexPasswordOptions = {}) => {
   const REGEX =
     // tslint:disable-next-line
