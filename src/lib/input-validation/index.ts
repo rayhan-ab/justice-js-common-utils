@@ -9,6 +9,7 @@ export * from "./validateSecretKey";
 export * from "./validateAlpha";
 export * from "./validateAlphanumeric";
 export * from "./validateComplexPassword";
+export * from "./validateComplexPasswordAsObject";
 export * from "./validateCpuSize";
 export * from "./validateDisplayName";
 export * from "./validateDockerImage";
