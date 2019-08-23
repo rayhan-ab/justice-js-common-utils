@@ -7,6 +7,7 @@
 import { isEmpty, matches } from "validator";
 import { Enum, ExtendEnum } from "../../types/types";
 import { CommonValidationErrorType } from "./constant/errorType";
+import { MAX_DISPLAY_NAME_LENGTH } from "./constant/numbers";
 import { validateLength, ValidateLengthErrorType } from "./validateLength";
 
 export const ValidateDisplayNameErrorType = ExtendEnum(
@@ -30,5 +31,7 @@ export const validateDisplayName = (value: string, { isRequired = true }: Valida
   if (!matches(value, REGEX)) {
     return ValidateDisplayNameErrorType.invalidFormat;
   }
-  return validateLength(value);
+  return validateLength(value, {
+    max: MAX_DISPLAY_NAME_LENGTH,
+  });
 };
