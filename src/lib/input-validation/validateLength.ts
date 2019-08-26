@@ -7,6 +7,7 @@
 import { isEmpty } from "validator";
 import { Enum } from "../../types/types";
 import { CommonValidationErrorType, ThrownErrorType } from "./constant/errorType";
+import { MAX_SHORT_TEXT_LENGTH } from "./constant/numbers";
 
 export const ValidateLengthErrorType = Enum(
   CommonValidationErrorType.empty,
@@ -21,7 +22,12 @@ export interface ValidateLengthOption {
   isRequired?: boolean;
 }
 
-export const validateLength = (value: string, { min = 1, max = 256, isRequired = true }: ValidateLengthOption = {}) => {
+export const VALIDATE_LENGTH_DEFAULT_MAX_LENGTH = MAX_SHORT_TEXT_LENGTH;
+
+export const validateLength = (
+  value: string,
+  { min = 1, max = VALIDATE_LENGTH_DEFAULT_MAX_LENGTH, isRequired = true }: ValidateLengthOption = {}
+) => {
   const isMinOptionMinus = min < 0;
   const isMaxOptionMinus = max < 0;
   const isMaxOptionSmallerThanMinOption = max < min;

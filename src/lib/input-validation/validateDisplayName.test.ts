@@ -65,24 +65,14 @@ describe("validateDisplayName returns correct output", () => {
     expect(mockValidateDisplayName).toHaveReturnedWith(null);
   });
 
-  it("returns empty error string when given alphanumeric with length of 256 (the default maxLength)", () => {
-    mockValidateDisplayName(
-      "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzab" +
-        "cdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmno" +
-        "pqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdef" +
-        "ghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuv"
-    );
+  it("returns empty error string when given alphanumeric with length of 48", () => {
+    mockValidateDisplayName("abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuv");
     expect(mockValidateDisplayName).toHaveBeenCalledTimes(1);
     expect(mockValidateDisplayName).toHaveReturnedWith(null);
   });
 
-  it("returns error string containing exceedLengthLimit when given alphanumeric with length of 257", () => {
-    mockValidateDisplayName(
-      "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyza" +
-        "bcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghij" +
-        "klmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcde" +
-        "fghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvw"
-    );
+  it("returns error string containing exceedLengthLimit when given alphanumeric with length of 49", () => {
+    mockValidateDisplayName("abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvw");
     expect(mockValidateDisplayName).toHaveBeenCalledTimes(1);
     expect(mockValidateDisplayName).toHaveReturnedWith(ValidateDisplayNameErrorType.exceedLengthLimit);
   });
