@@ -22,7 +22,7 @@ export const validateUuidV4WithoutHyphen = (
   value: string,
   { isRequired = true }: ValidateUuidV4WithoutHyphenOptions = {}
 ) => {
-  const REGEX = "^[0-9a-f]{16}[89ab][0-9a-f]{15}$";
+  const REGEX = "^[0-9a-f]{12}4[0-9a-f]{3}[89ab][0-9a-f]{15}$";
   if (isEmpty(value)) {
     if (!isRequired) {
       return null;
