@@ -6,31 +6,32 @@
 
 import * as React from "react";
 import { Trans } from "react-i18next";
+import { IAMErrorTranslationMap } from "./error-translation-map/iam-error-translation-map";
 
-interface ServiceError {
-  ErrorCode: number,
-  ErrorMessage: string,
-}
 
 interface ServiceErrorProps {
-  error: ServiceError;
+  errorCode: number;
 }
 
 // tslint:disable-next-line no-any
-const isValidServiceError = (error: any): error is ServiceError => {
-  return typeof error === "object" && typeof error.ErrorCode === "number" && typeof error.ErrorMessage === "string";
-}
-
-export const ServiceErrorTranslator = (props: ServiceErrorProps): React.ReactNode => {
-  if (isValidServiceError(props.error) && props.error.ErrorCode in serviceErrorTranslationMap) {
-    return serviceErrorTranslationMap[props.error.ErrorCode];
-  }
-  return (
-    <Trans i18nKey="serviceError.unknown">
-      Failed to complete the request
-    </Trans>
-  );
+const isValidServiceError = (errorCode: number): errorCode is number => {
+  return typeof errorCode === "number";
 };
+
+export const ServiceErrorTranslator = (props: ServiceErrorProps) => {
+  if (isValidServiceError(props.errorCode) && props.errorCode in serviceErrorTranslationMap) {
+    return serviceErrorTranslationMap[props.errorCode];
+  }
+  return null;
+};
+
+export const translateServiceError= (errorCode: number) => {
+  if (isValidServiceError(errorCode) && errorCode in serviceErrorTranslationMap) {
+    return serviceErrorTranslationMap[errorCode];
+  }
+  return null;
+};
+
 
 const serviceErrorTranslationMap: { [key: string]: React.ReactNode } = Object.freeze({
   1014002:
@@ -41,4 +42,5 @@ const serviceErrorTranslationMap: { [key: string]: React.ReactNode } = Object.fr
     <Trans i18nKey="serviceError.1014047">
       Failed to create User. Date of birth does not meet the age requirement.
     </Trans>,
+  ...IAMErrorTranslationMap
 });
