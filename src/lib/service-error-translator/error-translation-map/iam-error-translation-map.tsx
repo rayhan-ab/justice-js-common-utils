@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright (c) 2019. AccelByte Inc. All Rights Reserved
  * This is licensed software from AccelByte Inc, for limitations
  * and restrictions contact your company contract manager.
@@ -40,4 +40,17 @@ export const IAMErrorTranslationMap : { [key: string]: React.ReactNode }= {
     <Trans i18nKey="serviceError.20008">
       user not found
     </Trans>,
+  20001 :
+    <Trans i18nKey="serviceError.20001">
+      	unauthorized access
+    </Trans>,
+  20013 :
+    <Trans i18nKey="serviceError.20013">
+      	insufficient permission
+    </Trans>,
+  10158 :
+    <Trans i18nKey="serviceError.10158">
+      	ban not found
+    </Trans>,
+
 };

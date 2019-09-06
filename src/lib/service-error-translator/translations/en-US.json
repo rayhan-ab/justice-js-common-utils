@@ -9,5 +9,8 @@
   "serviceError.10154": "country not found",
   "serviceError.10133": "email already used",
   "serviceError.20007": "too many request",
-  "serviceError.20008": "user not found"
+  "serviceError.20008": "user not found",
+  "serviceError.20001": "unauthorized access",
+  "serviceError.20013": "insufficient permission",
+  "serviceError.10158": "ban not found"
 }
