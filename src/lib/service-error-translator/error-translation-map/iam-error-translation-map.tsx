@@ -36,5 +36,8 @@ export const IAMErrorTranslationMap : { [key: string]: React.ReactNode }= {
     <Trans i18nKey="serviceError.20007">
       too many request
     </Trans>,
-
+  20008 :
+    <Trans i18nKey="serviceError.20008">
+      user not found
+    </Trans>,
 };
