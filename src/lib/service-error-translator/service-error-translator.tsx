@@ -29,7 +29,9 @@ export const translateServiceError= (errorCode: number) => {
   if (isValidServiceError(errorCode) && errorCode in serviceErrorTranslationMap) {
     return serviceErrorTranslationMap[errorCode];
   }
-  return null;
+  return (<Trans i18nKey="serviceError.unknown">
+    Failed to complete the request
+  </Trans>);
 };
 
 

@@ -1,4 +1,13 @@
 {
+  "serviceError.unknown": "Failed to complete the request",
   "serviceError.1014002": "User already exist",
   "serviceError.1014047": "Failed to create User. Date of birth does not meet the age requirement.",
+  "serviceError.20019": "Unable to parse request body",
+  "serviceError.10131": "invalid date of birth",
+  "serviceError.20002": "validation error",
+  "serviceError.10130": "user under age",
+  "serviceError.10154": "country not found",
+  "serviceError.10133": "email already used",
+  "serviceError.20007": "too many request",
+  "serviceError.20008": "user not found"
 }
