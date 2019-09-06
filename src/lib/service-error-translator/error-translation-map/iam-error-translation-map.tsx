@@ -14,31 +14,51 @@ export const IAMErrorTranslationMap : { [key: string]: React.ReactNode }= {
     </Trans>,
   10131 :
     <Trans i18nKey="serviceError.10131">
-      invalid date of birth
+      Invalid date of birth
     </Trans>,
   20002 :
     <Trans i18nKey="serviceError.20002">
-      validation error
+      Validation error
     </Trans>,
   10130 :
     <Trans i18nKey="serviceError.10130">
-      user under age
+      User under age
     </Trans>,
   10154 :
     <Trans i18nKey="serviceError.10154">
-      country not found
+      Country not found
     </Trans>,
   10133 :
     <Trans i18nKey="serviceError.10133 ">
-      email already used
+      Email already used
     </Trans>,
   20007 :
     <Trans i18nKey="serviceError.20007">
-      too many request
+      Too many request
     </Trans>,
   20008 :
     <Trans i18nKey="serviceError.20008">
-      user not found
+      User not found
+    </Trans>,
+  10142 :
+    <Trans i18nKey="serviceError.10142">
+      New password same with old password
+    </Trans>,
+  10152 :
+    <Trans i18nKey="serviceError.10152">
+      Verification not found
+    </Trans>,
+  10137 :
+    <Trans i18nKey="serviceError.10137">
+      Code expired
+    </Trans>,
+  10136 :
+    <Trans i18nKey="serviceError.10136">
+      Verification code already used
+    </Trans>,
+  10138 :
+    <Trans i18nKey="serviceError.10138">
+      Code not match
     </Trans>,
   20001 :
     <Trans i18nKey="serviceError.20001">
