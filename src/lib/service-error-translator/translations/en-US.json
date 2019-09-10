@@ -12,5 +12,6 @@
   "serviceError.20008": "user not found",
   "serviceError.20001": "unauthorized access",
   "serviceError.20013": "insufficient permission",
-  "serviceError.10158": "ban not found"
+  "serviceError.10158": "ban not found",
+  "serviceError.10456": "role not found"
 }

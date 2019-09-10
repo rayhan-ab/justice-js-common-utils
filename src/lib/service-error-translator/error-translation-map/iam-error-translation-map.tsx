@@ -72,5 +72,10 @@ export const IAMErrorTranslationMap : { [key: string]: React.ReactNode }= {
     <Trans i18nKey="serviceError.10158">
       	ban not found
     </Trans>,
+  10456 :
+    <Trans i18nKey="serviceError.10456">
+      role not found
+    </Trans>
+  ,
 
 };
