@@ -75,7 +75,18 @@ export const IAMErrorTranslationMap : { [key: string]: React.ReactNode }= {
   10456 :
     <Trans i18nKey="serviceError.10456">
       role not found
-    </Trans>
-  ,
+    </Trans>,
+  10159:
+    <Trans i18nKey="serviceError.10456">
+      operator is not a role manager
+    </Trans>,
+  10156:
+    <Trans i18nKey="serviceError.10456">
+      role not found
+    </Trans>,
+  10161:
+    <Trans i18nKey="serviceError.10456">
+      user already a role member
+    </Trans>,
 
 };
