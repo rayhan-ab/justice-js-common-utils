@@ -7,86 +7,44 @@
 import * as React from "react";
 import { Trans } from "react-i18next";
 
-export const IAMErrorTranslationMap : { [key: string]: React.ReactNode }= {
-  20019 :
+export const IAMErrorTranslationMap: { [key: string]: React.ReactNode } = {
+  10130: <Trans i18nKey="serviceError.10130">Sorry, we are unable to process this request</Trans>,
+  10131: <Trans i18nKey="serviceError.10131">Please enter valid date of birth format</Trans>,
+  10132: (
+    <Trans i18nKey="serviceError.10132">Please enter valid email address format, for example: user@example.com</Trans>
+  ),
+  10142: <Trans i18nKey="serviceError.10142">Sorry, your new password cannot be the same as the old one</Trans>,
+  10143: (
+    <Trans i18nKey="serviceError.10143">
+      The password that you enter does not match. Please make sure you input the correct password
+    </Trans>
+  ),
+  10155: <Trans i18nKey="serviceError.10155">Country is required</Trans>,
+  20002: <Trans i18nKey="serviceError.20002">Please correct the errors in the form to proceed</Trans>,
+  20019: (
     <Trans i18nKey="serviceError.20019">
-      Unable to parse request body
-    </Trans>,
-  10131 :
-    <Trans i18nKey="serviceError.10131">
-      Invalid date of birth
-    </Trans>,
-  20002 :
-    <Trans i18nKey="serviceError.20002">
-      Validation error
-    </Trans>,
-  10130 :
-    <Trans i18nKey="serviceError.10130">
-      User under age
-    </Trans>,
-  10154 :
-    <Trans i18nKey="serviceError.10154">
-      Country not found
-    </Trans>,
-  10133 :
-    <Trans i18nKey="serviceError.10133 ">
-      Email already used
-    </Trans>,
-  20007 :
-    <Trans i18nKey="serviceError.20007">
-      Too many request
-    </Trans>,
-  20008 :
-    <Trans i18nKey="serviceError.20008">
-      User not found
-    </Trans>,
-  10142 :
-    <Trans i18nKey="serviceError.10142">
-      New password same with old password
-    </Trans>,
-  10152 :
-    <Trans i18nKey="serviceError.10152">
-      Verification not found
-    </Trans>,
-  10137 :
-    <Trans i18nKey="serviceError.10137">
-      Code expired
-    </Trans>,
-  10136 :
-    <Trans i18nKey="serviceError.10136">
-      Verification code already used
-    </Trans>,
-  10138 :
-    <Trans i18nKey="serviceError.10138">
-      Code not match
-    </Trans>,
-  20001 :
-    <Trans i18nKey="serviceError.20001">
-      	unauthorized access
-    </Trans>,
-  20013 :
-    <Trans i18nKey="serviceError.20013">
-      	insufficient permission
-    </Trans>,
-  10158 :
-    <Trans i18nKey="serviceError.10158">
-      	ban not found
-    </Trans>,
-  10456 :
-    <Trans i18nKey="serviceError.10456">
-      role not found
-    </Trans>,
-  10159:
-    <Trans i18nKey="serviceError.10456">
-      operator is not a role manager
-    </Trans>,
-  10156:
-    <Trans i18nKey="serviceError.10456">
-      role not found
-    </Trans>,
-  10161:
-    <Trans i18nKey="serviceError.10456">
-      user already a role member
-    </Trans>,
-
+      Something went wrong. For more information please contact our support at hello@accelbyte.io
+    </Trans>
+  ),
+  20021: (
+    <Trans i18nKey="serviceError.20021">
+      Something went wrong. For more information please contact our support at hello@accelbyte.io
+    </Trans>
+  ),
+  20001: <Trans i18nKey="serviceError.20001">Sorry, the page you want to access is publicly unavailable.</Trans>,
+  10136: (
+    <Trans i18nKey="serviceError.10136">Sorry, the code you entered is already used. Please resquest a new one.</Trans>
+  ),
+  10137: <Trans i18nKey="serviceError.10137">Sorry, the code you entered is expired. Please request a new one.</Trans>,
+  10138: <Trans i18nKey="serviceError.10138">Sorry, the code you entered is invalid. Please try again.</Trans>,
+  20013: (
+    <Trans i18nKey="serviceError.20013">Sorry, you have no permission to do this action or access this page</Trans>
+  ),
+  10154: <Trans i18nKey="serviceError.10154">Country does not exist</Trans>,
+  10171: <Trans i18nKey="serviceError.10171">This email address is not registered</Trans>,
+  20008: <Trans i18nKey="serviceError.20008">User does not exist</Trans>,
+  10133: <Trans i18nKey="serviceError.10133">Sorry, you must enter a new email address</Trans>,
+  10140: <Trans i18nKey="serviceError.10140">User is already verified</Trans>,
+  10153: <Trans i18nKey="serviceError.10153">User already exists</Trans>,
+  20007: <Trans i18nKey="serviceError.20007">You have requested too many codes. Please try again later.</Trans>,
 };
