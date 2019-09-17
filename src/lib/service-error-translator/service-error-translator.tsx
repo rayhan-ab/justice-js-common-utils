@@ -6,8 +6,8 @@
 
 import * as React from "react";
 import { Trans } from "react-i18next";
+import { IAMAdminErrorTranslationMap } from "./error-translation-map/iam-admin-error-translation-map";
 import { IAMErrorTranslationMap } from "./error-translation-map/iam-error-translation-map";
-
 
 interface ServiceErrorProps {
   errorCode: number;
@@ -25,24 +25,24 @@ export const ServiceErrorTranslator = (props: ServiceErrorProps) => {
   return null;
 };
 
-export const translateServiceError= (errorCode: number) => {
+export const translateServiceError = (errorCode: number) => {
   if (isValidServiceError(errorCode) && errorCode in serviceErrorTranslationMap) {
     return serviceErrorTranslationMap[errorCode];
   }
-  return (<Trans i18nKey="serviceError.unknown">
-    Failed to complete the request
-  </Trans>);
+  return <Trans i18nKey="serviceError.unknown">Failed to complete the request</Trans>;
 };
 
+export const translateServiceErrorForAdmin = (errorCode: number) => {
+  if (isValidServiceError(errorCode) && errorCode in adminServiceErrorTranslationMap) {
+    return adminServiceErrorTranslationMap[errorCode];
+  }
+  return <Trans i18nKey="serviceError.unknown">Failed to complete the request</Trans>;
+};
 
 const serviceErrorTranslationMap: { [key: string]: React.ReactNode } = Object.freeze({
-  1014002:
-    <Trans i18nKey="serviceError.1014002">
-      User already exist
-    </Trans>,
-  1014047:
-    <Trans i18nKey="serviceError.1014047">
-      Failed to create User. Date of birth does not meet the age requirement.
-    </Trans>,
-  ...IAMErrorTranslationMap
+  ...IAMErrorTranslationMap,
+});
+
+const adminServiceErrorTranslationMap: { [key: string]: React.ReactNode } = Object.freeze({
+  ...IAMAdminErrorTranslationMap,
 });
