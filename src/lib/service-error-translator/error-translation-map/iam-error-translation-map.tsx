@@ -9,25 +9,15 @@ import { Trans } from "react-i18next";
 
 export const IAMErrorTranslationMap: { [key: string]: React.ReactNode } = {
   10130: <Trans i18nKey="serviceError.10130">Sorry, we are unable to process this request</Trans>,
-  10131: <Trans i18nKey="serviceError.10131">Please enter valid date of birth format</Trans>,
-  10132: (
-    <Trans i18nKey="serviceError.10132">Please enter valid email address format, for example: user@example.com</Trans>
-  ),
   10142: <Trans i18nKey="serviceError.10142">Sorry, your new password cannot be the same as the old one</Trans>,
   10143: (
     <Trans i18nKey="serviceError.10143">
       The password that you enter does not match. Please make sure you input the correct password
     </Trans>
   ),
-  10155: <Trans i18nKey="serviceError.10155">Country is required</Trans>,
   20002: <Trans i18nKey="serviceError.20002">Please correct the errors in the form to proceed</Trans>,
   20019: (
     <Trans i18nKey="serviceError.20019">
-      Something went wrong. For more information please contact our support at hello@accelbyte.io
-    </Trans>
-  ),
-  20021: (
-    <Trans i18nKey="serviceError.20021">
       Something went wrong. For more information please contact our support at hello@accelbyte.io
     </Trans>
   ),

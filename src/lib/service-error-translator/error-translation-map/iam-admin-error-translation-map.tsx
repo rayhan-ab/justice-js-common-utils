@@ -10,7 +10,6 @@ import { Trans } from "react-i18next";
 export const IAMAdminErrorTranslationMap: { [key: string]: React.ReactNode } = {
   10157: <Trans i18nKey="adminServiceError.10157">Role does not exist</Trans>,
   20002: <Trans i18nKey="adminServiceError.20002">Please correct the errors in the form to proceed</Trans>,
-  20021: <Trans i18nKey="adminServiceError.20021">Something went wrong. Please contact Administrator.</Trans>,
   20001: <Trans i18nKey="adminServiceError.20001">Sorry, you are not authorized for selected action</Trans>,
   20013: (
     <Trans i18nKey="adminServiceError.20013">Sorry, you have no permission to do this action or access this page</Trans>
@@ -19,14 +18,7 @@ export const IAMAdminErrorTranslationMap: { [key: string]: React.ReactNode } = {
   20008: <Trans i18nKey="adminServiceError.20008">User does not exist</Trans>,
   20019: <Trans i18nKey="adminServiceError.20019">Something went wrong. Please contact Administrator.</Trans>,
   10130: <Trans i18nKey="adminServiceError.10130">Age does not meet the age restriction</Trans>,
-  10131: <Trans i18nKey="adminServiceError.10131">Please enter valid date of birth format</Trans>,
-  10132: (
-    <Trans i18nKey="adminServiceError.10132">
-      Please enter valid email address format, for example: user@example.com
-    </Trans>
-  ),
   10154: <Trans i18nKey="adminServiceError.10154">Country does not exist</Trans>,
-  10155: <Trans i18nKey="adminServiceError.10155">Country is required</Trans>,
   10133: <Trans i18nKey="adminServiceError.10133">Email address is already taken</Trans>,
   10139: <Trans i18nKey="adminServiceError.10139">Platform account does not exist</Trans>,
   10158: <Trans i18nKey="adminServiceError.10158">Ban does not exist</Trans>,
@@ -36,7 +28,6 @@ export const IAMAdminErrorTranslationMap: { [key: string]: React.ReactNode } = {
   10159: <Trans i18nKey="adminServiceError.10159">Only Role Manager can perform this action</Trans>,
   10160: <Trans i18nKey="adminServiceError.10160">User already has the role</Trans>,
   10161: <Trans i18nKey="adminServiceError.10161">User is already registered as role member</Trans>,
-  10162: <Trans i18nKey="adminServiceError.10162">Verification code is invalid</Trans>,
   10153: <Trans i18nKey="adminServiceError.10153">User already exists</Trans>,
   10152: (
     <Trans i18nKey="adminServiceError.10152">Sorry, you have no permission to do this action or access this page</Trans>
