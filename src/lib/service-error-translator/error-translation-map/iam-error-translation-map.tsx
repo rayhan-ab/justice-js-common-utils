@@ -22,6 +22,11 @@ export const IAMErrorTranslationMap: { [key: string]: React.ReactNode } = {
     </Trans>
   ),
   20001: <Trans i18nKey="serviceError.20001">Sorry, the page you want to access is publicly unavailable.</Trans>,
+  20022: (
+    <Trans i18nKey="serviceError.20022">
+      Something went wrong. For more information please contact our support at hello@accelbyte.io
+    </Trans>
+  ),
   10136: (
     <Trans i18nKey="serviceError.10136">Sorry, the code you entered is already used. Please resquest a new one.</Trans>
   ),
@@ -37,4 +42,30 @@ export const IAMErrorTranslationMap: { [key: string]: React.ReactNode } = {
   10140: <Trans i18nKey="serviceError.10140">User is already verified</Trans>,
   10153: <Trans i18nKey="serviceError.10153">User already exists</Trans>,
   20007: <Trans i18nKey="serviceError.20007">You have requested too many codes. Please try again later.</Trans>,
+  10170: <Trans i18nKey="serviceError.10170">Oops, you are already linked your email address to your account.</Trans>,
+  10139: (
+    <Trans i18nKey="serviceError.10139">
+      Oops, it seems you haven't play the game yet. Please play the game before proceed with this action
+    </Trans>
+  ),
+  10174: (
+    <Trans i18nKey="serviceError.10174">
+      Oops, the platform you are trying to connect does not exist. Please try another platform.
+    </Trans>
+  ),
+  10152: (
+    <Trans i18nKey="serviceError.10152">
+      Something went wrong. For more information please contact our support at hello@accelbyte.io
+    </Trans>
+  ),
+  10149: (
+    <Trans i18nKey="serviceError.10149">
+      Something went wrong. For more information please contact our support at hello@accelbyte.io
+    </Trans>
+  ),
+  10148: (
+    <Trans i18nKey="serviceError.10148">
+      Something went wrong. For more information please contact our support at hello@accelbyte.io
+    </Trans>
+  ),
 };
