@@ -11,6 +11,7 @@ export const IAMAdminErrorTranslationMap: { [key: string]: React.ReactNode } = {
   10157: <Trans i18nKey="adminServiceError.10157">Role does not exist</Trans>,
   20002: <Trans i18nKey="adminServiceError.20002">Please correct the errors in the form to proceed</Trans>,
   20001: <Trans i18nKey="adminServiceError.20001">Sorry, you are not authorized for selected action</Trans>,
+  20022: <Trans i18nKey="adminServiceError.20022">Something went wrong. You've sent an invalid request.</Trans>,
   20013: (
     <Trans i18nKey="adminServiceError.20013">Sorry, you have no permission to do this action or access this page</Trans>
   ),
@@ -29,9 +30,7 @@ export const IAMAdminErrorTranslationMap: { [key: string]: React.ReactNode } = {
   10160: <Trans i18nKey="adminServiceError.10160">User already has the role</Trans>,
   10161: <Trans i18nKey="adminServiceError.10161">User is already registered as role member</Trans>,
   10153: <Trans i18nKey="adminServiceError.10153">User already exists</Trans>,
-  10152: (
-    <Trans i18nKey="adminServiceError.10152">Sorry, you have no permission to do this action or access this page</Trans>
-  ),
+  10152: <Trans i18nKey="adminServiceError.10152">Something went wrong. Please contact Administrator.</Trans>,
   10137: <Trans i18nKey="adminServiceError.10137">Verification code is expired</Trans>,
   10136: <Trans i18nKey="adminServiceError.10136">Verification code is already used</Trans>,
   10138: <Trans i18nKey="adminServiceError.10138">Verification code does not match</Trans>,
@@ -48,10 +47,10 @@ export const IAMAdminErrorTranslationMap: { [key: string]: React.ReactNode } = {
   10457: <Trans i18nKey="adminServiceError.10457">Failed to add role member, the role is not an admin role</Trans>,
   10459: <Trans i18nKey="adminServiceError.10459">Only Role Manager can perform this action</Trans>,
   10469: <Trans i18nKey="adminServiceError.10469">User already registered as role member</Trans>,
+  10148: <Trans i18nKey="adminServiceError.10148">Something went wrong. Please contact Administrator.</Trans>,
+  10149: <Trans i18nKey="adminServiceError.10149">Something went wrong. Please contact Administrator.</Trans>,
 
   // still orange in sheet, undecided
-  10149: <Trans i18nKey="adminServiceError.10149">contact type not match</Trans>,
-  10148: <Trans i18nKey="adminServiceError.10148">incorrect context</Trans>,
   10146: <Trans i18nKey="adminServiceError.10146">user id not match</Trans>,
   10466: <Trans i18nKey="adminServiceError.10466">invalid role members</Trans>,
 };
