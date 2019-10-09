@@ -8,6 +8,9 @@ import * as React from "react";
 import { Trans } from "react-i18next";
 import { IAMAdminErrorTranslationMap } from "./error-translation-map/iam-admin-error-translation-map";
 import { IAMErrorTranslationMap } from "./error-translation-map/iam-error-translation-map";
+import {
+  StatisticAdminErrorTranslationMap,
+} from "./error-translation-map/statistic-admin-error-translation-map";
 
 interface ServiceErrorProps {
   errorCode: number;
@@ -45,4 +48,5 @@ const serviceErrorTranslationMap: { [key: string]: React.ReactNode } = Object.fr
 
 const adminServiceErrorTranslationMap: { [key: string]: React.ReactNode } = Object.freeze({
   ...IAMAdminErrorTranslationMap,
+  ...StatisticAdminErrorTranslationMap,
 });
