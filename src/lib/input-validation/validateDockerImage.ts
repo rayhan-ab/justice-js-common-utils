@@ -20,7 +20,7 @@ export interface ValidateDockerImageOptions {
 }
 
 export const validateDockerImage = (value: string, { isRequired = true }: ValidateDockerImageOptions = {}) => {
-  const REGEX = "^[a-z0-9]+([\\/_-]{1}[a-z0-9]+)*([:]{1}([0-9a-z]+([.-]{1}[0-9a-z]+)*)+)?$";
+  const REGEX = "^[a-z0-9]+([.\\/_-]{1}[a-z0-9]+)*([:]{1}([0-9a-z]+([.-]{1}[0-9a-z]+)*)+)?$";
   if (isEmpty(value)) {
     if (!isRequired) {
       return null;

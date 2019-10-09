@@ -145,4 +145,10 @@ describe("validateDockerImage returns correct output", () => {
     expect(mockValidateDockerImage).toHaveBeenCalledTimes(1);
     expect(mockValidateDockerImage).toHaveReturnedWith(ValidateDockerImageErrorType.invalidFormat);
   });
+
+  it("returns empty error string when given aws image registry", () => {
+    mockValidateDockerImage("175114933870.dkr.ecr.us-west-2.amazonaws.com/sdk-test-intg:latest");
+    expect(mockValidateDockerImage).toHaveBeenCalledTimes(1);
+    expect(mockValidateDockerImage).toHaveReturnedWith(null);
+  });
 });
