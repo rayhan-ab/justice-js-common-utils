@@ -18,7 +18,7 @@ export interface ValidateSkuOptions {
 
 export const validateSku = (value: string, { isRequired = true }: ValidateSkuOptions = {}) => {
   const MAXIMUM_SKU_LENGTH = 30;
-  const REGEX = "^[a-zA-Z0-9]+([_:-]{1}[a-zA-Z0-9]+)*$";
+  const REGEX = "^[a-zA-Z0-9]+([_:-]{1}[a-zA-Z0-9]+)*$|^$";
   if (isEmpty(value)) {
     if (!isRequired) {
       return null;
