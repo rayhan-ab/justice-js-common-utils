@@ -45,3 +45,4 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Added Justice service error translator library
 - Added translateServiceErrorForAdmin on Justice service error translator library, add some translations
 - Fixed validateSKU regex
+- Added validateChannelName
