@@ -26,6 +26,19 @@ Input Validation is a library used for validating string inputs, the library con
 - _validateUrl_, with _ValidateUrlErrorType_ for the error type.
 - _validateUserDisplayName_, with _ValidateUserDisplayNameErrorType_ for the error type.
 - _validateUuidV4WithoutHyphen_, with _ValidateUuidV4WithoutHyphenErrorType_ for the error type.
+- _validateChannelName_, with _ValidateChannelNameErrorType_ for the error type.
+    - maximum length 64
+    - lowercase (a-z) and number (0-9)
+    - No white-space
+    - separator using underscore (_)
+    - Should start and end in alphanumeric, not the symbols
+- _validateStatisticTag_, with _ValidateStatisticTagErrorType_ for the error type.
+    - maximum length 36
+    - lowercase (a-z), uppercase (A-Z), and number (0-9)
+    - No white-space
+    - separator using underscore (_)
+    - Should start and end in alphanumeric, not the symbols
+     
 
 The functionality of each function is as what is implied in the function name, e.g validateAlphanumeric will validate if a string is a valid Alphanumeric only string.
 
