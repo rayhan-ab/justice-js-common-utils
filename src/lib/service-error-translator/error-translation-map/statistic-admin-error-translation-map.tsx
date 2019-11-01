@@ -8,6 +8,8 @@ import * as React from "react";
 import { Trans } from "react-i18next";
 
 export const StatisticAdminErrorTranslationMap: { [key: string]: React.ReactNode } = {
+  20000: <Trans i18nKey="adminServiceError.20000">Something went wrong. Please contact Administrator.</Trans>,
+  20002: <Trans i18nKey="adminServiceError.20002">Please correct the errors in the form to proceed</Trans>,
   70131: <Trans i18nKey="adminServiceError.70131">Configuration does not exist</Trans>,
   70132: <Trans i18nKey="adminServiceError.70132">Configuration already exist</Trans>,
   70330: <Trans i18nKey="adminServiceError.70330">Sorry, we are unable to process this request</Trans>,

@@ -6,6 +6,8 @@
 
 import * as React from "react";
 import { Trans } from "react-i18next";
+import { BasicAdminErrorTranslationMap } from "./error-translation-map/basic-admin-error-translation-map";
+import { BasicErrorTranslationMap } from "./error-translation-map/basic-error-translation-map";
 import { IAMAdminErrorTranslationMap } from "./error-translation-map/iam-admin-error-translation-map";
 import { IAMErrorTranslationMap } from "./error-translation-map/iam-error-translation-map";
 import {
@@ -44,9 +46,11 @@ export const translateServiceErrorForAdmin = (errorCode: number) => {
 
 const serviceErrorTranslationMap: { [key: string]: React.ReactNode } = Object.freeze({
   ...IAMErrorTranslationMap,
+  ...BasicErrorTranslationMap,
 });
 
 const adminServiceErrorTranslationMap: { [key: string]: React.ReactNode } = Object.freeze({
   ...IAMAdminErrorTranslationMap,
   ...StatisticAdminErrorTranslationMap,
+  ...BasicAdminErrorTranslationMap
 });
