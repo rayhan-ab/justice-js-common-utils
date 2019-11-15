@@ -89,5 +89,6 @@
   "serviceError.20017": "Oops, it seems you haven't play the game yet. Please play the game before proceed with this action",
   "serviceError.20019": "Something went wrong. For more information please contact our support at hello@accelbyte.io",
   "serviceError.20022": "Something went wrong. For more information please contact our support at hello@accelbyte.io",
+  "serviceError.38171": "Sorry, you already own this item",
   "serviceError.unknown": "Failed to complete the request"
 }
