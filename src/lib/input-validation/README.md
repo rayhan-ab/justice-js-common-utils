@@ -38,6 +38,10 @@ Input Validation is a library used for validating string inputs, the library con
     - No white-space
     - separator using underscore (_)
     - Should start and end in alphanumeric, not the symbols
+- _validateStatisticCode_, with _ValidateStatisticCodeErrorType_ for the error type.
+    - lowercase (a-z), and number (0-9)
+    - No white-space
+    - separator using hyphens (-)
      
 
 The functionality of each function is as what is implied in the function name, e.g validateAlphanumeric will validate if a string is a valid Alphanumeric only string.
