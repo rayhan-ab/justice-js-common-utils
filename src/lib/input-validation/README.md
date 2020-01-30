@@ -30,7 +30,7 @@ Input Validation is a library used for validating string inputs, the library con
     - maximum length 64
     - lowercase (a-z) and number (0-9)
     - No white-space
-    - separator using underscore (_)
+    - separator using hyphens (-)
     - Should start and end in alphanumeric, not the symbols
 - _validateStatisticTag_, with _ValidateStatisticTagErrorType_ for the error type.
     - maximum length 36

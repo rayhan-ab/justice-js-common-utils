@@ -21,7 +21,7 @@ export interface ValidateTemplateSlugOptions {
 
 export const validateChannelName = (value: string, { isRequired = true }: ValidateTemplateSlugOptions = {}) => {
   const MAX_LENGTH = 64;
-  const REGEX = "^[a-z0-9]+([_]{1}[a-z0-9]+)*$";
+  const REGEX = "^[a-z0-9]+([-]{0,1}[a-z0-9]+)*$";
   if (isEmpty(value)) {
     if (!isRequired) {
       return null;
