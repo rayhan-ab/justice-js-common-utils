@@ -30,25 +30,25 @@ describe("validateChannelName returns correct output", () => {
   });
 
   it("returns empty error string when given channel name alphabet only with channel name separator", () => {
-    mockValidateChannelName("abc_abc");
+    mockValidateChannelName("abc-abc");
     expect(mockValidateChannelName).toHaveBeenCalledTimes(1);
     expect(mockValidateChannelName).toHaveReturnedWith(null);
   });
 
   it("returns empty error string when given channel name number only with channel name separator", () => {
-    mockValidateChannelName("123_123");
+    mockValidateChannelName("123-123");
     expect(mockValidateChannelName).toHaveBeenCalledTimes(1);
     expect(mockValidateChannelName).toHaveReturnedWith(null);
   });
 
   it("returns empty error string when given channel name number and alphabet with channel name separator", () => {
-    mockValidateChannelName("123_abc");
+    mockValidateChannelName("123-abc");
     expect(mockValidateChannelName).toHaveBeenCalledTimes(1);
     expect(mockValidateChannelName).toHaveReturnedWith(null);
   });
 
   it("returns empty error string when given channel name with 2 channel name separator", () => {
-    mockValidateChannelName("abc_abc_def");
+    mockValidateChannelName("abc-abc-def");
     expect(mockValidateChannelName).toHaveBeenCalledTimes(1);
     expect(mockValidateChannelName).toHaveReturnedWith(null);
   });
@@ -60,7 +60,7 @@ describe("validateChannelName returns correct output", () => {
   });
   // tslint:disable-next-line
   it("returns error string `invalidFormat` when given lowercase & uppercase alphabets with channel name separator", () => {
-    mockValidateChannelName("abc_ABC");
+    mockValidateChannelName("abc-ABC");
     expect(mockValidateChannelName).toHaveBeenCalledTimes(1);
     expect(mockValidateChannelName).toHaveReturnedWith(ValidateChannelNameErrorType.invalidFormat);
   });
@@ -72,7 +72,7 @@ describe("validateChannelName returns correct output", () => {
   });
 
   it("returns error string `exceedLengthLimit` when given string with length more than default max length (64)", () => {
-    mockValidateChannelName("abc_abc_abc_abc_abc_abc_abc_abc_abc_abc_abc_abc_abc_abc_abc_abc_abc");
+    mockValidateChannelName("abc-abc-abc-abc-abc-abc-abc-abc-abc-abc-abc-abc-abc-abc-abc-abc-abc");
     expect(mockValidateChannelName).toHaveBeenCalledTimes(1);
     expect(mockValidateChannelName).toHaveReturnedWith(ValidateChannelNameErrorType.exceedLengthLimit);
   });
@@ -84,13 +84,13 @@ describe("validateChannelName returns correct output", () => {
   });
 
   it("returns error string `invalidFormat` when given alphabets that ends in channel separator", () => {
-    mockValidateChannelName("abc_");
+    mockValidateChannelName("abc-");
     expect(mockValidateChannelName).toHaveBeenCalledTimes(1);
     expect(mockValidateChannelName).toHaveReturnedWith(ValidateChannelNameErrorType.invalidFormat);
   });
   // tslint:disable-next-line
   it("returns error string `invalidFormat` when given alphabets that is separated with double channel separator", () => {
-    mockValidateChannelName("abc__abc");
+    mockValidateChannelName("abc--abc");
     expect(mockValidateChannelName).toHaveBeenCalledTimes(1);
     expect(mockValidateChannelName).toHaveReturnedWith(ValidateChannelNameErrorType.invalidFormat);
   });
