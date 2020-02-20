@@ -4,9 +4,9 @@
  * and restrictions contact your company contract manager.
  */
 
-import { isAlpha, isEmpty } from "validator";
+import { isAlpha, isEmpty, isLowercase, isUppercase } from "validator";
 import { Enum, ExtendEnum } from "../../types/types";
-import { CommonValidationErrorType } from "./constant/errorType";
+import { CommonValidationErrorType, ThrownErrorType } from "./constant/errorType";
 import { validateLength, ValidateLengthErrorType } from "./validateLength";
 
 export const ValidateAlphaErrorType = ExtendEnum(ValidateLengthErrorType, CommonValidationErrorType.invalidFormat);
@@ -16,19 +16,26 @@ export interface ValidateAlphaOptions {
   maxLength?: number;
   isRequired?: boolean;
   isUppercaseOnly?: boolean;
+  isLowercaseOnly?: boolean;
 }
 
 export const validateAlpha = (
   value: string,
-  { maxLength = 256, isRequired = true, isUppercaseOnly = false }: ValidateAlphaOptions = {}
+  { maxLength = 256, isRequired = true, isUppercaseOnly = false, isLowercaseOnly = false }: ValidateAlphaOptions = {}
 ) => {
+  if (isLowercaseOnly && isUppercaseOnly) {
+    throw new Error(ThrownErrorType.invalidOption);
+  }
   if (isEmpty(value)) {
     if (!isRequired) {
       return null;
     }
     return ValidateAlphaErrorType.empty;
   }
-  if (isUppercaseOnly && !/^[A-Z]+$/.test(value)) {
+  if (isUppercaseOnly && !isUppercase(value)) {
+    return ValidateAlphaErrorType.invalidFormat;
+  }
+  if (isLowercaseOnly && !isLowercase(value)) {
     return ValidateAlphaErrorType.invalidFormat;
   }
   if (!isAlpha(value)) {
