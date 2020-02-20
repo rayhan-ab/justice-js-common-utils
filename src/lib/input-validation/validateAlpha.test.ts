@@ -4,6 +4,7 @@
  * and restrictions contact your company contract manager.
  */
 
+import { ThrownErrorType } from "./constant/errorType";
 import { validateAlpha, ValidateAlphaErrorType } from "./validateAlpha";
 
 const mockValidateAlpha = jest.fn(validateAlpha);
@@ -46,6 +47,12 @@ describe("validateAlpha returns correct output", () => {
     expect(mockValidateAlpha).toHaveReturnedWith(null);
   });
 
+  it("returns empty error string when given alpha with all lowercase (with the option isLowercaseOnly=true)", () => {
+    mockValidateAlpha("asdfghjkl", { isLowercaseOnly: true });
+    expect(mockValidateAlpha).toHaveBeenCalledTimes(1);
+    expect(mockValidateAlpha).toHaveReturnedWith(null);
+  });
+
   it("returns error string containing exceedLengthLimit when given alpha with length of 257", () => {
     mockValidateAlpha(
       "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyza" +
@@ -77,8 +84,15 @@ describe("validateAlpha returns correct output", () => {
   });
 
   // tslint:disable-next-line max-line-length
-  it("returns error string when given alpha with all some lower case characters (with the option isUppercaseOnly=true)", () => {
+  it("returns error string when given alpha with some lower case characters (with the option isUppercaseOnly=true)", () => {
     mockValidateAlpha("abcdEFGHIJKLMNOPQRST", { isUppercaseOnly: true });
+    expect(mockValidateAlpha).toHaveBeenCalledTimes(1);
+    expect(mockValidateAlpha).toHaveReturnedWith(ValidateAlphaErrorType.invalidFormat);
+  });
+
+  // tslint:disable-next-line max-line-length
+  it("returns error string when given alpha with some upper case characters (with the option isLowercaseOnly=true)", () => {
+    mockValidateAlpha("abcdEFGHIJKLMNOPQRST", { isLowercaseOnly: true });
     expect(mockValidateAlpha).toHaveBeenCalledTimes(1);
     expect(mockValidateAlpha).toHaveReturnedWith(ValidateAlphaErrorType.invalidFormat);
   });
@@ -87,5 +101,11 @@ describe("validateAlpha returns correct output", () => {
     mockValidateAlpha("");
     expect(mockValidateAlpha).toHaveBeenCalledTimes(1);
     expect(mockValidateAlpha).toHaveReturnedWith(ValidateAlphaErrorType.empty);
+  });
+
+  it("returns error string invalid option when given both isLowercase and isUppercase option set to true)", () => {
+    const invalidOptionMock = () =>
+      mockValidateAlpha("abcdEFGHIJKLMNOPQRST", { isLowercaseOnly: true, isUppercaseOnly: true });
+    expect(invalidOptionMock).toThrowError(ThrownErrorType.invalidOption);
   });
 });
