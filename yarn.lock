@@ -3358,6 +3358,10 @@ natural-compare@^1.4.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/natural-compare/-/natural-compare-1.4.0.tgz#4abebfeed7541f2c27acfb29bdbbd15c8d5ba4f7"
 
+naughty-words@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/naughty-words/-/naughty-words-1.1.0.tgz#c6dd26e56c24bd0e06b792be6b6bd60442c76e46"
+
 needle@^2.2.1:
   version "2.4.0"
   resolved "https://registry.yarnpkg.com/needle/-/needle-2.4.0.tgz#6833e74975c444642590e15a750288c5f939b57c"

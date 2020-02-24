@@ -49,3 +49,4 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Fixed validateSKU regex
 - Added validateChannelName
 - Changed validateChannelName separator from "_" to "-"
+- Added validateBadWords with multiple localization support
