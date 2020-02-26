@@ -107,3 +107,19 @@ class Component extends React.Component {
   }
 }
 ```
+
+### Third Party Packages
+
+#### XRegExp
+XRegExp provides augmented (and extensible) JavaScript regular expressions. You get modern syntax and flags beyond what browsers support natively. XRegExp is also a regex utility belt with tools to make your grepping and parsing easier
+
+This package used in ValidateDisplayName to validate display and filter special character name in various type of language alphabet (ex: 日本語, русский, 中文, عربى. etc)
+ 
+ Example
+```
+// Test the Unicode category L (Letter)
+const unicodeWord = XRegExp('^\\pL+$');
+unicodeWord.test('Русский'); // -> true
+unicodeWord.test('日本語'); // -> true
+unicodeWord.test('العربية'); // -> true
+```

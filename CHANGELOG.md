@@ -50,3 +50,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Added validateChannelName
 - Changed validateChannelName separator from "_" to "-"
 - Added validateBadWords with multiple localization support
+- Fix validate display name when text to be validated longer than 27 char with space at the end
+- Add allowUnicode param on ValidateDisplayName to support multi language character
+- Add strictSpecialCharacters param on ValidateDisplayName to allow or disable DisplayName can contain (',. -) at the mid of the text

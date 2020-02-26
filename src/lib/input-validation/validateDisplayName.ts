@@ -5,6 +5,7 @@
  */
 
 import { isEmpty, matches } from "validator";
+import XRegExp from "xregexp";
 import { Enum, ExtendEnum } from "../../types/types";
 import { CommonValidationErrorType } from "./constant/errorType";
 import { MAX_DISPLAY_NAME_LENGTH } from "./constant/numbers";
@@ -17,20 +18,49 @@ export const ValidateDisplayNameErrorType = ExtendEnum(
 export type ValidateDisplayNameErrorType = Enum<typeof ValidateDisplayNameErrorType>;
 
 export interface ValidateDisplayNameOptions {
+  allowUnicode?: boolean;
   isRequired?: boolean;
+  strictlyAllowSpecialCharacters?: boolean;
 }
 
-export const validateDisplayName = (value: string, { isRequired = true }: ValidateDisplayNameOptions = {}) => {
-  const REGEX = "^[a-zA-Z0-9]+(([',. -][a-zA-Z0-9])?[a-zA-Z0-9]*)*$";
+/**
+ *
+ * @param value
+ * @param allowUnicode (true: Allow various language character, false: only allow Alpha Numeric character)
+ * @param isRequired
+ * @param strictlyAllowSpecialCharacters (true: allow (',. -) in the mid of value, false: Only allow Alpha Numeric)
+ *
+ * @default allowUnicode false
+ * @default isRequired true
+ * @default strictlyAllowSpecialCharacters true
+ */
+export const validateDisplayName = (
+  value: string,
+  { allowUnicode = false, isRequired = true, strictlyAllowSpecialCharacters = true }: ValidateDisplayNameOptions = {}
+) => {
   if (isEmpty(value)) {
     if (!isRequired) {
       return null;
     }
     return ValidateDisplayNameErrorType.empty;
   }
-  if (!matches(value, REGEX)) {
+
+  if (allowUnicode && !strictlyAllowSpecialCharacters && !XRegExp("^[\\pL\\pN]*$").test(value)) {
     return ValidateDisplayNameErrorType.invalidFormat;
   }
+
+  if (allowUnicode && strictlyAllowSpecialCharacters && !XRegExp("^[\\pL\\pN]+([',. -][\\pL\\pN]+)*$").test(value)) {
+    return ValidateDisplayNameErrorType.invalidFormat;
+  }
+
+  if (!allowUnicode && !strictlyAllowSpecialCharacters && !matches(value, /^\w*$/g)) {
+    return ValidateDisplayNameErrorType.invalidFormat;
+  }
+
+  if (!allowUnicode && strictlyAllowSpecialCharacters && !matches(value, "^\\w+([',. -]\\w+)*$")) {
+    return ValidateDisplayNameErrorType.invalidFormat;
+  }
+
   return validateLength(value, {
     max: MAX_DISPLAY_NAME_LENGTH,
   });
