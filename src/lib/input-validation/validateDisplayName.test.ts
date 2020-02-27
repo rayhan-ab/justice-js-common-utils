@@ -47,6 +47,24 @@ describe("validateDisplayName returns correct output", () => {
     expect(mockValidateDisplayName).toHaveReturnedWith(null);
   });
 
+  it("returns null when using THAI 'จอห์น' text", () => {
+    mockValidateDisplayName("จอห์น", { allowUnicode: true });
+    expect(mockValidateDisplayName).toHaveBeenCalledTimes(1);
+    expect(mockValidateDisplayName).toHaveReturnedWith(null);
+  });
+
+  it("returns null when using TAMIL 'ஜான்' text", () => {
+    mockValidateDisplayName("ஜான்", { allowUnicode: true });
+    expect(mockValidateDisplayName).toHaveBeenCalledTimes(1);
+    expect(mockValidateDisplayName).toHaveReturnedWith(null);
+  });
+
+  it("returns null when using URDU 'جان' text", () => {
+    mockValidateDisplayName("جان", { allowUnicode: true });
+    expect(mockValidateDisplayName).toHaveBeenCalledTimes(1);
+    expect(mockValidateDisplayName).toHaveReturnedWith(null);
+  });
+
   it("returns empty error string when given empty string, but it is not a required field", () => {
     mockValidateDisplayName("", { isRequired: false });
     expect(mockValidateDisplayName).toHaveBeenCalledTimes(1);
