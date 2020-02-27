@@ -45,11 +45,15 @@ export const validateDisplayName = (
     return ValidateDisplayNameErrorType.empty;
   }
 
-  if (allowUnicode && !strictlyAllowSpecialCharacters && !XRegExp("^[\\pL\\pN]*$").test(value)) {
+  if (allowUnicode && !strictlyAllowSpecialCharacters && !XRegExp("^[\\pL\\pN\\pM]*$").test(value)) {
     return ValidateDisplayNameErrorType.invalidFormat;
   }
 
-  if (allowUnicode && strictlyAllowSpecialCharacters && !XRegExp("^[\\pL\\pN]+([',. -][\\pL\\pN]+)*$").test(value)) {
+  if (
+    allowUnicode &&
+    strictlyAllowSpecialCharacters &&
+    !XRegExp("^[\\pL\\pN\\pM]+([',. -][\\pL\\pN]+)*$").test(value)
+  ) {
     return ValidateDisplayNameErrorType.invalidFormat;
   }
 
