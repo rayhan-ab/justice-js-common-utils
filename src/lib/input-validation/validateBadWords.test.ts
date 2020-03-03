@@ -41,10 +41,20 @@ describe("validateBadWords returns correct output", () => {
     expect(mockValidateBadWords).toHaveBeenCalledTimes(1);
     expect(mockValidateBadWords).toHaveReturnedWith(ValidateBadWordsErrorType.containsBadWords);
   });
+  it('returns null error when given "Don\'t be an asshole" string with language * with matchingMode exact', () => {
+    mockValidateBadWords("Don't be an asshole", { languageCode: "*", matchingMode: "exact" });
+    expect(mockValidateBadWords).toHaveBeenCalledTimes(1);
+    expect(mockValidateBadWords).toHaveReturnedWith(null);
+  });
   it('returns containsBadWords error when given "肏你妈" string with language zh', () => {
     mockValidateBadWords("肏你妈", { languageCode: "zh" });
     expect(mockValidateBadWords).toHaveBeenCalledTimes(1);
     expect(mockValidateBadWords).toHaveReturnedWith(ValidateBadWordsErrorType.containsBadWords);
+  });
+  it('returns null error when given "肏你妈" string with language zh with matchingMode exact', () => {
+    mockValidateBadWords("肏你妈", { languageCode: "zh", matchingMode: "exact" });
+    expect(mockValidateBadWords).toHaveBeenCalledTimes(1);
+    expect(mockValidateBadWords).toHaveReturnedWith(null);
   });
   it('returns null when given "肏你妈" string with language en', () => {
     mockValidateBadWords("肏你妈", { languageCode: ["en"] });
@@ -55,6 +65,11 @@ describe("validateBadWords returns correct output", () => {
     mockValidateBadWords("肏你妈", { languageCode: ["zh", "en"] });
     expect(mockValidateBadWords).toHaveBeenCalledTimes(1);
     expect(mockValidateBadWords).toHaveReturnedWith(ValidateBadWordsErrorType.containsBadWords);
+  });
+  it('returns null error when given "肏你妈" string with array of language [en, zh] with matchingMode exact', () => {
+    mockValidateBadWords("肏你妈", { languageCode: ["zh", "en"], matchingMode: "exact" });
+    expect(mockValidateBadWords).toHaveBeenCalledTimes(1);
+    expect(mockValidateBadWords).toHaveReturnedWith(null);
   });
   it('returns containsBadWords error when given "Don\'t be an asshole" string with array of language [en, zh]', () => {
     mockValidateBadWords("Don't be an asshole", { languageCode: ["zh", "en"] });
@@ -70,6 +85,11 @@ describe("validateBadWords returns correct output", () => {
     mockValidateBadWords("肏你妈", { languageCode: "*" });
     expect(mockValidateBadWords).toHaveBeenCalledTimes(1);
     expect(mockValidateBadWords).toHaveReturnedWith(ValidateBadWordsErrorType.containsBadWords);
+  });
+  it('returns null error when given "طيزك حمرا." string with language ar with matchingMode exact', () => {
+    mockValidateBadWords("طيزك حمرا.", { languageCode: "ar", matchingMode: "exact" });
+    expect(mockValidateBadWords).toHaveBeenCalledTimes(1);
+    expect(mockValidateBadWords).toHaveReturnedWith(null);
   });
   it('returns containsBadWords error when given "طيزك حمرا." string with language ar', () => {
     mockValidateBadWords("طيزك حمرا.", { languageCode: "ar" });
