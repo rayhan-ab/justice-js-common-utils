@@ -7,6 +7,7 @@
 import * as naughtyWords from "naughty-words";
 import { isEmpty } from "validator";
 import { Enum } from "../../types/types";
+import enExtra from "./constant/badWords/en.json";
 import { CommonValidationErrorType } from "./constant/errorType";
 
 export const ValidateBadWordsErrorType = Enum(
@@ -26,7 +27,7 @@ const localizedBadWords = {
   cs: naughtyWords.cs,
   da: naughtyWords.da,
   de: naughtyWords.de,
-  en: naughtyWords.en,
+  en: naughtyWords.en.concat(enExtra),
   eo: naughtyWords.eo,
   es: naughtyWords.es,
   fa: naughtyWords.fa,
