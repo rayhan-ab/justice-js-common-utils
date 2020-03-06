@@ -41,6 +41,16 @@ describe("validateBadWords returns correct output", () => {
     expect(mockValidateBadWords).toHaveBeenCalledTimes(1);
     expect(mockValidateBadWords).toHaveReturnedWith(ValidateBadWordsErrorType.containsBadWords);
   });
+  it('returns containsBadWords when given "y3llowshowers" string with language en with matchingMode exact', () => {
+    mockValidateBadWords("y3llowshowers", { languageCode: "en", matchingMode: "exact" });
+    expect(mockValidateBadWords).toHaveBeenCalledTimes(1);
+    expect(mockValidateBadWords).toHaveReturnedWith(ValidateBadWordsErrorType.containsBadWords);
+  });
+  it('returns containsBadWords when given "acrotomophilia" string with language en with matchingMode exact', () => {
+    mockValidateBadWords("acrotomophilia", { languageCode: "en", matchingMode: "exact" });
+    expect(mockValidateBadWords).toHaveBeenCalledTimes(1);
+    expect(mockValidateBadWords).toHaveReturnedWith(ValidateBadWordsErrorType.containsBadWords);
+  });
   it('returns containsBadWords error when given "b4byb4tt3r" string with language en', () => {
     mockValidateBadWords("b4byb4tt3r", { languageCode: "en" });
     expect(mockValidateBadWords).toHaveBeenCalledTimes(1);
