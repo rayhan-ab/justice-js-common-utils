@@ -56,3 +56,4 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Add support displayName allowUnicode for language with non-spacing mark (eg: Tamil, Thai, etc)
 - Added param matchingMode on validateBadWord matching to be match instead of contain
 - Added more english bad words dictionary
+- Added kubeless handler input validation
