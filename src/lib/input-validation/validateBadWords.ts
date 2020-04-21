@@ -90,8 +90,8 @@ export const validateBadWords = (
 };
 
 function isBadWord(badWords: string[], word: string, matchingMode: string) {
-  const noRepeatedChar = word.replace(/[^\w\s]|(.)(?=\1)/gi, "");
-  const noSpecialChar = word.replace(/[^a-zA-Z0-9 :]/gi, "");
+  const noRepeatedChar = word.replace(/[^\w\s]|(.)(?=\1)/gi, "").toLowerCase();
+  const noSpecialChar = word.replace(/[^a-zA-Z0-9 :]/gi, "").toLowerCase();
   const lowerCase = word.toLowerCase();
   const words = [lowerCase, noRepeatedChar, noSpecialChar];
   return words.some((value) => doesBadWordsContainWord(badWords, value, matchingMode));
