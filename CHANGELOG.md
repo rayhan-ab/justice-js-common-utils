@@ -57,3 +57,4 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Added param matchingMode on validateBadWord matching to be match instead of contain
 - Added more english bad words dictionary
 - Added kubeless handler input validation
+- Fixed validateBadWords bug when using uppercase and repeated character

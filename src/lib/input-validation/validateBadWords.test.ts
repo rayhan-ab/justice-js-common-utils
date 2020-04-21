@@ -26,6 +26,21 @@ describe("validateBadWords returns correct output", () => {
     expect(mockValidateBadWords).toHaveBeenCalledTimes(1);
     expect(mockValidateBadWords).toHaveReturnedWith(null);
   });
+  it('returns containsBadWords when given "Fuck" string with language en with matchingMode exact', () => {
+    mockValidateBadWords("Fuck", { languageCode: "en", matchingMode: "exact" });
+    expect(mockValidateBadWords).toHaveBeenCalledTimes(1);
+    expect(mockValidateBadWords).toHaveReturnedWith(ValidateBadWordsErrorType.containsBadWords);
+  });
+  it('returns containsBadWords when given "Fuuuck" string with language en with matchingMode exact', () => {
+    mockValidateBadWords("Fuuuck", { languageCode: "en", matchingMode: "exact" });
+    expect(mockValidateBadWords).toHaveBeenCalledTimes(1);
+    expect(mockValidateBadWords).toHaveReturnedWith(ValidateBadWordsErrorType.containsBadWords);
+  });
+  it('returns containsBadWords when given "fuuuck" string with language en with matchingMode exact', () => {
+    mockValidateBadWords("fuuuck", { languageCode: "en", matchingMode: "exact" });
+    expect(mockValidateBadWords).toHaveBeenCalledTimes(1);
+    expect(mockValidateBadWords).toHaveReturnedWith(ValidateBadWordsErrorType.containsBadWords);
+  });
   it("returns empty error when given empty string with isRequired true", () => {
     mockValidateBadWords("", { isRequired: true });
     expect(mockValidateBadWords).toHaveBeenCalledTimes(1);
