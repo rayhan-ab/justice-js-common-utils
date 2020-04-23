@@ -30,5 +30,6 @@ export * from "./validateUrl";
 export * from "./validateUuidV4WithoutHyphen";
 export * from "./validateBadWords";
 export * from "./validateKubelessHandler";
+export * from "./validateKubelessName";
 export * from "./constant/errorType";
 export * from "./constant/numbers";
