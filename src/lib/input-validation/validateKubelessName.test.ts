@@ -21,6 +21,11 @@ describe("validateKubelessName returns correct output", () => {
     expect(mockValidateKubelessName).toHaveBeenCalledTimes(1);
     expect(mockValidateKubelessName).toHaveReturnedWith(null);
   });
+  it("returns empty error string when given alpha with length of 2", () => {
+    mockValidateKubelessName("ku");
+    expect(mockValidateKubelessName).toHaveBeenCalledTimes(1);
+    expect(mockValidateKubelessName).toHaveReturnedWith(null);
+  });
   it("returns error string containing `exceedLengthLimit` when given alpha with length of 65", () => {
     mockValidateKubelessName("asdasdasdasdasasdadasdasdasdasdasdasdasdasdasdasdasasdadasdaadasd");
     expect(mockValidateKubelessName).toHaveBeenCalledTimes(1);
