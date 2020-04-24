@@ -20,7 +20,7 @@ export interface ValidateKubelessNameOptions {
 }
 
 export const validateKubelessName = (value: string, { isRequired = true }: ValidateKubelessNameOptions = {}) => {
-  const REGEX = "^[a-zA-Z](?:([a-zA-Z0-9]+)[-]*[a-zA-Z0-9]+)*$";
+  const REGEX = "^[a-zA-Z]+(?:([a-zA-Z0-9]+)[-]*[a-zA-Z0-9]+)*$";
   const MAX_KUBELESS_NAME_LENGTH = 64;
   if (isEmpty(value)) {
     if (!isRequired) {
