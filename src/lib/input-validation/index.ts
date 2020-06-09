@@ -12,6 +12,7 @@ export * from "./validateComplexPassword";
 export * from "./validateCpuSize";
 export * from "./validateDisplayName";
 export * from "./validateDockerImage";
+export * from "./validateChannelName";
 export * from "./validateEmail";
 export * from "./validateLength";
 export * from "./validateMemorySize";
