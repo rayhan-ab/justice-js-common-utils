@@ -1,6 +1,6 @@
 {
   "name": "justice-js-common-utils",
-  "version": "0.14.6",
+  "version": "0.14.7",
   "description": "AccelByte's Justice Common Javascript Utilities",
   "main": "build/main/index.js",
   "typings": "build/main/index.d.ts",

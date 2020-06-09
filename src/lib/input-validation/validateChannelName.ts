@@ -15,11 +15,11 @@ export const ValidateChannelNameErrorType = ExtendEnum(
 );
 export type ValidateChannelNameErrorType = Enum<typeof ValidateChannelNameErrorType>;
 
-export interface ValidateTemplateSlugOptions {
+export interface ValidateChannelNameOptions {
   isRequired?: boolean;
 }
 
-export const validateChannelName = (value: string, { isRequired = true }: ValidateTemplateSlugOptions = {}) => {
+export const validateChannelName = (value: string, { isRequired = true }: ValidateChannelNameOptions = {}) => {
   const MAX_LENGTH = 64;
   const REGEX = "^[a-z0-9]+([-]{0,1}[a-z0-9]+)*$";
   if (isEmpty(value)) {
