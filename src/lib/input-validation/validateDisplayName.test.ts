@@ -168,4 +168,11 @@ describe("validateDisplayName returns correct output", () => {
     expect(mockValidateDisplayName).toHaveBeenCalledTimes(1);
     expect(mockValidateDisplayName).toHaveReturnedWith(ValidateDisplayNameErrorType.invalidFormat);
   });
+
+  // tslint:disable-next-line:max-line-length
+  it("returns exceedLengthLimit error string when given alphanumeric with length of maxLength parameter", () => {
+    mockValidateDisplayName("abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuv", { maxLength: 16 });
+    expect(mockValidateDisplayName).toHaveBeenCalledTimes(1);
+    expect(mockValidateDisplayName).toHaveReturnedWith(ValidateDisplayNameErrorType.exceedLengthLimit);
+  });
 });

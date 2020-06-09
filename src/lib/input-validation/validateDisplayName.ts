@@ -21,6 +21,7 @@ export interface ValidateDisplayNameOptions {
   allowUnicode?: boolean;
   isRequired?: boolean;
   strictlyAllowSpecialCharacters?: boolean;
+  maxLength?: number;
 }
 
 /**
@@ -29,14 +30,21 @@ export interface ValidateDisplayNameOptions {
  * @param allowUnicode (true: Allow various language character, false: only allow Alpha Numeric character)
  * @param isRequired
  * @param strictlyAllowSpecialCharacters (true: allow (',. -) in the mid of value, false: Only allow Alpha Numeric)
+ * @param maxLength
  *
  * @default allowUnicode false
  * @default isRequired true
  * @default strictlyAllowSpecialCharacters true
+ * @default maxLength MAX_DISPLAY_NAME_LENGTH
  */
 export const validateDisplayName = (
   value: string,
-  { allowUnicode = false, isRequired = true, strictlyAllowSpecialCharacters = true }: ValidateDisplayNameOptions = {}
+  {
+    allowUnicode = false,
+    isRequired = true,
+    strictlyAllowSpecialCharacters = true,
+    maxLength = MAX_DISPLAY_NAME_LENGTH,
+  }: ValidateDisplayNameOptions = {}
 ) => {
   if (isEmpty(value)) {
     if (!isRequired) {
@@ -66,6 +74,6 @@ export const validateDisplayName = (
   }
 
   return validateLength(value, {
-    max: MAX_DISPLAY_NAME_LENGTH,
+    max: maxLength,
   });
 };
