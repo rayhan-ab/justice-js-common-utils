@@ -35,6 +35,12 @@ describe("validateUrl returns correct output", () => {
     expect(mockValidateUrl).toHaveReturnedWith(null);
   });
 
+  it("returns empty error string when given PSN orbis url format", () => {
+    mockValidateUrl("orbis://games");
+    expect(mockValidateUrl).toHaveBeenCalledTimes(1);
+    expect(mockValidateUrl).toHaveReturnedWith(null);
+  });
+
   it("returns error string 'empty' when given empty string", () => {
     mockValidateUrl("");
     expect(mockValidateUrl).toHaveBeenCalledTimes(1);
