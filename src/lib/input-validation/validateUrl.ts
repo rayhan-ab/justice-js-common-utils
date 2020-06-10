@@ -20,7 +20,7 @@ export const validateUrl = (value: string, { isRequired = true }: ValidateUrlOpt
   const DEFAULT_MAX_URL_LENGTH = 2000;
   const REGEX =
     // tslint:disable-next-line
-    "^((((https?|ftps?|gopher|telnet|nntp):\\/\\/)|(mailto:|news:))(%[0-9A-Fa-f]{2}|[-()_.!~*';/?:@&=+$,A-Za-z0-9])+)([).!';/?:,][[:blank:]])?$";
+    "^((((https?|ftps?|gopher|telnet|nntp):\\/\\/)|(mailto:|news:|orbis:))(%[0-9A-Fa-f]{2}|[-()_.!~*';/?:@&=+$,A-Za-z0-9])+)([).!';/?:,][[:blank:]])?$";
   if (isEmpty(value)) {
     if (!isRequired) {
       return null;
