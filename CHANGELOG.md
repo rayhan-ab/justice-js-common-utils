@@ -61,3 +61,4 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Fixed validateBadWords bug when using uppercase and repeated character
 - Export validateChannelName in index file of input-validation
 - Added PSN redirect uri support
+- Added max length parameter in display name validation
