@@ -54,5 +54,6 @@ const serviceErrorTranslationMap: { [key: string]: React.ReactNode } = Object.fr
 const adminServiceErrorTranslationMap: { [key: string]: React.ReactNode } = Object.freeze({
   ...IAMAdminErrorTranslationMap,
   ...StatisticAdminErrorTranslationMap,
-  ...BasicAdminErrorTranslationMap
+  ...BasicAdminErrorTranslationMap,
+  ...EcommerceErrorTranslationMap,
 });
