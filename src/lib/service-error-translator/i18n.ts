@@ -8,10 +8,26 @@ import flatten from "flat";
 import i18next, { Resource } from "i18next";
 import { initReactI18next } from "react-i18next";
 import config from "./config.json";
+import enUS from "./translations/en-US.json";
+import zhCN from "./translations/zh-CN.json";
 
-const loadedLanguages: { [key: string]: string } = {
-  "en-US": "enUS",
+function isOnBrowser() {
+  try {
+    if (window) {
+      return true;
+    }
+    // eslint-disable-next-line
+  } catch (error) {
+    console.error(error);
+  }
+  return false;
+}
+
+const loadedLanguages: { [key: string]: { [key: string]: string } } = {
+  "en-US": enUS,
+  "zh-CN": zhCN,
 };
+const languageLocalStorageKey = "i18nextLng";
 const availableLanguageCodes = config.languageCodes;
 const translationResource = availableLanguageCodes.reduce((resources: Resource, languageCode: string) => {
   // eslint-disable-next-line no-param-reassign
@@ -22,10 +38,20 @@ const translationResource = availableLanguageCodes.reduce((resources: Resource, 
   return resources;
 }, {});
 
+export function getLocalStorageLanguage(): string {
+  if (isOnBrowser()) {
+    const currentLanguageCode = localStorage.getItem(languageLocalStorageKey);
+    if (currentLanguageCode && availableLanguageCodes.includes(currentLanguageCode)) {
+      return currentLanguageCode;
+    }
+  }
+  return config.defaultLanguage;
+}
+
 // @ts-ignore
 export const i18nInstance = i18next.use(initReactI18next).createInstance(
   {
-    lng: config.defaultLanguage,
+    lng: getLocalStorageLanguage(),
     fallbackLng: config.fallbackLanguage,
     preload: availableLanguageCodes,
     resources: translationResource,

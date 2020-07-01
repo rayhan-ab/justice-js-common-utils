@@ -139,6 +139,6 @@ function run({ files, languages, directory }) {
 const tsxFiles = findFilesInDirectory(path.resolve(__dirname, "../src/lib/service-error-translator"), ".tsx");
 run({
   files: tsxFiles,
-  languages: ["en-US"],
+  languages: ["en-US", "zh-CN"],
   directory: path.resolve(__dirname, "../src/lib/service-error-translator/translations"),
 });
