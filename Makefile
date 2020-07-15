@@ -43,3 +43,6 @@ test:
 publish:
 	echo 'registry=${NEXUS_REPOSITORY_URL}\nemail=${NEXUS_EMAIL}\nalways-auth=true\n_auth=${NEXUS_AUTH}' > .npmrc
 	npm publish
+
+pack:
+	npm pack
