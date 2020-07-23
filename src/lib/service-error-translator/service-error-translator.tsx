@@ -8,6 +8,7 @@ import * as React from "react";
 import { I18nextProvider, Trans } from "react-i18next";
 import { BasicAdminErrorTranslationMap } from "./error-translation-map/basic-admin-error-translation-map";
 import { BasicErrorTranslationMap } from "./error-translation-map/basic-error-translation-map";
+import { EcommerceAdminErrorTranslationMap } from "./error-translation-map/ecommerce-admin-error-translation-map";
 import { EcommerceErrorTranslationMap } from "./error-translation-map/ecommerce-error-translation-map";
 import { IAMAdminErrorTranslationMap } from "./error-translation-map/iam-admin-error-translation-map";
 import { IAMErrorTranslationMap } from "./error-translation-map/iam-error-translation-map";
@@ -48,7 +49,7 @@ export const translateServiceError = (errorCode: number, lang?: string) => {
 
 export const translateServiceErrorForAdmin = (errorCode: number, lang?: string) => {
   if (isValidServiceError(errorCode) && errorCode in adminServiceErrorTranslationMap) {
-    return <Withi18nProvider lang={lang}>adminServiceErrorTranslationMap[errorCode]</Withi18nProvider>;
+    return <Withi18nProvider lang={lang}>{adminServiceErrorTranslationMap[errorCode]}</Withi18nProvider>;
   }
   return (
     <Withi18nProvider lang={lang}>
@@ -68,4 +69,5 @@ const adminServiceErrorTranslationMap: { [key: string]: React.ReactNode } = Obje
   ...StatisticAdminErrorTranslationMap,
   ...BasicAdminErrorTranslationMap,
   ...EcommerceErrorTranslationMap,
+  ...EcommerceAdminErrorTranslationMap,
 });

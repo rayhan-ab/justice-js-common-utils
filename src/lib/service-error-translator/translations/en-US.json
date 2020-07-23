@@ -56,6 +56,7 @@
   "adminServiceError.70335": "User statistic item does not exist",
   "adminServiceError.70336": "User statistic item already exist",
   "adminServiceError.70337": "You've reached the max value for statistic",
+  "adminServiceError.37271": "Key Group Name is already exists",
   "serviceError.10130": "Sorry, we are unable to process this request",
   "serviceError.10133": "Sorry, you must enter a new email address",
   "serviceError.10136": "Sorry, the code you entered is already used. Please resquest a new one.",
