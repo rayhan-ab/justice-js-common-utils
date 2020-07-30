@@ -56,6 +56,7 @@
   "adminServiceError.70335": "用户统计项目不存在",
   "adminServiceError.70336": "用户统计项目已经存在",
   "adminServiceError.70337": "您已到达统计的最大值",
+  "adminServiceError.37271": "密钥组名称已存在",
   "serviceError.10130": "对不起，我们无法处理此请求",
   "serviceError.10133": "很抱歉，您必须输入新的电子邮件地址",
   "serviceError.10136": "对不起，您输入的代码已被使用。请resquest一个新的。",
