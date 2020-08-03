@@ -48,6 +48,8 @@
   "adminServiceError.20013": "Sorry, you have no permission to do this action or access this page",
   "adminServiceError.20019": "Something went wrong. Please contact Administrator.",
   "adminServiceError.20022": "Something went wrong. You've sent an invalid request.",
+  "adminServiceError.37221": "Upload failed. File is empty",
+  "adminServiceError.37271": "Key Group Name is already exists",
   "adminServiceError.70131": "Configuration does not exist",
   "adminServiceError.70132": "Configuration already exist",
   "adminServiceError.70330": "Sorry, we are unable to process this request",
@@ -56,7 +58,6 @@
   "adminServiceError.70335": "User statistic item does not exist",
   "adminServiceError.70336": "User statistic item already exist",
   "adminServiceError.70337": "You've reached the max value for statistic",
-  "adminServiceError.37271": "Key Group Name is already exists",
   "serviceError.10130": "Sorry, we are unable to process this request",
   "serviceError.10133": "Sorry, you must enter a new email address",
   "serviceError.10136": "Sorry, the code you entered is already used. Please resquest a new one.",
@@ -90,7 +91,7 @@
   "serviceError.20017": "Oops, it seems you haven't play the game yet. Please play the game before proceed with this action",
   "serviceError.20019": "Something went wrong. For more information please contact our support at hello@accelbyte.io",
   "serviceError.20022": "Something went wrong. For more information please contact our support at hello@accelbyte.io",
-  "serviceError.38171": "Sorry, you already own this item",
   "serviceError.30122": "Draft Store should have the same Default Language, Default Region and Namespace with the Published Store.",
+  "serviceError.38171": "Sorry, you already own this item",
   "serviceError.unknown": "Failed to complete the request"
 }

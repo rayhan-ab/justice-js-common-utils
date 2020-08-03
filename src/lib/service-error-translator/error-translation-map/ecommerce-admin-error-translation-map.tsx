@@ -9,4 +9,5 @@ import { Trans } from "react-i18next";
 
 export const EcommerceAdminErrorTranslationMap: { [key: string]: React.ReactNode } = {
   37271: <Trans i18nKey="adminServiceError.37271">Key Group Name is already exists.</Trans>,
+  37221: <Trans i18nKey="adminServiceError.37221">Upload failed. File is empty</Trans>,
 };
