@@ -47,6 +47,7 @@ export const IAMErrorTranslationMap: { [key: string]: React.ReactNode } = {
       Oops, the platform you are trying to connect does not exist. Please try another platform.
     </Trans>
   ),
+  10177: <Trans i18nKey="serviceError.10177">That username has been taken. Please choose another.</Trans>,
   10152: (
     <Trans i18nKey="serviceError.10152">
       Something went wrong. For more information please contact our support at hello@accelbyte.io
