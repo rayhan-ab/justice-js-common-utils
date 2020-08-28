@@ -28,6 +28,7 @@ export * from "./validateSku";
 export * from "./validateTemplateSlug";
 export * from "./validateTopic";
 export * from "./validateUrl";
+export * from "./validateUserName";
 export * from "./validateUuidV4WithoutHyphen";
 export * from "./validateBadWords";
 export * from "./validateKubelessHandler";
