@@ -46,6 +46,8 @@ export const validateDisplayName = (
     maxLength = MAX_DISPLAY_NAME_LENGTH,
   }: ValidateDisplayNameOptions = {}
 ) => {
+  const REGEX = "^[a-zA-Z0-9]+(([',. -][a-zA-Z0-9])?[a-zA-Z0-9]*)*$";
+
   if (isEmpty(value)) {
     if (!isRequired) {
       return null;
@@ -69,7 +71,11 @@ export const validateDisplayName = (
     return ValidateDisplayNameErrorType.invalidFormat;
   }
 
-  if (!allowUnicode && strictlyAllowSpecialCharacters && !matches(value, "^\\w+([',. -]\\w+)*$")) {
+  if (!allowUnicode && strictlyAllowSpecialCharacters && value.trim() !== value) {
+    return ValidateDisplayNameErrorType.invalidFormat;
+  }
+
+  if (!allowUnicode && strictlyAllowSpecialCharacters && !matches(value, REGEX)) {
     return ValidateDisplayNameErrorType.invalidFormat;
   }
 
