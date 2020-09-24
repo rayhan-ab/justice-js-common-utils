@@ -137,6 +137,18 @@ describe("validateDisplayName returns correct output", () => {
     expect(mockValidateDisplayName).toHaveReturnedWith(ValidateDisplayNameErrorType.invalidFormat);
   });
 
+  it("returns error string containing invalidFormat with given long string with space at the beginning", () => {
+    mockValidateDisplayName(" abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvsafdsafsdfgsdfgw");
+    expect(mockValidateDisplayName).toHaveBeenCalledTimes(1);
+    expect(mockValidateDisplayName).toHaveReturnedWith(ValidateDisplayNameErrorType.invalidFormat);
+  });
+
+  it("returns error string invalidFormat when given string with non acceptable character _", () => {
+    mockValidateDisplayName("Display_name_");
+    expect(mockValidateDisplayName).toHaveBeenCalledTimes(1);
+    expect(mockValidateDisplayName).toHaveReturnedWith(ValidateDisplayNameErrorType.invalidFormat);
+  });
+
   it("returns error string 'empty' when given empty string", () => {
     mockValidateDisplayName("");
     expect(mockValidateDisplayName).toHaveBeenCalledTimes(1);
