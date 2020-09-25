@@ -13,9 +13,12 @@ import { validateLength, ValidateLengthErrorType } from "./validateLength";
 export const ValidateUserNameErrorType = ExtendEnum(ValidateLengthErrorType, CommonValidationErrorType.invalidFormat);
 export type ValidateUserNameErrorType = Enum<typeof ValidateUserNameErrorType>;
 
+export const MIN_USERNAME_LENGTH = 3;
+
 export interface ValidateUserNameOptions {
   isRequired?: boolean;
   maxLength?: number;
+  minLength?: number;
 }
 
 /**
@@ -23,15 +26,21 @@ export interface ValidateUserNameOptions {
  * @param value
  * @param isRequired
  * @param maxLength
+ * @param minLength
  *
  * @default isRequired true
  * @default maxLength MAX_DISPLAY_NAME_LENGTH
+ * @default minLength MIN_USERNAME_LENGTH
  */
 export const validateUserName = (
   value: string,
-  { isRequired = true, maxLength = MAX_DISPLAY_NAME_LENGTH }: ValidateUserNameOptions = {}
+  {
+    isRequired = true,
+    maxLength = MAX_DISPLAY_NAME_LENGTH,
+    minLength = MIN_USERNAME_LENGTH,
+  }: ValidateUserNameOptions = {}
 ) => {
-  const REGEX = "^[a-zA-Z0-9]+(([._][a-zA-Z0-9])?[a-zA-Z0-9]*)*$";
+  const REGEX = "^[^\\W_][\\w]+[^\\W_]$";
   if (isEmpty(value)) {
     if (!isRequired) {
       return null;
@@ -45,5 +54,6 @@ export const validateUserName = (
 
   return validateLength(value, {
     max: maxLength,
+    min: minLength,
   });
 };
