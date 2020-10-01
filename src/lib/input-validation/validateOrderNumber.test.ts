@@ -22,14 +22,9 @@ describe("validateOrderNumber returns correct output", () => {
     expect(mockValidateOrderNumber).toHaveBeenCalledTimes(1);
     expect(mockValidateOrderNumber).toHaveReturnedWith(null);
   });
+
   // tslint:disable-next-line
-  it("returns error string invalid format when given an order number with a seemingly correct format, but is 1 character longer", () => {
-    mockValidateOrderNumber("O12345678901234567");
-    expect(mockValidateOrderNumber).toHaveBeenCalledTimes(1);
-    expect(mockValidateOrderNumber).toHaveReturnedWith(ValidateOrderNumberErrorType.invalidFormat);
-  });
-  // tslint:disable-next-line
-  it("returns error string invalid format when given an order number with a seemingly correct format, but is 1 character shorter", () => {
+  it("returns error string 'invalid format' when given a 16 length order number", () => {
     mockValidateOrderNumber("O123456789012345");
     expect(mockValidateOrderNumber).toHaveBeenCalledTimes(1);
     expect(mockValidateOrderNumber).toHaveReturnedWith(ValidateOrderNumberErrorType.invalidFormat);

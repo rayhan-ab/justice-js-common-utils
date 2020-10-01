@@ -19,7 +19,7 @@ export interface ValidateOrderNumberOptions {
 }
 
 export const validateOrderNumber = (value: string, { isRequired = true }: ValidateOrderNumberOptions = {}) => {
-  const REGEX = "^O[0-9]{16}$";
+  const REGEX = "^O[0-9]{16,}$";
   if (isEmpty(value)) {
     if (!isRequired) {
       return null;
