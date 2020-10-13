@@ -88,6 +88,7 @@
   "serviceError.11337": "错误：用户的个人资料不存在。如果您看到此错误，请hello@accelbyte.io立即帮助联系我们的支持",
   "serviceError.11440": "错误：用户的个人资料不存在。如果您看到此错误，请hello@accelbyte.io立即帮助联系我们的支持",
   "serviceError.11441": "错误：用户配置文件已经存在。如果您看到此错误，请hello@accelbyte.io立即帮助联系我们的支持",
+  "serviceError.13122": "您输入的密码不匹配。 请确保输入正确的密码",
   "serviceError.20000": "出了些问题。欲了解更多信息，请联系我们的hello@accelbyte.io支持",
   "serviceError.20001": "很抱歉，您要访问的页面不向公众提供。",
   "serviceError.20002": "请更正表格中的错误进行",

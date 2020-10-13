@@ -10,6 +10,7 @@ import { BasicAdminErrorTranslationMap } from "./error-translation-map/basic-adm
 import { BasicErrorTranslationMap } from "./error-translation-map/basic-error-translation-map";
 import { EcommerceAdminErrorTranslationMap } from "./error-translation-map/ecommerce-admin-error-translation-map";
 import { EcommerceErrorTranslationMap } from "./error-translation-map/ecommerce-error-translation-map";
+import { GDPRerrorTranslationMap } from "./error-translation-map/gdpr-error-translation-map";
 import { IAMAdminErrorTranslationMap } from "./error-translation-map/iam-admin-error-translation-map";
 import { IAMErrorTranslationMap } from "./error-translation-map/iam-error-translation-map";
 import { StatisticAdminErrorTranslationMap } from "./error-translation-map/statistic-admin-error-translation-map";
@@ -62,6 +63,7 @@ const serviceErrorTranslationMap: { [key: string]: React.ReactNode } = Object.fr
   ...IAMErrorTranslationMap,
   ...BasicErrorTranslationMap,
   ...EcommerceErrorTranslationMap,
+  ...GDPRerrorTranslationMap,
 });
 
 const adminServiceErrorTranslationMap: { [key: string]: React.ReactNode } = Object.freeze({

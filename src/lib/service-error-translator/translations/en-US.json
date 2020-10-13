@@ -88,6 +88,7 @@
   "serviceError.11337": "Error: User profile does not exist. If you see this error, please contact our support at hello@accelbyte.io for immediate assistance",
   "serviceError.11440": "Error: User profile does not exist. If you see this error, please contact our support at hello@accelbyte.io for immediate assistance",
   "serviceError.11441": "Error: User profile is already exist. If you see this error, please contact our support at hello@accelbyte.io for immediate assistance",
+  "serviceError.13122": "The password that you enter does not match. Please make sure you input the correct password",
   "serviceError.20000": "Something went wrong. For more information please contact our support at hello@accelbyte.io",
   "serviceError.20001": "Sorry, the page you want to access is publicly unavailable.",
   "serviceError.20002": "Please correct the errors in the form to proceed",
