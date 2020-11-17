@@ -21,7 +21,7 @@ export const IAMErrorTranslationMap: { [key: string]: React.ReactNode } = {
     </Trans>
   ),
   10136: (
-    <Trans i18nKey="serviceError.10136">Sorry, the code you entered is already used. Please resquest a new one.</Trans>
+    <Trans i18nKey="serviceError.10136">Sorry, the code you entered is already used. Please request a new one.</Trans>
   ),
   10137: <Trans i18nKey="serviceError.10137">Sorry, the code you entered is expired. Please request a new one.</Trans>,
   10138: <Trans i18nKey="serviceError.10138">Sorry, the code you entered is invalid. Please try again.</Trans>,
