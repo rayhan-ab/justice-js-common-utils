@@ -100,5 +100,10 @@
   "serviceError.20022": "Something went wrong. For more information please contact our support at hello@accelbyte.io",
   "serviceError.30122": "Draft Store should have the same Default Language, Default Region and Namespace with the Published Store.",
   "serviceError.38171": "Sorry, you already own this item",
+  "serviceError.35121": "The maximum amount per day has been exceeded.",
+  "serviceError.35122": "The maximum amount per transaction has been exceeded.",
+  "serviceError.35125": "The maximum balance amount has been exceeded.",
+  "serviceError.31177": "You cannot make this purchase because it includes one or more items you already own.",
+  "serviceError.38121": "You can only purchase 1 copy of this item.",
   "serviceError.unknown": "Failed to complete the request"
 }

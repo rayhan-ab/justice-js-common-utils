@@ -14,4 +14,21 @@ export const EcommerceErrorTranslationMap: { [key: string]: React.ReactNode } = 
       Draft Store should have the same Default Language, Default Region and Namespace with the Published Store.
     </Trans>
   ),
+  35121: (
+    <Trans i18nKey="serviceError.35121">The maximum amount per day has been exceeded.</Trans>
+  ),
+  35122: (
+    <Trans i18nKey="serviceError.35122">The maximum amount per transaction has been exceeded.</Trans>
+  ),
+  35125: (
+    <Trans i18nKey="serviceError.35125">The maximum balance amount has been exceeded.</Trans>
+  ),
+  31177: (
+    <Trans i18nKey="serviceError.31177">
+      You cannot make this purchase because it includes one or more items you already own.
+    </Trans>
+  ),
+  38121: (
+    <Trans i18nKey="serviceError.38121">You can only purchase 1 copy of this item.</Trans>
+  ),
 };
