@@ -10,40 +10,39 @@ import { Trans } from "react-i18next";
 export const BasicErrorTranslationMap: { [key: string]: React.ReactNode } = {
   11233: (
     <Trans i18nKey="serviceError.11233">
-      Error: Country group does not exist. If you see this error, please contact our support at hello@accelbyte.io for
-      immediate assistance
+      Error: Country group does not exist. If you see this error, please contact our support team for immediate
+      assistance
     </Trans>
   ),
   11337: (
     <Trans i18nKey="serviceError.11337">
-      Error: User profile does not exist. If you see this error, please contact our support at hello@accelbyte.io for
-      immediate assistance
+      Error: User profile does not exist. If you see this error, please contact our support team for immediate
+      assistance
     </Trans>
   ),
   11440: (
     <Trans i18nKey="serviceError.11440">
-      Error: User profile does not exist. If you see this error, please contact our support at hello@accelbyte.io for
-      immediate assistance
+      Error: User profile does not exist. If you see this error, please contact our support team for immediate
+      assistance
     </Trans>
   ),
   11441: (
     <Trans i18nKey="serviceError.11441">
-      Error: User profile is already exist. If you see this error, please contact our support at hello@accelbyte.io for
-      immediate assistance
+      Error: User profile is already exist. If you see this error, please contact our support team for immediate
+      assistance
     </Trans>
   ),
   11132: <Trans i18nKey="serviceError.11132">You've reached the maximum upload limit.</Trans>,
   20000: (
     <Trans i18nKey="serviceError.20000">
-      Something went wrong. For more information please contact our support at hello@accelbyte.io
+      Something went wrong. For more information please contact our support team
     </Trans>
   ),
   20001: <Trans i18nKey="serviceError.20001">Sorry, the page you want to access is publicly unavailable.</Trans>,
   20002: <Trans i18nKey="serviceError.20002">Please correct the errors in the form to proceed</Trans>,
   20008: (
     <Trans i18nKey="serviceError.20008">
-      Error: User does not exist. If you see this error, please contact our support at hello@accelbyte.io for immediate
-      assistance
+      Error: User does not exist. If you see this error, please contact our support team for immediate assistance
     </Trans>
   ),
   20013: (
@@ -56,8 +55,7 @@ export const BasicErrorTranslationMap: { [key: string]: React.ReactNode } = {
   ),
   20019: (
     <Trans i18nKey="serviceError.20019">
-      Something went wrong. For more information please contact our support at hello@accelbyte.io
+      Something went wrong. For more information please contact our support team
     </Trans>
   ),
 };
-

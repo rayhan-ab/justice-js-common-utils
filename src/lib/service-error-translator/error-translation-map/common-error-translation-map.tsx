@@ -11,7 +11,7 @@ export const IAMAdminErrorTranslationMap: { [key: string]: React.ReactNode } = {
   20002: <Trans i18nKey="serviceError.20002">Please correct the errors in the form to proceed</Trans>,
   20019: (
     <Trans i18nKey="serviceError.20019">
-      Something went wrong. For more information please contact our support at hello@accelbyte.io
+      Something went wrong. For more information please contact our support team
     </Trans>
   ),
   20001: <Trans i18nKey="serviceError.20001">Sorry, the page you want to access is publicly unavailable.</Trans>,

@@ -17,7 +17,7 @@ export const IAMErrorTranslationMap: { [key: string]: React.ReactNode } = {
   ),
   20022: (
     <Trans i18nKey="serviceError.20022">
-      Something went wrong. For more information please contact our support at hello@accelbyte.io
+      Something went wrong. For more information please contact our support team
     </Trans>
   ),
   10136: (
@@ -50,17 +50,17 @@ export const IAMErrorTranslationMap: { [key: string]: React.ReactNode } = {
   10177: <Trans i18nKey="serviceError.10177">That username has been taken. Please choose another.</Trans>,
   10152: (
     <Trans i18nKey="serviceError.10152">
-      Something went wrong. For more information please contact our support at hello@accelbyte.io
+      Something went wrong. For more information please contact our support team
     </Trans>
   ),
   10149: (
     <Trans i18nKey="serviceError.10149">
-      Something went wrong. For more information please contact our support at hello@accelbyte.io
+      Something went wrong. For more information please contact our support team
     </Trans>
   ),
   10148: (
     <Trans i18nKey="serviceError.10148">
-      Something went wrong. For more information please contact our support at hello@accelbyte.io
+      Something went wrong. For more information please contact our support team
     </Trans>
   ),
 };
