@@ -12,7 +12,8 @@ export const ValidateNumericErrorType = Enum(
   CommonValidationErrorType.empty,
   CommonValidationErrorType.lessThanMinimumValue,
   CommonValidationErrorType.exceedMaximumValue,
-  CommonValidationErrorType.invalidValue
+  CommonValidationErrorType.invalidValue,
+  CommonValidationErrorType.containsDecimal
 );
 export type ValidateNumericErrorType = Enum<typeof ValidateNumericErrorType>;
 
@@ -21,6 +22,7 @@ export interface ValidateNumericOption {
   max?: number;
   isRequired?: boolean;
   excludedNumbers?: number[];
+  allowDecimal?: boolean;
 }
 
 export const validateNumeric = (
@@ -30,9 +32,11 @@ export const validateNumeric = (
     max = Number.MAX_SAFE_INTEGER,
     isRequired = true,
     excludedNumbers = [],
+    allowDecimal = true,
   }: ValidateNumericOption = {}
 ) => {
   const isMaxOptionSmallerThanMinOption = max < min;
+  const isDecimalNumber = Number(value) % 1 !== 0;
   if (isMaxOptionSmallerThanMinOption) {
     throw new Error(ThrownErrorType.invalidOption);
   }
@@ -50,6 +54,9 @@ export const validateNumeric = (
   }
   if (Number(value) > max) {
     return ValidateNumericErrorType.exceedMaximumValue;
+  }
+  if (!allowDecimal && isDecimalNumber) {
+    return ValidateNumericErrorType.containsDecimal;
   }
 
   return null;

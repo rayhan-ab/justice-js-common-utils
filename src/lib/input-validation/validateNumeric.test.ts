@@ -82,4 +82,16 @@ describe("validateNumeric returns correct output", () => {
     expect(mockValidateNumeric).toHaveBeenCalledTimes(1);
     expect(mockValidateNumeric).toHaveReturnedWith(null);
   });
+
+  it("return error string 'containDecimal' when given decimal number, but it is not allow decimal", () => {
+    mockValidateNumeric("1.5", { allowDecimal: false });
+    expect(mockValidateNumeric).toHaveBeenCalledTimes(1);
+    expect(mockValidateNumeric).toHaveReturnedWith(ValidateNumericErrorType.containsDecimal);
+  });
+
+  it("return empty error string when given decimal number", () => {
+    mockValidateNumeric("1.5");
+    expect(mockValidateNumeric).toHaveBeenCalledTimes(1);
+    expect(mockValidateNumeric).toHaveReturnedWith(null);
+  });
 });
