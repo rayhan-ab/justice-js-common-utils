@@ -79,4 +79,29 @@ describe("validateUrl returns correct output", () => {
     expect(mockValidateUrl).toHaveBeenCalledTimes(1);
     expect(mockValidateUrl).toHaveReturnedWith(ValidateUrlErrorType.invalidFormat);
   });
+
+  it("returns error string 'invalidFormat' when given custom protocol", () => {
+    mockValidateUrl("example-protocol://example.net/something");
+    expect(mockValidateUrl).toHaveBeenCalledTimes(1);
+    expect(mockValidateUrl).toHaveReturnedWith(ValidateUrlErrorType.invalidFormat);
+  });
+
+  it("returns empty error when given custom protocol, but it is allow custom protocol", () => {
+    mockValidateUrl("example-protocol://example.net/something", { isCustomProtocol: true });
+    expect(mockValidateUrl).toHaveBeenCalledTimes(1);
+    expect(mockValidateUrl).toHaveReturnedWith(null);
+  });
+
+  it("returns empty error when given only custom protocol, it is allow custom protocol", () => {
+    mockValidateUrl("example-protocol://", { isCustomProtocol: true });
+    expect(mockValidateUrl).toHaveBeenCalledTimes(1);
+    expect(mockValidateUrl).toHaveReturnedWith(null);
+  });
+
+  // tslint:disable-next-line
+  it("returns error string 'invalidFormat' when given not allowed symbol on custom protocol, it is allow custom protocol", () => {
+    mockValidateUrl("example|protocol=string_string*://example.net/something", { isCustomProtocol: true });
+    expect(mockValidateUrl).toHaveBeenCalledTimes(1);
+    expect(mockValidateUrl).toHaveReturnedWith(ValidateUrlErrorType.invalidFormat);
+  });
 });

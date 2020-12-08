@@ -14,20 +14,30 @@ export type ValidateUrlErrorType = Enum<typeof ValidateUrlErrorType>;
 
 export interface ValidateUrlOptions {
   isRequired?: boolean;
+  isCustomProtocol?: boolean;
 }
 
-export const validateUrl = (value: string, { isRequired = true }: ValidateUrlOptions = {}) => {
+export const validateUrl = (
+  value: string,
+  { isRequired = true, isCustomProtocol = false }: ValidateUrlOptions = {}
+) => {
   const DEFAULT_MAX_URL_LENGTH = 2000;
   const REGEX =
     // tslint:disable-next-line
-    "^((((https?|ftps?|gopher|telnet|nntp):\\/\\/)|(mailto:|news:|orbis:))(%[0-9A-Fa-f]{2}|[-()_.!~*';/?:@&=+$,A-Za-z0-9])+)([).!';/?:,][[:blank:]])?$";
+    "^((((https?|ftps?|gopher|telnet|nntp):\\/\\/)|(mailto:|news:|orbis:|tel:))(%[0-9A-Fa-f]{2}|[-()_.!~*';/?:@&=+$,A-Za-z0-9])+)([).!';/?:,][[:blank:]])?$";
+  const REGEX_WITH_CUSTOM_PROTOCOL =
+    // tslint:disable-next-line
+    "^(((([a-zA-Z0-9+-.]+):\\/\\/)|(mailto:|news:|orbis:|tel:|urn:))(%[0-9A-Fa-f]{2}|[-()_.!~*';/?:@&\\]\\[=+$,A-Za-z0-9]?)+)([).!';/?:,][[:blank:]])?$";
   if (isEmpty(value)) {
     if (!isRequired) {
       return null;
     }
     return ValidateUrlErrorType.empty;
   }
-  if (!matches(value, REGEX)) {
+  if (isCustomProtocol && !matches(value, REGEX_WITH_CUSTOM_PROTOCOL)) {
+    return ValidateUrlErrorType.invalidFormat;
+  }
+  if (!isCustomProtocol && !matches(value, REGEX)) {
     return ValidateUrlErrorType.invalidFormat;
   }
   return validateLength(value, { max: DEFAULT_MAX_URL_LENGTH });
