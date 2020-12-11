@@ -10,7 +10,7 @@ import { Trans } from "react-i18next";
 export const GDPRerrorTranslationMap: { [key: string]: React.ReactNode } = {
   13122: (
     <Trans i18nKey="serviceError.13122">
-      The password that you enter does not match. Please make sure you input the correct password
+      The password that you entered does not match. Please make sure you input the correct password
     </Trans>
   ),
 };

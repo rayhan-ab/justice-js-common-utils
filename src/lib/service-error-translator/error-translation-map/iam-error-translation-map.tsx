@@ -12,7 +12,7 @@ export const IAMErrorTranslationMap: { [key: string]: React.ReactNode } = {
   10142: <Trans i18nKey="serviceError.10142">Sorry, your new password cannot be the same as the old one</Trans>,
   10143: (
     <Trans i18nKey="serviceError.10143">
-      The password that you enter does not match. Please make sure you input the correct password
+      The password that you entered does not match. Please make sure you input the correct password
     </Trans>
   ),
   20022: (

@@ -14,12 +14,12 @@ export type ValidateUrlErrorType = Enum<typeof ValidateUrlErrorType>;
 
 export interface ValidateUrlOptions {
   isRequired?: boolean;
-  isCustomProtocol?: boolean;
+  allowCustomProtocol?: boolean;
 }
 
 export const validateUrl = (
   value: string,
-  { isRequired = true, isCustomProtocol = false }: ValidateUrlOptions = {}
+  { isRequired = true, allowCustomProtocol = false }: ValidateUrlOptions = {}
 ) => {
   const DEFAULT_MAX_URL_LENGTH = 2000;
   const REGEX =
@@ -34,10 +34,10 @@ export const validateUrl = (
     }
     return ValidateUrlErrorType.empty;
   }
-  if (isCustomProtocol && !matches(value, REGEX_WITH_CUSTOM_PROTOCOL)) {
+  if (allowCustomProtocol && !matches(value, REGEX_WITH_CUSTOM_PROTOCOL)) {
     return ValidateUrlErrorType.invalidFormat;
   }
-  if (!isCustomProtocol && !matches(value, REGEX)) {
+  if (!allowCustomProtocol && !matches(value, REGEX)) {
     return ValidateUrlErrorType.invalidFormat;
   }
   return validateLength(value, { max: DEFAULT_MAX_URL_LENGTH });
