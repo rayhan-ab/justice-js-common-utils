@@ -25,20 +25,29 @@ export const validateUrl = (
   const REGEX =
     // tslint:disable-next-line
     "^((((https?|ftps?|gopher|telnet|nntp):\\/\\/)|(mailto:|news:|orbis:|tel:))(%[0-9A-Fa-f]{2}|[-()_.!~*';/?:@&=+$,A-Za-z0-9])+)([).!';/?:,][[:blank:]])?$";
-  const REGEX_WITH_CUSTOM_PROTOCOL =
-    // tslint:disable-next-line
-    "^(((([a-zA-Z0-9+-.]+):\\/\\/)|(mailto:|news:|orbis:|tel:|urn:))(%[0-9A-Fa-f]{2}|[-()_.!~*';/?:@&\\]\\[=+$,A-Za-z0-9]?)+)([).!';/?:,][[:blank:]])?$";
+
+  const isValidUrl = (url: string): boolean => {
+    try {
+      return !!new URL(url);
+    } catch (error) {
+      return false;
+    }
+  };
+
   if (isEmpty(value)) {
     if (!isRequired) {
       return null;
     }
     return ValidateUrlErrorType.empty;
   }
-  if (allowCustomProtocol && !matches(value, REGEX_WITH_CUSTOM_PROTOCOL)) {
+
+  if (allowCustomProtocol && !isValidUrl(value)) {
     return ValidateUrlErrorType.invalidFormat;
   }
+
   if (!allowCustomProtocol && !matches(value, REGEX)) {
     return ValidateUrlErrorType.invalidFormat;
   }
+
   return validateLength(value, { max: DEFAULT_MAX_URL_LENGTH });
 };

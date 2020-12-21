@@ -41,6 +41,30 @@ describe("validateUrl returns correct output", () => {
     expect(mockValidateUrl).toHaveReturnedWith(null);
   });
 
+  it("returns null when given mailto scheme", () => {
+    mockValidateUrl("mailto:John.Doe@example.com");
+    expect(mockValidateUrl).toHaveBeenCalledTimes(1);
+    expect(mockValidateUrl).toHaveReturnedWith(null);
+  });
+
+  it("returns null when given news scheme", () => {
+    mockValidateUrl("news:comp.infosystems.www.servers.unix");
+    expect(mockValidateUrl).toHaveBeenCalledTimes(1);
+    expect(mockValidateUrl).toHaveReturnedWith(null);
+  });
+
+  it("returns null when given tel scheme", () => {
+    mockValidateUrl("tel:+1-816-555-1212");
+    expect(mockValidateUrl).toHaveBeenCalledTimes(1);
+    expect(mockValidateUrl).toHaveReturnedWith(null);
+  });
+
+  it("returns null when given ftp scheme", () => {
+    mockValidateUrl("ftp://ftp.is.co.za/rfc/rfc1808.txt");
+    expect(mockValidateUrl).toHaveBeenCalledTimes(1);
+    expect(mockValidateUrl).toHaveReturnedWith(null);
+  });
+
   it("returns error string 'empty' when given empty string", () => {
     mockValidateUrl("");
     expect(mockValidateUrl).toHaveBeenCalledTimes(1);
@@ -86,13 +110,31 @@ describe("validateUrl returns correct output", () => {
     expect(mockValidateUrl).toHaveReturnedWith(ValidateUrlErrorType.invalidFormat);
   });
 
-  it("returns empty error when given custom protocol, but it is allow custom protocol", () => {
+  it("returns error string 'invalidFormat' when given only custom protocol", () => {
+    mockValidateUrl("example-protocol://");
+    expect(mockValidateUrl).toHaveBeenCalledTimes(1);
+    expect(mockValidateUrl).toHaveReturnedWith(ValidateUrlErrorType.invalidFormat);
+  });
+
+  it("returns error string 'invalidFormat' when given [] symbol on authority", () => {
+    mockValidateUrl("ldap://[2001:db8::7]/c=GB?objectClass?one");
+    expect(mockValidateUrl).toHaveBeenCalledTimes(1);
+    expect(mockValidateUrl).toHaveReturnedWith(ValidateUrlErrorType.invalidFormat);
+  });
+
+  it("returns error string 'invalidFormat' when given custom protocol without double slash symbol '//'", () => {
+    mockValidateUrl("urn:oasis:names:specification:docbook:dtd:xml:4.1.2");
+    expect(mockValidateUrl).toHaveBeenCalledTimes(1);
+    expect(mockValidateUrl).toHaveReturnedWith(ValidateUrlErrorType.invalidFormat);
+  });
+
+  it("returns null when given custom protocol, but it is allow custom protocol", () => {
     mockValidateUrl("example-protocol://example.net/something", { allowCustomProtocol: true });
     expect(mockValidateUrl).toHaveBeenCalledTimes(1);
     expect(mockValidateUrl).toHaveReturnedWith(null);
   });
 
-  it("returns empty error when given only custom protocol, it is allow custom protocol", () => {
+  it("returns null when given only custom protocol, it is allow custom protocol", () => {
     mockValidateUrl("example-protocol://", { allowCustomProtocol: true });
     expect(mockValidateUrl).toHaveBeenCalledTimes(1);
     expect(mockValidateUrl).toHaveReturnedWith(null);
@@ -101,6 +143,92 @@ describe("validateUrl returns correct output", () => {
   // tslint:disable-next-line
   it("returns error string 'invalidFormat' when given not allowed symbol on custom protocol, it is allow custom protocol", () => {
     mockValidateUrl("example|protocol=string_string*://example.net/something", { allowCustomProtocol: true });
+    expect(mockValidateUrl).toHaveBeenCalledTimes(1);
+    expect(mockValidateUrl).toHaveReturnedWith(ValidateUrlErrorType.invalidFormat);
+  });
+
+  it("returns null when given ftp scheme, it is allow custom protocol", () => {
+    mockValidateUrl("ftp://ftp.is.co.za/rfc/rfc1808.txt", { allowCustomProtocol: true });
+    expect(mockValidateUrl).toHaveBeenCalledTimes(1);
+    expect(mockValidateUrl).toHaveReturnedWith(null);
+  });
+
+  it("returns null when given [] symbol on authority, it is allow custom protocol", () => {
+    mockValidateUrl("ldap://[2001:db8::7]/c=GB?objectClass?one", { allowCustomProtocol: true });
+    expect(mockValidateUrl).toHaveBeenCalledTimes(1);
+    expect(mockValidateUrl).toHaveReturnedWith(null);
+  });
+
+  it("returns null when given mailto scheme, it is allow custom protocol", () => {
+    mockValidateUrl("mailto:John.Doe@example.com", { allowCustomProtocol: true });
+    expect(mockValidateUrl).toHaveBeenCalledTimes(1);
+    expect(mockValidateUrl).toHaveReturnedWith(null);
+  });
+
+  it("returns null when given news scheme, it is allow custom protocol", () => {
+    mockValidateUrl("news:comp.infosystems.www.servers.unix", { allowCustomProtocol: true });
+    expect(mockValidateUrl).toHaveBeenCalledTimes(1);
+    expect(mockValidateUrl).toHaveReturnedWith(null);
+  });
+
+  it("returns null when given tel scheme, it is allow custom protocol", () => {
+    mockValidateUrl("tel:+1-816-555-1212", { allowCustomProtocol: true });
+    expect(mockValidateUrl).toHaveBeenCalledTimes(1);
+    expect(mockValidateUrl).toHaveReturnedWith(null);
+  });
+
+  it("returns null when given custom protocol without double slash symbol '//', it is allow custom protocol", () => {
+    mockValidateUrl("urn:oasis:names:specification:docbook:dtd:xml:4.1.2", { allowCustomProtocol: true });
+    expect(mockValidateUrl).toHaveBeenCalledTimes(1);
+    expect(mockValidateUrl).toHaveReturnedWith(null);
+  });
+
+  it("returns error string 'invalidFormat' when only given path, it is allow custom protocol", () => {
+    mockValidateUrl("/lead-the-way", { allowCustomProtocol: true });
+    expect(mockValidateUrl).toHaveBeenCalledTimes(1);
+    expect(mockValidateUrl).toHaveReturnedWith(ValidateUrlErrorType.invalidFormat);
+  });
+
+  it("returns error string 'invalidFormat' when given string without protocol, it is allow custom protocol", () => {
+    mockValidateUrl("ordinary-string", { allowCustomProtocol: true });
+    expect(mockValidateUrl).toHaveBeenCalledTimes(1);
+    expect(mockValidateUrl).toHaveReturnedWith(ValidateUrlErrorType.invalidFormat);
+  });
+
+  it("returns error string 'invalidFormat' when given domain without protocol, it is allow custom protocol", () => {
+    mockValidateUrl("example.com", { allowCustomProtocol: true });
+    expect(mockValidateUrl).toHaveBeenCalledTimes(1);
+    expect(mockValidateUrl).toHaveReturnedWith(ValidateUrlErrorType.invalidFormat);
+  });
+
+  it("returns error string 'invalidFormat' when given ip without protocol, it is allow custom protocol", () => {
+    mockValidateUrl("1.1.1.1", { allowCustomProtocol: true });
+    expect(mockValidateUrl).toHaveBeenCalledTimes(1);
+    expect(mockValidateUrl).toHaveReturnedWith(ValidateUrlErrorType.invalidFormat);
+  });
+
+  it("returns error string 'invalidFormat' when given double colon symbol '::', it is allow custom protocol", () => {
+    mockValidateUrl("2606:4700:4700::1111", { allowCustomProtocol: true });
+    expect(mockValidateUrl).toHaveBeenCalledTimes(1);
+    expect(mockValidateUrl).toHaveReturnedWith(ValidateUrlErrorType.invalidFormat);
+  });
+
+  // tslint:disable-next-line
+  it("returns error string 'invalidFormat' when given email format without protocol, it is allow custom protocol", () => {
+    mockValidateUrl("koi@pond.com", { allowCustomProtocol: true });
+    expect(mockValidateUrl).toHaveBeenCalledTimes(1);
+    expect(mockValidateUrl).toHaveReturnedWith(ValidateUrlErrorType.invalidFormat);
+  });
+
+  it("returns error string 'invalidFormat' when given tel format without protocol, it is allow custom protocol", () => {
+    mockValidateUrl("+60 800 1000 2000", { allowCustomProtocol: true });
+    expect(mockValidateUrl).toHaveBeenCalledTimes(1);
+    expect(mockValidateUrl).toHaveReturnedWith(ValidateUrlErrorType.invalidFormat);
+  });
+
+  // tslint:disable-next-line
+  it("returns error string 'invalidFormat' when given tel format with dash separator without protocol, it is allow custom protocol", () => {
+    mockValidateUrl("+1-816-555-1212", { allowCustomProtocol: true });
     expect(mockValidateUrl).toHaveBeenCalledTimes(1);
     expect(mockValidateUrl).toHaveReturnedWith(ValidateUrlErrorType.invalidFormat);
   });
