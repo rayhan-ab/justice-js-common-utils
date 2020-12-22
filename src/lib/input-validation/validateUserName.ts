@@ -40,7 +40,7 @@ export const validateUserName = (
     minLength = MIN_USERNAME_LENGTH,
   }: ValidateUserNameOptions = {}
 ) => {
-  const REGEX = "^[^\\W_][\\w]+[^\\W_]$";
+  const REGEX = "^[^\\W_-][\\w-]+[^\\W_-]$";
   if (isEmpty(value)) {
     if (!isRequired) {
       return null;

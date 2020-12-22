@@ -41,6 +41,12 @@ describe("validateUserName returns correct output", () => {
     expect(mockValidateUserName).toHaveReturnedWith(null);
   });
 
+  it("returns empty error string when given alphabet and symbol `-`", () => {
+    mockValidateUserName("John--Doe");
+    expect(mockValidateUserName).toHaveBeenCalledTimes(1);
+    expect(mockValidateUserName).toHaveReturnedWith(null);
+  });
+
   it("returns empty error string when given alphanumeric with length of 48", () => {
     mockValidateUserName("abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuv");
     expect(mockValidateUserName).toHaveBeenCalledTimes(1);
@@ -91,6 +97,18 @@ describe("validateUserName returns correct output", () => {
 
   it("returns error string invalidFormat when given string with `_` at the beginning", () => {
     mockValidateUserName("_JohnDoe");
+    expect(mockValidateUserName).toHaveBeenCalledTimes(1);
+    expect(mockValidateUserName).toHaveReturnedWith(ValidateUserNameErrorType.invalidFormat);
+  });
+
+  it("returns error string invalidFormat when given string with `-` at the end", () => {
+    mockValidateUserName("JohnDoe-");
+    expect(mockValidateUserName).toHaveBeenCalledTimes(1);
+    expect(mockValidateUserName).toHaveReturnedWith(ValidateUserNameErrorType.invalidFormat);
+  });
+
+  it("returns error string invalidFormat when given string with `-` at the beginning", () => {
+    mockValidateUserName("-JohnDoe");
     expect(mockValidateUserName).toHaveBeenCalledTimes(1);
     expect(mockValidateUserName).toHaveReturnedWith(ValidateUserNameErrorType.invalidFormat);
   });
