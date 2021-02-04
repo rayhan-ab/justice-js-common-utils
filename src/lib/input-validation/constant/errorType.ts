@@ -19,7 +19,8 @@ export const CommonValidationErrorType = Enum(
   "notContainsUpperCaseAndLowerCase",
   "containsTwoCharactersInArrow",
   "containsBadWords",
-  "containsDecimal"
+  "containsDecimal",
+  "invalidFileExtensions"
 );
 
 export type ThrownErrorType = Enum<typeof ThrownErrorType>;

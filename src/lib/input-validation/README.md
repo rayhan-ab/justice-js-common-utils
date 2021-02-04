@@ -46,6 +46,7 @@ Input Validation is a library used for validating string inputs, the library con
     - lowercase (a-z), uppercase (A-Z), number (0-9), and symbols (+/)
     - allow equal symbol (=) 0 to 2 at the end of the string
     - No white-space
+ - _validateFile_, with _validateFileErrorType_ for the error type.
 
 The functionality of each function is as what is implied in the function name, e.g validateAlphanumeric will validate if a string is a valid Alphanumeric only string.
 

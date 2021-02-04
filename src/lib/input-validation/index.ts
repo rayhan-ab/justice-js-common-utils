@@ -35,5 +35,6 @@ export * from "./validateKubelessHandler";
 export * from "./validateKubelessName";
 export * from "./validateBase64";
 export * from "./validateLegalDocumentName";
+export * from "./validateFile";
 export * from "./constant/errorType";
 export * from "./constant/numbers";
