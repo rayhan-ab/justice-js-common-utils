@@ -11,7 +11,8 @@ import { validateLength, ValidateLengthErrorType } from "./validateLength";
 
 export const ValidateStatisticCodeErrorType = ExtendEnum(
   ValidateLengthErrorType,
-  CommonValidationErrorType.invalidFormat
+  CommonValidationErrorType.invalidFormat,
+  CommonValidationErrorType.alreadyUsed
 );
 export type ValidateStatisticCodeErrorType = Enum<typeof ValidateStatisticCodeErrorType>;
 
