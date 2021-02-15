@@ -23,7 +23,8 @@ export const IAMAdminErrorTranslationMap: { [key: string]: React.ReactNode } = {
   10153: <Trans i18nKey="adminServiceError.10153">User already exists</Trans>,
   10152: <Trans i18nKey="adminServiceError.10152">Something went wrong. Please contact Administrator.</Trans>,
   10137: <Trans i18nKey="adminServiceError.10137">Verification code is expired</Trans>,
-  10136: <Trans i18nKey="adminServiceError.10136">Verification code is already used</Trans>,
+  // tslint:disable-next-line:max-line-length
+  10136: <Trans i18nKey="adminServiceError.10136">Sorry, you've entered the codes incorrectly too many times. Please request a new one</Trans>,
   10138: <Trans i18nKey="adminServiceError.10138">Verification code does not match</Trans>,
   10170: <Trans i18nKey="adminServiceError.10170">User already has platform account</Trans>,
   10140: <Trans i18nKey="adminServiceError.10140">User is already verified</Trans>,

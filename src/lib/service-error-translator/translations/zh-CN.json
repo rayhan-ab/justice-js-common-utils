@@ -1,7 +1,7 @@
 {
   "adminServiceError.10130": "年龄不符合年龄限制",
   "adminServiceError.10133": "电子邮件地址已被使用",
-  "adminServiceError.10136": "验证码已被使用",
+  "adminServiceError.10136": "抱歉，您输入了错误的密码太多次了。 请要求一个新的",
   "adminServiceError.10137": "验证码已过期",
   "adminServiceError.10138": "验证码不匹配",
   "adminServiceError.10139": "平台帐户不存在",
@@ -65,7 +65,7 @@
   "adminServiceError.70337": "您已到达统计的最大值",
   "serviceError.10130": "对不起，我们无法处理此请求",
   "serviceError.10133": "很抱歉，您必须输入新的电子邮件地址",
-  "serviceError.10136": "对不起，您输入的代码已被使用。请要求一个新的。",
+  "serviceError.10136": "抱歉，您输入了错误的密码太多次了。 请要求一个新的",
   "serviceError.10137": "对不起，您输入的代码已过期。请申请一个新的。",
   "serviceError.10138": "对不起，您输入的代码是无效的。请再试一遍。",
   "serviceError.10139": "哎呀，好像你还没有玩游戏呢。请玩游戏，用这个动作之前进行",

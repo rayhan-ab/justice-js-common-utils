@@ -1,7 +1,7 @@
 {
   "adminServiceError.10130": "Age does not meet the age restriction",
   "adminServiceError.10133": "Email address is already taken",
-  "adminServiceError.10136": "Verification code is already used",
+  "adminServiceError.10136": "Sorry, you've entered the codes incorrectly too many times. Please request a new one",
   "adminServiceError.10137": "Verification code is expired",
   "adminServiceError.10138": "Verification code does not match",
   "adminServiceError.10139": "Platform account does not exist",
@@ -65,7 +65,7 @@
   "adminServiceError.70337": "You've reached the max value for statistic",
   "serviceError.10130": "Sorry, we are unable to process this request",
   "serviceError.10133": "Sorry, you must enter a new email address",
-  "serviceError.10136": "Sorry, the code you entered is already used. Please request a new one.",
+  "serviceError.10136": "Sorry, you've entered the codes incorrectly too many times. Please request a new one",
   "serviceError.10137": "Sorry, the code you entered is expired. Please request a new one.",
   "serviceError.10138": "Sorry, the code you entered is invalid. Please try again.",
   "serviceError.10139": "Oops, it seems you haven't play the game yet. Please play the game before proceed with this action",
