@@ -17,20 +17,20 @@ describe("validateCpuSize returns correct output", () => {
     expect(mockValidateCpuSize).toHaveReturnedWith(null);
   });
 
-  it("returns empty error string when given a string started in numbers and ended in `m`", () => {
-    mockValidateCpuSize("100m");
+  it("returns empty error string when given a string started in numbers", () => {
+    mockValidateCpuSize("100");
     expect(mockValidateCpuSize).toHaveBeenCalledTimes(1);
     expect(mockValidateCpuSize).toHaveReturnedWith(null);
   });
   // tslint:disable-next-line
-  it("returns empty error string when given a string started in numbers and ended in `m`, with a total max length of 8", () => {
-    mockValidateCpuSize("1000000m");
+  it("returns empty error string when given a string started in numbers, with a total max length of 8", () => {
+    mockValidateCpuSize("1000000");
     expect(mockValidateCpuSize).toHaveBeenCalledTimes(1);
     expect(mockValidateCpuSize).toHaveReturnedWith(null);
   });
   // tslint:disable-next-line
-  it("returns error string 'exceedLengthLimit' when given a string started in numbers and ended in `m`, with a total max length of more than 8", () => {
-    mockValidateCpuSize("10000000m");
+  it("returns error string 'exceedLengthLimit' when given a string started in numbers, with a total max length of more than 8", () => {
+    mockValidateCpuSize("100000000");
     expect(mockValidateCpuSize).toHaveBeenCalledTimes(1);
     expect(mockValidateCpuSize).toHaveReturnedWith(ValidateCpuSizeErrorType.exceedLengthLimit);
   });
@@ -41,14 +41,14 @@ describe("validateCpuSize returns correct output", () => {
     expect(mockValidateCpuSize).toHaveReturnedWith(ValidateCpuSizeErrorType.empty);
   });
   // tslint:disable-next-line
-  it("returns error string 'invalidFormat' when given a string started in numbers and ended in characters other than `m`", () => {
+  it("returns error string 'invalidFormat' when given a string started in numbers and ended a character", () => {
     mockValidateCpuSize("10000z");
     expect(mockValidateCpuSize).toHaveBeenCalledTimes(1);
     expect(mockValidateCpuSize).toHaveReturnedWith(ValidateCpuSizeErrorType.invalidFormat);
   });
 
-  it("returns error string 'invalidFormat' when given a string containing only numbers", () => {
-    mockValidateCpuSize("10000");
+  it("returns error string 'invalidFormat' when given a string containing characters", () => {
+    mockValidateCpuSize("100ds");
     expect(mockValidateCpuSize).toHaveBeenCalledTimes(1);
     expect(mockValidateCpuSize).toHaveReturnedWith(ValidateCpuSizeErrorType.invalidFormat);
   });

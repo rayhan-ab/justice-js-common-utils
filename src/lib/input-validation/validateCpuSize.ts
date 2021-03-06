@@ -18,7 +18,7 @@ export interface ValidateCpuSizeOptions {
 
 export const validateCpuSize = (value: string, { isRequired = true }: ValidateCpuSizeOptions = {}) => {
   const MAX_LENGTH = 8;
-  const REGEX = "^[0-9]+m$";
+  const REGEX = "^[0-9]+$";
   if (isEmpty(value)) {
     if (!isRequired) {
       return null;

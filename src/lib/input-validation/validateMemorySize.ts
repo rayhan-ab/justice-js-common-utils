@@ -18,7 +18,7 @@ export interface ValidateMemorySizeOptions {
 
 export const validateMemorySize = (value: string, { isRequired = true }: ValidateMemorySizeOptions = {}) => {
   const MAX_LENGTH = 9;
-  const REGEX = "^[0-9]+Mi$";
+  const REGEX = "^[0-9]+$";
   if (isEmpty(value)) {
     if (!isRequired) {
       return null;
