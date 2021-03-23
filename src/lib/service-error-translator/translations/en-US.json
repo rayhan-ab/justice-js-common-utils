@@ -64,6 +64,7 @@
   "adminServiceError.70335": "User statistic item does not exist",
   "adminServiceError.70336": "User statistic item already exist",
   "adminServiceError.70337": "You've reached the max value for statistic",
+  "adminServiceError.40030": "No localization, please add localization and try again",
   "serviceError.10130": "Sorry, we are unable to process this request",
   "serviceError.10133": "Sorry, you must enter a new email address",
   "serviceError.10136": "Sorry, you've entered the codes incorrectly too many times. Please request a new one",

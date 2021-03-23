@@ -64,6 +64,7 @@
   "adminServiceError.70335": "用户统计项目不存在",
   "adminServiceError.70336": "用户统计项目已经存在",
   "adminServiceError.70337": "您已到达统计的最大值",
+  "adminServiceError.40030": "没有本地化，请添加本地化，然后重试",
   "serviceError.10130": "对不起，我们无法处理此请求",
   "serviceError.10133": "很抱歉，您必须输入新的电子邮件地址",
   "serviceError.10136": "抱歉，您输入了错误的密码太多次了。 请要求一个新的",
