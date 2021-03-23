@@ -51,6 +51,7 @@
   "adminServiceError.30326": "订阅项目不能捆绑",
   "adminServiceError.30327": "无效的商品试用价",
   "adminServiceError.31178": "超出时间范围",
+  "adminServiceError.33271": "当前名称空间和区域的付款提供商配置已存在",
   "adminServiceError.37221": "上传文件失败。它为空或文件扩展名不被接受",
   "adminServiceError.37271": "密钥组名称已存在",
   "adminServiceError.38122": "需要订阅结束日期",
@@ -99,11 +100,11 @@
   "serviceError.20019": "出了些问题。 有关更多信息，请联系我们的支持团队",
   "serviceError.20022": "出了些问题。 有关更多信息，请联系我们的支持团队",
   "serviceError.30122": "商店草案应具有相同的默认语言，默认域和命名空间与公布的商店。",
-  "serviceError.38171": "很抱歉，您已拥有这项商品",
+  "serviceError.31177": "您无法进行购买，因为其中包括您已经拥有的一个或多个项目。",
   "serviceError.35121": "超出了每天的最大数量。",
   "serviceError.35122": "超出了每笔交易的最大金额。",
   "serviceError.35125": "超出了最大余额。",
-  "serviceError.31177": "您无法进行购买，因为其中包括您已经拥有的一个或多个项目。",
   "serviceError.38121": "您只能购买1个副本。",
+  "serviceError.38171": "很抱歉，您已拥有这项商品",
   "serviceError.unknown": "无法完成请求"
 }

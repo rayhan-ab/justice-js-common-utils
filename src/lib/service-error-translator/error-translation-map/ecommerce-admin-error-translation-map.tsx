@@ -11,6 +11,11 @@ export const EcommerceAdminErrorTranslationMap: { [key: string]: React.ReactNode
   30326: <Trans i18nKey="adminServiceError.30326">Subscription item cannot be bundled</Trans>,
   30327: <Trans i18nKey="adminServiceError.30327">Invalid item trial price</Trans>,
   31178: <Trans i18nKey="adminServiceError.31178">Entitlement out of time range</Trans>,
+  33271: (
+    <Trans i18nKey="adminServiceError.33271">
+      Payment provider config for current namespace and region already exists
+    </Trans>
+  ),
   37271: <Trans i18nKey="adminServiceError.37271">Key Group Name is already exists.</Trans>,
   37221: (
     <Trans i18nKey="adminServiceError.37221">

@@ -51,6 +51,7 @@
   "adminServiceError.30326": "Subscription item cannot be bundled",
   "adminServiceError.30327": "Invalid item trial price",
   "adminServiceError.31178": "Entitlement out of time range",
+  "adminServiceError.33271": "Payment provider config for current namespace and region already exists",
   "adminServiceError.37221": "Upload file failed. It's either empty or file extension is not acceptable",
   "adminServiceError.37271": "Key Group Name is already exists",
   "adminServiceError.38122": "Subscription end date required",
@@ -99,11 +100,11 @@
   "serviceError.20019": "Something went wrong. For more information please contact our support team",
   "serviceError.20022": "Something went wrong. For more information please contact our support team",
   "serviceError.30122": "Draft Store should have the same Default Language, Default Region and Namespace with the Published Store.",
-  "serviceError.38171": "Sorry, you already own this item",
+  "serviceError.31177": "You cannot make this purchase because it includes one or more items you already own.",
   "serviceError.35121": "The maximum amount per day has been exceeded.",
   "serviceError.35122": "The maximum amount per transaction has been exceeded.",
   "serviceError.35125": "The maximum balance amount has been exceeded.",
-  "serviceError.31177": "You cannot make this purchase because it includes one or more items you already own.",
   "serviceError.38121": "You can only purchase 1 copy of this item.",
+  "serviceError.38171": "Sorry, you already own this item",
   "serviceError.unknown": "Failed to complete the request"
 }
