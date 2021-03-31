@@ -51,7 +51,7 @@
   "adminServiceError.30326": "订阅项目不能捆绑",
   "adminServiceError.30327": "无效的商品试用价",
   "adminServiceError.31178": "超出时间范围",
-  "adminServiceError.33271": "当前名称空间和区域的付款提供商配置已存在",
+  "adminServiceError.33271": "所选名称空间和区域的付款配置已经存在。",
   "adminServiceError.37221": "上传文件失败。它为空或文件扩展名不被接受",
   "adminServiceError.37271": "密钥组名称已存在",
   "adminServiceError.38122": "需要订阅结束日期",

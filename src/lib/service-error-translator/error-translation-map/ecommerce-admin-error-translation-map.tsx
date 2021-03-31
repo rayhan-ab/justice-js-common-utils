@@ -13,7 +13,7 @@ export const EcommerceAdminErrorTranslationMap: { [key: string]: React.ReactNode
   31178: <Trans i18nKey="adminServiceError.31178">Entitlement out of time range</Trans>,
   33271: (
     <Trans i18nKey="adminServiceError.33271">
-      Payment provider config for current namespace and region already exists
+      Payment configuration for the selected namespace and region already exists.
     </Trans>
   ),
   37271: <Trans i18nKey="adminServiceError.37271">Key Group Name is already exists.</Trans>,
