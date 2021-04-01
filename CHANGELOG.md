@@ -5,6 +5,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [1.10.0]
+### Added
+- Adding new validation function (validateCpuSizeNonNomad) for validate the CPU non-nomad version
+- Adding new validation function (validateMemorySizeNonNomad) for validate the Memory non-nomad version
+
 ## [1.9.0]
 ### Added
 - Translation for Legal error 40030
