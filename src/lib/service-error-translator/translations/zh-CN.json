@@ -22,6 +22,7 @@
   "adminServiceError.10169": "年龄限制不存在",
   "adminServiceError.10170": "用户已经拥有平台账号",
   "adminServiceError.10171": "电子邮件地址未注册",
+  "adminServiceError.10177": "用户名已被占用。请尝试其他方法。",
   "adminServiceError.10364": "客户端已经存在",
   "adminServiceError.10365": "客户端不存在",
   "adminServiceError.10456": "角色不存在",

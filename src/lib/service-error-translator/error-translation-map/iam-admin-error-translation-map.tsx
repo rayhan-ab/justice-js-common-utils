@@ -30,6 +30,7 @@ export const IAMAdminErrorTranslationMap: { [key: string]: React.ReactNode } = {
   10140: <Trans i18nKey="adminServiceError.10140">User is already verified</Trans>,
   10169: <Trans i18nKey="adminServiceError.10169">Age restriction does not exist</Trans>,
   10171: <Trans i18nKey="adminServiceError.10171">Email address is not registered</Trans>,
+  10177: <Trans i18nKey="adminServiceError.10177">Username is already taken. Please try something different.</Trans>,
   20007: <Trans i18nKey="adminServiceError.20007">You have requested too many codes. Please try again later.</Trans>,
   10365: <Trans i18nKey="adminServiceError.10365">Client does not exist</Trans>,
   10364: <Trans i18nKey="adminServiceError.10364">Client already exists</Trans>,
