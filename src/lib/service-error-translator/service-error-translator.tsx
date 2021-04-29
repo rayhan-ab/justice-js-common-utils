@@ -16,6 +16,7 @@ import { IAMErrorTranslationMap } from "./error-translation-map/iam-error-transl
 import { LegalAdminErrorTranslationMap } from "./error-translation-map/legal-admin-error-translation-map";
 import { RewardsAdminErrorTranslationMap } from "./error-translation-map/rewards-admin-error-translation-map";
 import { StatisticAdminErrorTranslationMap } from "./error-translation-map/statistic-admin-error-translation-map";
+import { UgcAdminErrorTranslationMap } from "./error-translation-map/ugc-admin-error-translation-map";
 import { getLocalStorageLanguage, i18nInstance } from "./i18n";
 
 interface ServiceErrorProps {
@@ -75,5 +76,6 @@ const adminServiceErrorTranslationMap: { [key: string]: React.ReactNode } = Obje
   ...EcommerceErrorTranslationMap,
   ...EcommerceAdminErrorTranslationMap,
   ...LegalAdminErrorTranslationMap,
-  ...RewardsAdminErrorTranslationMap
+  ...RewardsAdminErrorTranslationMap,
+  ...UgcAdminErrorTranslationMap,
 });
