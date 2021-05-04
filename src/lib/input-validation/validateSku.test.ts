@@ -17,6 +17,12 @@ describe("validateSku returns correct output", () => {
     expect(mockValidateSku).toHaveReturnedWith(null);
   });
 
+  it("returns empty error string when given string with length less than specified max length", () => {
+    mockValidateSku("abc-123-abc-123abcd", { maxLength: 20 });
+    expect(mockValidateSku).toHaveBeenCalledTimes(1);
+    expect(mockValidateSku).toHaveReturnedWith(null);
+  });
+
   it("returns empty error string when given uppercase alphabets without separators ", () => {
     mockValidateSku("ABC");
     expect(mockValidateSku).toHaveBeenCalledTimes(1);
@@ -53,8 +59,14 @@ describe("validateSku returns correct output", () => {
     expect(mockValidateSku).toHaveReturnedWith(ValidateSkuErrorType.empty);
   });
 
-  it("returns error string `exceedLengthLimit` when given string with length more than default max length (30)", () => {
-    mockValidateSku("abc-123-abc-123abc-123-abc-1234");
+  it("returns error string `exceedLengthLimit` when given string with length more than default max length (32)", () => {
+    mockValidateSku("abc-123-abc-123abc-123-abc-1234-a");
+    expect(mockValidateSku).toHaveBeenCalledTimes(1);
+    expect(mockValidateSku).toHaveReturnedWith(ValidateSkuErrorType.exceedLengthLimit);
+  });
+
+  it("returns error string `exceedLengthLimit` when given string with length more than specified max length", () => {
+    mockValidateSku("abc-123-abc-123abc-12", { maxLength: 20 });
     expect(mockValidateSku).toHaveBeenCalledTimes(1);
     expect(mockValidateSku).toHaveReturnedWith(ValidateSkuErrorType.exceedLengthLimit);
   });

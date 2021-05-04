@@ -12,12 +12,17 @@ import { validateLength, ValidateLengthErrorType } from "./validateLength";
 export const ValidateSkuErrorType = ExtendEnum(ValidateLengthErrorType, CommonValidationErrorType.invalidFormat);
 export type ValidateSkuErrorType = Enum<typeof ValidateSkuErrorType>;
 
+const MAXIMUM_SKU_LENGTH = 32;
+
 export interface ValidateSkuOptions {
   isRequired?: boolean;
+  maxLength?: number;
 }
 
-export const validateSku = (value: string, { isRequired = true }: ValidateSkuOptions = {}) => {
-  const MAXIMUM_SKU_LENGTH = 30;
+export const validateSku = (
+  value: string,
+  { isRequired = true, maxLength = MAXIMUM_SKU_LENGTH }: ValidateSkuOptions = {}
+) => {
   const REGEX = "^[a-zA-Z0-9]+([_:-]{1}[a-zA-Z0-9]+)*$|^$";
   if (isEmpty(value)) {
     if (!isRequired) {
@@ -28,5 +33,5 @@ export const validateSku = (value: string, { isRequired = true }: ValidateSkuOpt
   if (!matches(value, REGEX)) {
     return ValidateSkuErrorType.invalidFormat;
   }
-  return validateLength(value, { max: MAXIMUM_SKU_LENGTH });
+  return validateLength(value, { max: maxLength });
 };

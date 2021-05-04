@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [1.10.4]
+### Added
+- New maxLength param for validateSKU
+
+### Changed
+- validateSKU max length updated to 32
+
 ## [1.10.3]
 ### Added
 - Translation for UGC Management error 771902 and 771403
