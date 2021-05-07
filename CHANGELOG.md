@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [1.10.5]
+### Added
+- Validity criteria for validateUrl
+
 ## [1.10.4]
 ### Added
 - New maxLength param for validateSKU
@@ -73,11 +77,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [1.6.0]
 ### Added
-- Added allow custom protocol on validateUrl 
+- Added allow custom protocol on validateUrl
 
 ## [1.5.0]
 ### Added
-- Added not allow decimal on validateNumeric 
+- Added not allow decimal on validateNumeric
 
 ## [1.4.1]
 ### Changed

@@ -232,4 +232,41 @@ describe("validateUrl returns correct output", () => {
     expect(mockValidateUrl).toHaveBeenCalledTimes(1);
     expect(mockValidateUrl).toHaveReturnedWith(ValidateUrlErrorType.invalidFormat);
   });
+
+  it("returns error string 'invalidFormat' when given url format with an unsafe character (comma)", () => {
+    mockValidateUrl("http://goo,gle");
+    expect(mockValidateUrl).toHaveBeenCalledTimes(1);
+    expect(mockValidateUrl).toHaveReturnedWith(ValidateUrlErrorType.invalidFormat);
+  });
+
+  it("returns null when given url format with an unsafe character (comma) but it's URL-encoded", () => {
+    mockValidateUrl("https://dev%2Caccelbyte.net");
+    expect(mockValidateUrl).toHaveBeenCalledTimes(1);
+    expect(mockValidateUrl).toHaveReturnedWith(null);
+  });
+
+  // tslint:disable-next-line
+  it("returns error string 'invalidFormat' when given custom protocol with some unsafe characters (comma and backtick), it is allow custom protocol", () => {
+    mockValidateUrl("example-protocol://comp,infosystem`net", { allowCustomProtocol: true });
+    expect(mockValidateUrl).toHaveBeenCalledTimes(1);
+    expect(mockValidateUrl).toHaveReturnedWith(ValidateUrlErrorType.invalidFormat);
+  });
+
+  it("returns error string 'invalidFormat' when given news scheme with an unsafe character (comma)", () => {
+    mockValidateUrl("news:google}com");
+    expect(mockValidateUrl).toHaveBeenCalledTimes(1);
+    expect(mockValidateUrl).toHaveReturnedWith(ValidateUrlErrorType.invalidFormat);
+  });
+
+  it("returns error string 'invalidFormat' when given url format with three or more consecutive punctuations", () => {
+    mockValidateUrl("https://comp.infosystems.net..//servers.unix");
+    expect(mockValidateUrl).toHaveBeenCalledTimes(1);
+    expect(mockValidateUrl).toHaveReturnedWith(ValidateUrlErrorType.invalidFormat);
+  });
+
+  it("returns null when given news scheme with three or more consecutive punctuations, but they're URL-encoded", () => {
+    mockValidateUrl("news:comp.infosystems.www.%26%3F%3Eservers.unix");
+    expect(mockValidateUrl).toHaveBeenCalledTimes(1);
+    expect(mockValidateUrl).toHaveReturnedWith(null);
+  });
 });

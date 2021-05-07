@@ -34,11 +34,31 @@ export const validateUrl = (
     }
   };
 
+  const isContainingInvalidPunctuations = (url: string) => {
+    const protocolPunctuation = url.match(/:\/\//g);
+    let mainUrlBody;
+
+    if (protocolPunctuation) {
+      if (protocolPunctuation.length > 1) {
+        return true;
+      }
+      mainUrlBody = url.slice(url.indexOf("://") + 3);
+    } else {
+      mainUrlBody = url;
+    }
+
+    return /[^a-zA-Z0-9_-]{3,}|[{}|`~,\\]/.test(mainUrlBody);
+  };
+
   if (isEmpty(value)) {
     if (!isRequired) {
       return null;
     }
     return ValidateUrlErrorType.empty;
+  }
+
+  if (isContainingInvalidPunctuations(value)) {
+    return ValidateUrlErrorType.invalidFormat;
   }
 
   if (allowCustomProtocol && !isValidUrl(value)) {
