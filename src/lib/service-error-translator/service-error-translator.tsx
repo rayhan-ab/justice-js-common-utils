@@ -14,6 +14,8 @@ import { GDPRerrorTranslationMap } from "./error-translation-map/gdpr-error-tran
 import { IAMAdminErrorTranslationMap } from "./error-translation-map/iam-admin-error-translation-map";
 import { IAMErrorTranslationMap } from "./error-translation-map/iam-error-translation-map";
 import { LegalAdminErrorTranslationMap } from "./error-translation-map/legal-admin-error-translation-map";
+// tslint:disable-next-line:max-line-length
+import { LobbyAndMatchmakingAdminErrorTranslationMap } from "./error-translation-map/lobby-and-matchmaking-admin-error-translation-map";
 import { RewardsAdminErrorTranslationMap } from "./error-translation-map/rewards-admin-error-translation-map";
 import { StatisticAdminErrorTranslationMap } from "./error-translation-map/statistic-admin-error-translation-map";
 import { UgcAdminErrorTranslationMap } from "./error-translation-map/ugc-admin-error-translation-map";
@@ -76,6 +78,7 @@ const adminServiceErrorTranslationMap: { [key: string]: React.ReactNode } = Obje
   ...EcommerceErrorTranslationMap,
   ...EcommerceAdminErrorTranslationMap,
   ...LegalAdminErrorTranslationMap,
+  ...LobbyAndMatchmakingAdminErrorTranslationMap,
   ...RewardsAdminErrorTranslationMap,
   ...UgcAdminErrorTranslationMap,
 });

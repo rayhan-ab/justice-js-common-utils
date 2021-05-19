@@ -38,6 +38,7 @@
   "adminServiceError.11235": "地区已经存在",
   "adminServiceError.11336": "命名空间已经存在",
   "adminServiceError.11337": "命名空间不存在",
+  "adminServiceError.11403": "游戏模式已经存在。 请尝试另一个",
   "adminServiceError.11440": "用户配置文件不存在",
   "adminServiceError.11540": "用户配置文件不存在",
   "adminServiceError.20000": "出了些问题。请与管理员联系。",

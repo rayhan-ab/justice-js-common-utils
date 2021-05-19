@@ -38,6 +38,7 @@
   "adminServiceError.11235": "Region already exists",
   "adminServiceError.11336": "Namespace already exists",
   "adminServiceError.11337": "Namespace does not exist",
+  "adminServiceError.11403": "Game mode already exists. Please try another one",
   "adminServiceError.11440": "User profile does not exist",
   "adminServiceError.11540": "User profile does not exist",
   "adminServiceError.20000": "Something went wrong. Please contact Administrator.",
