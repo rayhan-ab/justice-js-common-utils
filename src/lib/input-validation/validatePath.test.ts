@@ -86,4 +86,10 @@ describe("validatePath returns correct output", () => {
     expect(mockValidatePath).toHaveBeenCalledTimes(1);
     expect(mockValidatePath).toHaveReturnedWith(ValidatePathErrorType.exceedLengthLimit);
   });
+
+  it("returns empty error string when given a string with combination of underscore, hyphen and number", () => {
+    mockValidatePath("/path/path_test-123/new-path");
+    expect(mockValidatePath).toHaveBeenCalledTimes(1);
+    expect(mockValidatePath).toHaveReturnedWith(null);
+  });
 });

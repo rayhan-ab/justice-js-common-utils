@@ -17,7 +17,7 @@ export interface ValidatePathSizeOptions {
 }
 
 export const validatePath = (value: string, { isRequired = true }: ValidatePathSizeOptions = {}) => {
-  const REGEX = "^(\\/[a-zA-Z0-9]+)+$";
+  const REGEX = "^(\\/[a-zA-Z0-9_-]+)+$";
   if (isEmpty(value)) {
     if (!isRequired) {
       return null;
