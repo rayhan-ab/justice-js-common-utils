@@ -21,14 +21,14 @@ export interface ValidateChannelNameOptions {
 
 export const validateChannelName = (value: string, { isRequired = true }: ValidateChannelNameOptions = {}) => {
   const MAX_LENGTH = 64;
-  const REGEX = "^[a-z0-9]+([-]{0,1}[a-z0-9]+)*$";
+  const REGEX = "^([a-z0-9]+)(-?[a-z0-9])*$";
   if (isEmpty(value)) {
     if (!isRequired) {
       return null;
     }
     return ValidateChannelNameErrorType.empty;
   }
-  if (!matches(value, REGEX)) {
+  if (!matches(value, REGEX) && value.length <= MAX_LENGTH) {
     return ValidateChannelNameErrorType.invalidFormat;
   }
   return validateLength(value, { max: MAX_LENGTH });

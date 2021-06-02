@@ -99,4 +99,14 @@ describe("validateChannelName returns correct output", () => {
     expect(mockValidateChannelName).toHaveBeenCalledTimes(1);
     expect(mockValidateChannelName).toHaveReturnedWith(ValidateChannelNameErrorType.invalidFormat);
   });
+  it("returns error string `invalidFormat` when given a bit long string with an invalid character", () => {
+    mockValidateChannelName("euroereojfoejeofjefjaklfjalkfjlajf*");
+    expect(mockValidateChannelName).toHaveBeenCalledTimes(1);
+    expect(mockValidateChannelName).toHaveReturnedWith(ValidateChannelNameErrorType.invalidFormat);
+  });
+  it("returns error string `exceedLengthLimit` when given an invalid string that exceeds the length limit", () => {
+    mockValidateChannelName("accelbyteaccelbyteaccelbyteaccelbyteaccelbyteaccelbyteaccelbytes ");
+    expect(mockValidateChannelName).toHaveBeenCalledTimes(1);
+    expect(mockValidateChannelName).toHaveReturnedWith(ValidateChannelNameErrorType.exceedLengthLimit);
+  });
 });
