@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [1.11.1]
+### Added
+-  Translation UGC management error code 771703, 771904, and 772804
+
 ## [1.11.0]
 ### Added
 - Translation for IAM admin error 20017
