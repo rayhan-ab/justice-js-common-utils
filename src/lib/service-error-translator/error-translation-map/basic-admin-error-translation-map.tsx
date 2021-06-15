@@ -29,4 +29,9 @@ export const BasicAdminErrorTranslationMap: { [key: string]: React.ReactNode } =
       The item is already updated by another admin. Please refresh the page.
     </Trans>
   ),
+  20017: (
+    <Trans i18nKey="adminServiceError.20017">
+      The user needs to have the required game first before entitled to the selected item
+    </Trans>
+  )
 };
