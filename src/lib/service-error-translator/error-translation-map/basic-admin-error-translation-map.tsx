@@ -31,7 +31,7 @@ export const BasicAdminErrorTranslationMap: { [key: string]: React.ReactNode } =
   ),
   20017: (
     <Trans i18nKey="adminServiceError.20017">
-      The player must be linked to the item's namespace before entitled to the selected item
+      The user must be linked to the item's namespace before entitled to the selected item
     </Trans>
   )
 };

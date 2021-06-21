@@ -48,7 +48,7 @@
   "adminServiceError.20007": "您已经请求了太多的代码。请稍后再试。",
   "adminServiceError.20008": "用户不存在",
   "adminServiceError.20013": "对不起，您无权做这个动作或访问此页",
-  "adminServiceError.20017": "玩家必须先链接到物品的命名空间，然后才能获得所选物品",
+  "adminServiceError.20017": "用户必须先链接到项目的命名空间，然后才能获得所选项目的权限",
   "adminServiceError.20019": "出了些问题。请与管理员联系。",
   "adminServiceError.20022": "出了些问题。你发送一个无效的请求。",
   "adminServiceError.30326": "订阅项目不能捆绑",

@@ -48,7 +48,7 @@
   "adminServiceError.20007": "You have requested too many codes. Please try again later.",
   "adminServiceError.20008": "User does not exist",
   "adminServiceError.20013": "Sorry, you have no permission to do this action or access this page",
-  "adminServiceError.20017": "The player must be linked to the item's namespace before entitled to the selected item",
+  "adminServiceError.20017": "The user must be linked to the item's namespace before entitled to the selected item",
   "adminServiceError.20019": "Something went wrong. Please contact Administrator.",
   "adminServiceError.20022": "Something went wrong. You've sent an invalid request.",
   "adminServiceError.30326": "Subscription item cannot be bundled",
