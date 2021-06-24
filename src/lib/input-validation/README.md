@@ -47,6 +47,11 @@ Input Validation is a library used for validating string inputs, the library con
     - allow equal symbol (=) 0 to 2 at the end of the string
     - No white-space
  - _validateFile_, with _validateFileErrorType_ for the error type.
+- _validateDockerImageVersion_, with _ValidateDockerVersionErrorType_ for the error type.
+    - maximum length 256
+    - lowercase (a-z), uppercase (A-Z), and number (0-9)
+    - No white-space
+    - separator using dash (-), dot (.) and underscore (_)
 
 The functionality of each function is as what is implied in the function name, e.g validateAlphanumeric will validate if a string is a valid Alphanumeric only string.
 
