@@ -21,6 +21,7 @@ export const CommonValidationErrorType = Enum(
   "containsBadWords",
   "containsDecimal",
   "invalidFileExtensions",
+  "exceedMaximumFileSize",
   "alreadyUsed"
 );
 

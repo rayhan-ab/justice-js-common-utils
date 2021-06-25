@@ -46,4 +46,28 @@ describe("validateFile returns correct output", () => {
     expect(mockValidateFile).toHaveBeenCalledTimes(1);
     expect(mockValidateFile).toHaveReturnedWith(null);
   });
+
+  it("returns null when file size is less than maxFileSize", () => {
+    const file = new File([new ArrayBuffer(1000000)], "file.jpg", { type: "image/jpg" });
+
+    mockValidateFile(file, { maxFileSize: 2000000 });
+    expect(mockValidateFile).toHaveBeenCalledTimes(1);
+    expect(mockValidateFile).toHaveReturnedWith(null);
+  });
+
+  it("returns error string 'exceedMaximumFileSize' when file size is more than maxFileSize", () => {
+    const file = new File([new ArrayBuffer(3000000)], "file.jpg", { type: "image/jpg" });
+
+    mockValidateFile(file, { maxFileSize: 2000000 });
+    expect(mockValidateFile).toHaveBeenCalledTimes(1);
+    expect(mockValidateFile).toHaveReturnedWith(ValidateFileErrorType.exceedMaximumFileSize);
+  });
+
+  it("returns null when given any file but maxFileSize is undefined", () => {
+    const file = new File([new ArrayBuffer(3000000)], "file.jpg", { type: "image/jpg" });
+
+    mockValidateFile(file);
+    expect(mockValidateFile).toHaveBeenCalledTimes(1);
+    expect(mockValidateFile).toHaveReturnedWith(null);
+  });
 });

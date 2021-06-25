@@ -10,20 +10,23 @@ import { CommonValidationErrorType } from "./constant/errorType";
 
 export const ValidateFileErrorType = Enum(
   CommonValidationErrorType.empty,
-  CommonValidationErrorType.invalidFileExtensions
+  CommonValidationErrorType.invalidFileExtensions,
+  CommonValidationErrorType.exceedMaximumFileSize
 );
 export type ValidateFileErrorType = Enum<typeof ValidateFileErrorType>;
 
 export interface ValidateFileOption {
   isRequired?: boolean;
   acceptedFileExtensions?: string[];
+  maxFileSize?: number;
 }
 
 export const validateFile = (
   file: File | null,
-  { isRequired = true, acceptedFileExtensions }: ValidateFileOption = {}
+  { isRequired = true, acceptedFileExtensions, maxFileSize }: ValidateFileOption = {}
 ) => {
   const fileExtension = file ? `.${file.name.split(".").pop()}` : "";
+  const fileSize = file ? file.size : 0;
 
   if (isRequired && !file) {
     return ValidateFileErrorType.empty;
@@ -31,6 +34,10 @@ export const validateFile = (
 
   if (acceptedFileExtensions && (isEmpty(fileExtension) || acceptedFileExtensions.indexOf(fileExtension) === -1)) {
     return ValidateFileErrorType.invalidFileExtensions;
+  }
+
+  if (maxFileSize && fileSize > maxFileSize) {
+    return ValidateFileErrorType.exceedMaximumFileSize;
   }
 
   return null;
