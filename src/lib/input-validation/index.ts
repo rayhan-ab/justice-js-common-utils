@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019. AccelByte Inc. All Rights Reserved
+ * Copyright (c) 2019-2021. AccelByte Inc. All Rights Reserved
  * This is licensed software from AccelByte Inc, for limitations
  * and restrictions contact your company contract manager.
  */
@@ -24,6 +24,7 @@ export * from "./validateOrderNumber";
 export * from "./validatePath";
 export * from "./validatePermissionResource";
 export * from "./validatePersonName";
+export * from "./validateProductKey";
 export * from "./validateTag";
 export * from "./validateStatisticTag";
 export * from "./validateSku";
