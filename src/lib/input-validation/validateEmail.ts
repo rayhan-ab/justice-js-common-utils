@@ -7,6 +7,7 @@
 import { isEmpty, matches } from "validator";
 import { Enum, ExtendEnum } from "../../types/types";
 import { CommonValidationErrorType } from "./constant/errorType";
+import { MAX_EMAIL_LENGTH } from "./constant/numbers";
 import { validateLength, ValidateLengthErrorType } from "./validateLength";
 
 export const ValidateEmailErrorType = ExtendEnum(ValidateLengthErrorType, CommonValidationErrorType.invalidFormat);
@@ -18,7 +19,6 @@ export interface ValidateEmailOptions {
 
 export const validateEmail = (value: string, { isRequired = true }: ValidateEmailOptions = {}) => {
   const REGEX = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
-  const MAX_EMAIL_LENGTH = 254;
   if (isEmpty(value)) {
     if (!isRequired) {
       return null;
