@@ -15,7 +15,12 @@ export const SeasonPassAdminErrorTranslationMap: { [key: string]: React.ReactNod
   30142: <Trans i18nKey="adminServiceError.30142">Published store does not exist in namespace</Trans>,
   49141: <Trans i18nKey="adminServiceError.49141">Tier item does not exist in the store of namespace</Trans>,
   49142: <Trans i18nKey="adminServiceError.49142">Pass item does not exist in the store of namespace</Trans>,
-  30341: <Trans i18nKey="adminServiceError.30341">Item does not exist in namespace</Trans>,
+  30341: (
+    <Trans i18nKey="adminServiceError.30341">
+      Item does not exist in namespace replaced with There are one or more reward items that are not published or
+      activated in the store.
+    </Trans>
+  ),
   36141: <Trans i18nKey="adminServiceError.36141">Currency does not exist in namespace</Trans>,
   49144: <Trans i18nKey="adminServiceError.49144">Reward does not exist</Trans>,
   49171: <Trans i18nKey="adminServiceError.49171">Invalid season status</Trans>,
@@ -24,4 +29,7 @@ export const SeasonPassAdminErrorTranslationMap: { [key: string]: React.ReactNod
   49176: <Trans i18nKey="adminServiceError.49176">Rewards are not provided</Trans>,
   49177: <Trans i18nKey="adminServiceError.49177">Passes are not provided</Trans>,
   49178: <Trans i18nKey="adminServiceError.49178">Tiers are not provided</Trans>,
+  49174: <Trans i18nKey="adminServiceError.49174">Pass already exists in the season</Trans>,
+  49121: <Trans i18nKey="adminServiceError.49121">Default language required in localizations</Trans>,
+  49145: <Trans i18nKey="adminServiceError.49145">Pass does not exist</Trans>,
 };
