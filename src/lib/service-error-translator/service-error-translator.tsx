@@ -38,14 +38,17 @@ export const ServiceErrorTranslator = (props: ServiceErrorProps) => {
   return null;
 };
 
-export const Withi18nProvider = ({ children, lang }: { children: React.ReactNode, lang?: string }) => {
+export const Withi18nProvider = ({ children, lang }: { children: React.ReactNode; lang?: string }) => {
   i18nInstance.changeLanguage(lang || getLocalStorageLanguage());
   return <I18nextProvider i18n={i18nInstance}>{children}</I18nextProvider>;
 };
 
-export const translateServiceError = (errorCode: number, lang?: string) => {
+export const translateServiceError = (errorCode: number, lang?: string, defaultMessage?: React.ReactNode) => {
   if (isValidServiceError(errorCode) && errorCode in serviceErrorTranslationMap) {
     return <Withi18nProvider lang={lang}>{serviceErrorTranslationMap[errorCode]}</Withi18nProvider>;
+  }
+  if (!!defaultMessage) {
+    return defaultMessage;
   }
   return (
     <Withi18nProvider lang={lang}>
@@ -54,9 +57,12 @@ export const translateServiceError = (errorCode: number, lang?: string) => {
   );
 };
 
-export const translateServiceErrorForAdmin = (errorCode: number, lang?: string) => {
+export const translateServiceErrorForAdmin = (errorCode: number, lang?: string, defaultMessage?: React.ReactNode) => {
   if (isValidServiceError(errorCode) && errorCode in adminServiceErrorTranslationMap) {
     return <Withi18nProvider lang={lang}>{adminServiceErrorTranslationMap[errorCode]}</Withi18nProvider>;
+  }
+  if (!!defaultMessage) {
+    return defaultMessage;
   }
   return (
     <Withi18nProvider lang={lang}>
