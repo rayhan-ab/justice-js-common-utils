@@ -11,8 +11,12 @@ import { CommonValidationErrorType } from "./constant/errorType";
 export const ValidateNotEmptyErrorType = Enum(CommonValidationErrorType.empty);
 export type ValidateNotEmptyErrorType = Enum<typeof ValidateNotEmptyErrorType>;
 
-export const validateNotEmpty = (value: string) => {
-  if (isEmpty(value)) {
+interface Options {
+  ignore_whitespace: boolean;
+}
+
+export const validateNotEmpty = (value: string, options?: Options) => {
+  if (isEmpty(value, options)) {
     return ValidateNotEmptyErrorType.empty;
   }
   return null;

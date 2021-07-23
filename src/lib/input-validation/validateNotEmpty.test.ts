@@ -22,4 +22,10 @@ describe("validateNotEmpty returns correct output", () => {
     expect(mockValidateNotEmpty).toHaveBeenCalledTimes(1);
     expect(mockValidateNotEmpty).toHaveReturnedWith(ValidateNotEmptyErrorType.empty);
   });
+
+  it("returns empty error string when given space", () => {
+    mockValidateNotEmpty(" ", { ignore_whitespace: true });
+    expect(mockValidateNotEmpty).toHaveBeenCalledTimes(1);
+    expect(mockValidateNotEmpty).toHaveReturnedWith(ValidateNotEmptyErrorType.empty);
+  });
 });
