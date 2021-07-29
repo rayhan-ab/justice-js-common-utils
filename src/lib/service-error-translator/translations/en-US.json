@@ -51,6 +51,7 @@
   "adminServiceError.20017": "The user must be linked to the item's namespace before entitled to the selected item",
   "adminServiceError.20019": "Something went wrong. Please contact Administrator.",
   "adminServiceError.20022": "Something went wrong. You've sent an invalid request.",
+  "adminServiceError.30141": "The draft store does not exist or deleted in namespace",
   "adminServiceError.30142": "Published store does not exist in namespace",
   "adminServiceError.30326": "Subscription item cannot be bundled",
   "adminServiceError.30327": "Invalid item trial price",
