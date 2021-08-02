@@ -51,7 +51,7 @@
   "adminServiceError.20017": "用户必须先链接到项目的命名空间，然后才能获得所选项目的权限",
   "adminServiceError.20019": "出了些问题。请与管理员联系。",
   "adminServiceError.20022": "出了些问题。你发送一个无效的请求。",
-  "adminServiceError.30141": "该草稿商店不存在或已被删除于当前命名空间中",
+  "adminServiceError.30141": "该草稿商店不存在或已删除于当前命名空间。",
   "adminServiceError.30142": "在该命名空间中不存在已发布的商店。",
   "adminServiceError.30326": "订阅项目不能捆绑",
   "adminServiceError.30327": "无效的商品试用价",
