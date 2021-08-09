@@ -40,4 +40,10 @@ describe("validateJSON returns correct output", () => {
     expect(mockValidateJSON).toHaveBeenCalledTimes(1);
     expect(mockValidateJSON).toHaveReturnedWith(null);
   });
+
+  it("return error invalid format when given number string input", () => {
+    mockValidateJSON("123123");
+    expect(mockValidateJSON).toHaveBeenCalledTimes(1);
+    expect(mockValidateJSON).toHaveReturnedWith(ValidateJSONErrorType.invalidFormat);
+  });
 });

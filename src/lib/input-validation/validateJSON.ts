@@ -13,9 +13,10 @@ export type ValidateJSONErrorType = Enum<typeof ValidateJSONErrorType>;
 
 export interface ValidateJSONOption {
   isRequired?: boolean;
+  isObject?: boolean;
 }
 
-export const validateJSON = (value: string, { isRequired = true }: ValidateJSONOption = {}) => {
+export const validateJSON = (value: string, { isRequired = true, isObject = true }: ValidateJSONOption = {}) => {
   if (isEmpty(value)) {
     if (!isRequired) {
       return null;
@@ -24,7 +25,10 @@ export const validateJSON = (value: string, { isRequired = true }: ValidateJSONO
   }
 
   try {
-    JSON.parse(value);
+    const parsedJSON = JSON.parse(value);
+    if (isObject && typeof parsedJSON !== "object") {
+      return ValidateJSONErrorType.invalidFormat;
+    }
     return null;
   } catch (e) {
     return ValidateJSONErrorType.invalidFormat;
