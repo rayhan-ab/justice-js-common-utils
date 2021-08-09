@@ -40,5 +40,6 @@ export * from "./validateBase64";
 export * from "./validateLegalDocumentName";
 export * from "./validateFile";
 export * from "./validateRegex";
+export * from "./validateJSON";
 export * from "./constant/errorType";
 export * from "./constant/numbers";
