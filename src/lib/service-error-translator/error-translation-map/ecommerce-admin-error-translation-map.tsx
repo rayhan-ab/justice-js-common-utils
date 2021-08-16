@@ -11,6 +11,7 @@ export const EcommerceAdminErrorTranslationMap: { [key: string]: React.ReactNode
   30141: <Trans i18nKey="adminServiceError.30141">The draft store does not exist or deleted in namespace</Trans>,
   30326: <Trans i18nKey="adminServiceError.30326">Subscription item cannot be bundled</Trans>,
   30327: <Trans i18nKey="adminServiceError.30327">Invalid item trial price</Trans>,
+  30374: <Trans i18nKey="adminServiceError.30374">SKU already exist. Please try again.</Trans>,
   31178: <Trans i18nKey="adminServiceError.31178">Entitlement out of time range</Trans>,
   33271: (
     <Trans i18nKey="adminServiceError.33271">
