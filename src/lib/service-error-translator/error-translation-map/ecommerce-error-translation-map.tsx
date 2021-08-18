@@ -14,6 +14,11 @@ export const EcommerceErrorTranslationMap: { [key: string]: React.ReactNode } = 
       Draft Store should have the same Default Language, Default Region and Namespace with the Published Store.
     </Trans>
   ),
+  30171: (
+    <Trans i18nKey="serviceError.30171">
+      Draft Store should have the same Default Language, Default Region and Namespace with the Published Store.
+    </Trans>
+  ),
   35121: (
     <Trans i18nKey="serviceError.35121">The maximum amount per day has been exceeded.</Trans>
   ),
