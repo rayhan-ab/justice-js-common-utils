@@ -9,14 +9,24 @@ import { Trans } from "react-i18next";
 
 export const EcommerceErrorTranslationMap: { [key: string]: React.ReactNode } = {
   38171: <Trans i18nKey="serviceError.38171">Sorry, you already own this item</Trans>,
+  30121: (
+    <Trans i18nKey="serviceError.30121">
+      Failed to import store. Imported file is invalid. Please try again.
+    </Trans>
+  ),
   30122: (
     <Trans i18nKey="serviceError.30122">
-      Draft Store should have the same Default Language, Default Region and Namespace with the Published Store.
+      Failed to publish store. Language/Region does not match. Please try again.
     </Trans>
   ),
   30171: (
     <Trans i18nKey="serviceError.30171">
-      Draft Store should have the same Default Language, Default Region and Namespace with the Published Store.
+      Failed to update store. Language/Region does not match. Please try again.
+    </Trans>
+  ),
+  30172: (
+    <Trans i18nKey="serviceError.30172">
+      Failed to update store. Language/Region does not match. Please try again.
     </Trans>
   ),
   35121: (
