@@ -91,6 +91,7 @@
   "adminServiceError.70335": "User statistic item does not exist",
   "adminServiceError.70336": "User statistic item already exist",
   "adminServiceError.70337": "You've reached the max value for statistic",
+  "adminServiceError.84103": "Reason group name already exists. Please try another one",
   "adminServiceError.771403": "Tag Name already exists. Please try another one",
   "adminServiceError.771703": "Type Name already exists. Please try another one",
   "adminServiceError.771904": "Type name already exists. Please try another one",

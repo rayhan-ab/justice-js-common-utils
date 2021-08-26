@@ -16,6 +16,8 @@ import { IAMErrorTranslationMap } from "./error-translation-map/iam-error-transl
 import { LegalAdminErrorTranslationMap } from "./error-translation-map/legal-admin-error-translation-map";
 // tslint:disable-next-line:max-line-length
 import { LobbyAndMatchmakingAdminErrorTranslationMap } from "./error-translation-map/lobby-and-matchmaking-admin-error-translation-map";
+// tslint:disable-next-line:max-line-length
+import { ReportingModerationAdminErrorTranslationMap } from "./error-translation-map/reportingmoderation-admin-error-translation-map";
 import { RewardsAdminErrorTranslationMap } from "./error-translation-map/rewards-admin-error-translation-map";
 import { SeasonPassAdminErrorTranslationMap } from "./error-translation-map/seasonpass-admin-error-translation-map";
 import { StatisticAdminErrorTranslationMap } from "./error-translation-map/statistic-admin-error-translation-map";
@@ -86,6 +88,7 @@ const adminServiceErrorTranslationMap: { [key: string]: React.ReactNode } = Obje
   ...EcommerceAdminErrorTranslationMap,
   ...LegalAdminErrorTranslationMap,
   ...LobbyAndMatchmakingAdminErrorTranslationMap,
+  ...ReportingModerationAdminErrorTranslationMap,
   ...RewardsAdminErrorTranslationMap,
   ...UgcAdminErrorTranslationMap,
   ...SeasonPassAdminErrorTranslationMap,
