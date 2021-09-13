@@ -96,6 +96,7 @@
   "adminServiceError.771703": "Type Name already exists. Please try another one",
   "adminServiceError.771904": "Type name already exists. Please try another one",
   "adminServiceError.772804": "Tag Name already exists. Please try another one",
+  "adminServiceError.11014045": "Failed to export Logs. No log found.",
   "serviceError.10130": "Sorry, we are unable to process this request",
   "serviceError.10133": "Sorry, you must enter a new email address",
   "serviceError.10136": "Sorry, you've entered the codes incorrectly too many times. Please request a new one",

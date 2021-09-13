@@ -6,6 +6,7 @@
 
 import * as React from "react";
 import { I18nextProvider, Trans } from "react-i18next";
+import { AugmentsAdminErrorTranslationMap } from "./error-translation-map/augments-admin-error-translation-map";
 import { BasicAdminErrorTranslationMap } from "./error-translation-map/basic-admin-error-translation-map";
 import { BasicErrorTranslationMap } from "./error-translation-map/basic-error-translation-map";
 import { EcommerceAdminErrorTranslationMap } from "./error-translation-map/ecommerce-admin-error-translation-map";
@@ -92,4 +93,5 @@ const adminServiceErrorTranslationMap: { [key: string]: React.ReactNode } = Obje
   ...RewardsAdminErrorTranslationMap,
   ...UgcAdminErrorTranslationMap,
   ...SeasonPassAdminErrorTranslationMap,
+  ...AugmentsAdminErrorTranslationMap,
 });
