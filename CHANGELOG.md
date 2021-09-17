@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [1.21.2]
+### Added
+- Added Service Error Translation for Matchmaking Ruleset duplicate channel name
+
 ## [1.21.1]
 ### Added
 - Add augments admin service error
