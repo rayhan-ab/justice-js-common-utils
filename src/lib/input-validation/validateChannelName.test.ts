@@ -52,19 +52,6 @@ describe("validateChannelName returns correct output", () => {
     expect(mockValidateChannelName).toHaveBeenCalledTimes(1);
     expect(mockValidateChannelName).toHaveReturnedWith(null);
   });
-
-  it("returns error string `invalidFormat` when given uppercase alphabets without channel name separators", () => {
-    mockValidateChannelName("ABC");
-    expect(mockValidateChannelName).toHaveBeenCalledTimes(1);
-    expect(mockValidateChannelName).toHaveReturnedWith(ValidateChannelNameErrorType.invalidFormat);
-  });
-  // tslint:disable-next-line
-  it("returns error string `invalidFormat` when given lowercase & uppercase alphabets with channel name separator", () => {
-    mockValidateChannelName("abc-ABC");
-    expect(mockValidateChannelName).toHaveBeenCalledTimes(1);
-    expect(mockValidateChannelName).toHaveReturnedWith(ValidateChannelNameErrorType.invalidFormat);
-  });
-
   it("returns error string `empty` when given empty string", () => {
     mockValidateChannelName("");
     expect(mockValidateChannelName).toHaveBeenCalledTimes(1);
@@ -108,5 +95,20 @@ describe("validateChannelName returns correct output", () => {
     mockValidateChannelName("accelbyteaccelbyteaccelbyteaccelbyteaccelbyteaccelbyteaccelbytes ");
     expect(mockValidateChannelName).toHaveBeenCalledTimes(1);
     expect(mockValidateChannelName).toHaveReturnedWith(ValidateChannelNameErrorType.exceedLengthLimit);
+  });
+  it("return error string `invalidFormat` when given combination betwen underscore and dash only", () => {
+    mockValidateChannelName("-_");
+    expect(mockValidateChannelName).toHaveBeenCalledTimes(1);
+    expect(mockValidateChannelName).toHaveReturnedWith(ValidateChannelNameErrorType.invalidFormat);
+  });
+  it("return empty error string when given channel name with underscore", () => {
+    mockValidateChannelName("unranked_game_name");
+    expect(mockValidateChannelName).toHaveBeenCalledTimes(1);
+    expect(mockValidateChannelName).toHaveReturnedWith(null);
+  });
+  it("return empty error string when given channel name with underscore and uppercase", () => {
+    mockValidateChannelName("UNRANKED_GAME_NAME");
+    expect(mockValidateChannelName).toHaveBeenCalledTimes(1);
+    expect(mockValidateChannelName).toHaveReturnedWith(null);
   });
 });
