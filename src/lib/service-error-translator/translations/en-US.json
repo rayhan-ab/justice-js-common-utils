@@ -41,6 +41,7 @@
   "adminServiceError.11403": "Game mode already exists. Please try another one",
   "adminServiceError.11440": "User profile does not exist",
   "adminServiceError.11540": "User profile does not exist",
+  "adminServiceError.11621": "API Key is invalid. Please try again with the correct one.",
   "adminServiceError.20000": "Something went wrong. Please contact Administrator.",
   "adminServiceError.20001": "Sorry, you are not authorized for selected action",
   "adminServiceError.20002": "Please correct the errors in the form to proceed",

@@ -42,6 +42,7 @@ export const IAMAdminErrorTranslationMap: { [key: string]: React.ReactNode } = {
   10469: <Trans i18nKey="adminServiceError.10469">User already registered as role member</Trans>,
   10148: <Trans i18nKey="adminServiceError.10148">Something went wrong. Please contact Administrator.</Trans>,
   10149: <Trans i18nKey="adminServiceError.10149">Something went wrong. Please contact Administrator.</Trans>,
+  11621: <Trans i18nKey="adminServiceError.11621">API Key is invalid. Please try again with the correct one.</Trans>,
 
   // still orange in sheet, undecided
   10146: <Trans i18nKey="adminServiceError.10146">user id not match</Trans>,

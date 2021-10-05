@@ -41,6 +41,7 @@
   "adminServiceError.11403": "游戏模式已经存在。 请尝试另一个",
   "adminServiceError.11440": "用户配置文件不存在",
   "adminServiceError.11540": "用户配置文件不存在",
+  "adminServiceError.11621": "API 密钥无效。 请使用正确的方法重试。",
   "adminServiceError.20000": "出了些问题。请与管理员联系。",
   "adminServiceError.20001": "很抱歉，您不授权选定操作",
   "adminServiceError.20002": "请更正表格中的错误进行",
