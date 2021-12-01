@@ -11,6 +11,7 @@ export * from "./validateAlphanumeric";
 export * from "./validateComplexPassword";
 export * from "./validateCpuSize";
 export * from "./validateCpuSizeNonNomad";
+export * from "./validateDatabaseName";
 export * from "./validateDisplayName";
 export * from "./validateDockerImage";
 export * from "./validateChannelName";
