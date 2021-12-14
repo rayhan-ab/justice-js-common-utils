@@ -23,7 +23,7 @@ export interface ValidateDomainOptions {
 export const validateDomain = (
   value: string,
   { maxLength = 63, isRequired = true }: ValidateDomainOptions = {}) => {
-  const REGEX = "^\w[\w.-]+\w$";
+  const REGEX = "^\\w[\\w.-]+\\w$";
   if (isEmpty(value)) {
     if (!isRequired) {
       return null;
