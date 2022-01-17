@@ -4,7 +4,7 @@
  * and restrictions contact your company contract manager.
  */
 
-import {validateDatabaseName, ValidateDatabaseNameErrorType} from "./validateDatabaseName";
+import { validateDatabaseName, ValidateDatabaseNameErrorType } from "./validateDatabaseName";
 
 const mockValidateDatabaseName = jest.fn(validateDatabaseName);
 afterEach(mockValidateDatabaseName.mockClear);
@@ -21,7 +21,7 @@ describe("validateDatabaseName return correct output", () => {
     mockValidateDatabaseName("");
     expect(mockValidateDatabaseName).toHaveBeenCalledTimes(1);
     expect(mockValidateDatabaseName).toHaveReturnedWith(ValidateDatabaseNameErrorType.empty);
-  })
+  });
   it("returns empty error string when given alpha with length of 1", () => {
     mockValidateDatabaseName("a");
     expect(mockValidateDatabaseName).toHaveBeenCalledTimes(1);
