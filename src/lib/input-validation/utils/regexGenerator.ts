@@ -31,7 +31,7 @@ export const DEFAULT_USERNAME_RULE = {
   allowSpace: false,
   isCustomRegex: false,
   specialCharacters: ["_", "-"],
-}
+};
 export const DEFAULT_DISPLAYNAME_RULE = {
   regex: "()",
   maxRepeatingAlphaNum: 0,
@@ -45,7 +45,7 @@ export const DEFAULT_DISPLAYNAME_RULE = {
   allowSpace: true,
   isCustomRegex: false,
   specialCharacters: ["'", ",", ".", "-"],
-}
+};
 export const DEFAULT_PASSWORD_RULE = {
   regex: "()",
   maxRepeatingAlphaNum: 2,
@@ -73,7 +73,7 @@ export const DEFAULT_PASSWORD_RULE = {
     "+",
     "#",
     ".",
-    "\"",
+    '"',
     "&",
     "§",
     "%",
@@ -89,7 +89,7 @@ export const DEFAULT_PASSWORD_RULE = {
     "\\@",
     "\\/",
   ],
-}
+};
 
 export interface RegexGeneratorParam {
   regex: string;
@@ -218,7 +218,7 @@ export const generatePattern = ({
       allowedChars += `${createCapturingGroup(allowedSpecialChars)}?`;
       allowedChars += `${allowedCharacterString}+|${allowedCharacterString}`;
     } else {
-      allowedChars += allowedSpecialChars
+      allowedChars += allowedSpecialChars;
     }
   }
 

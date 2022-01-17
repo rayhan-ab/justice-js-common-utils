@@ -9,21 +9,22 @@ import { Enum, ExtendEnum } from "../../types/types";
 import { CommonValidationErrorType } from "./constant/errorType";
 import { validateLength, ValidateLengthErrorType } from "./validateLength";
 
-export const ValidateDomainErrorType = ExtendEnum(
-  ValidateLengthErrorType,
-  CommonValidationErrorType.invalidFormat
-);
+export const ValidateDomainErrorType = ExtendEnum(ValidateLengthErrorType, CommonValidationErrorType.invalidFormat);
 export type ValidateDomainErrorType = Enum<typeof ValidateDomainErrorType>;
 
 export interface ValidateDomainOptions {
   maxLength?: number;
   isRequired?: boolean;
+  isSubdomainOnly?: boolean;
 }
 
 export const validateDomain = (
   value: string,
-  { maxLength = 63, isRequired = true }: ValidateDomainOptions = {}) => {
-  const REGEX = "^\\w[\\w.-]+\\w$";
+  { maxLength = 63, isRequired = true, isSubdomainOnly = true }: ValidateDomainOptions = {}
+) => {
+  const REGEX = isSubdomainOnly
+    ? "^\\w[\\w.-]+\\w$"
+    : "^\\b((?=[a-z0-9-]{1,63}\\.)[a-z0-9]+(-[a-z0-9]+)*\\.)+[a-z]{2,63}\\b$";
   if (isEmpty(value)) {
     if (!isRequired) {
       return null;
