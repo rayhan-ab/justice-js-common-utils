@@ -35,5 +35,5 @@ export const validateDatabaseName = (
   if (!matches(value, REGEX)) {
     return ValidateDatabaseNameErrorType.invalidFormat;
   }
-  return validateLength(value, { max: maxLength })
+  return validateLength(value, { max: maxLength });
 };

@@ -42,7 +42,8 @@ describe("validateDomain returns correct output", () => {
       mockValidateDomain("-alpha123");
       expect(mockValidateDomain).toHaveBeenCalledTimes(1);
       expect(mockValidateDomain).toHaveReturnedWith(ValidateDomainErrorType.invalidFormat);
-  });
+    }
+  );
 
   it(
     "returns error string `invalid format` when it contains valid regex alphanumeric with" +
@@ -51,6 +52,31 @@ describe("validateDomain returns correct output", () => {
       mockValidateDomain("alpha123-");
       expect(mockValidateDomain).toHaveBeenCalledTimes(1);
       expect(mockValidateDomain).toHaveReturnedWith(ValidateDomainErrorType.invalidFormat);
+    }
+  );
+
+  it("returns no error when given a valid full domain", () => {
+    mockValidateDomain("dev.accelbyte.io", { isFullDomain: true });
+    expect(mockValidateDomain).toHaveBeenCalledTimes(1);
+    expect(mockValidateDomain).toHaveReturnedWith(null);
   });
 
+  it("returns no error when given a valid full domain with dash", () => {
+    mockValidateDomain("dev-iac.accelbyte.io", { isFullDomain: true });
+    expect(mockValidateDomain).toHaveBeenCalledTimes(1);
+    expect(mockValidateDomain).toHaveReturnedWith(null);
+  });
+
+  it("returns error string `invalid format` when given subdomain only while `isFullDomain` is true", () => {
+    mockValidateDomain("dev", { isFullDomain: true });
+    expect(mockValidateDomain).toHaveBeenCalledTimes(1);
+    expect(mockValidateDomain).toHaveReturnedWith(ValidateDomainErrorType.invalidFormat);
+  });
+
+  // tslint:disable-next-line
+  it("returns error string `invalid format` when given full domain with invalid an special character while `isFullDomain` is true", () => {
+    mockValidateDomain("dev=iac.accelbyte.io", { isFullDomain: true });
+    expect(mockValidateDomain).toHaveBeenCalledTimes(1);
+    expect(mockValidateDomain).toHaveReturnedWith(ValidateDomainErrorType.invalidFormat);
+  });
 });
