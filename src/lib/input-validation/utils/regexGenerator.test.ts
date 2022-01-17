@@ -7,7 +7,8 @@
 import { validateRegex, ValidateRegexErrorType } from "../validateRegex";
 import {
   DEFAULT_DISPLAYNAME_RULE,
-  DEFAULT_PASSWORD_RULE, DEFAULT_USERNAME_RULE,
+  DEFAULT_PASSWORD_RULE,
+  DEFAULT_USERNAME_RULE,
   generatePattern,
 } from "./regexGenerator";
 

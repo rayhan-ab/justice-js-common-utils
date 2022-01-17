@@ -13,7 +13,7 @@ export const ValidateRegexErrorType = Enum(CommonValidationErrorType.invalidForm
 export type ValidateRegexErrorType = Enum<typeof ValidateRegexErrorType>;
 
 export interface ValidateRegexOptions {
-  allowUnicode?: boolean
+  allowUnicode?: boolean;
 }
 
 export const validateRegex = (value: string, regex: string, { allowUnicode = false }: ValidateRegexOptions = {}) => {
