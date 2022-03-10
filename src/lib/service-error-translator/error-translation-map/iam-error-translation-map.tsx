@@ -67,6 +67,8 @@ export const IAMErrorTranslationMap: { [key: string]: React.ReactNode } = {
     </Trans>
   ),
   10190: (
-    <Trans i18nKey="serviceError.10190">Sorry, the authentication code you entered is expired. Please try again.</Trans>
+    <Trans i18nKey="serviceError.10190">
+      QR Code expired. Please reload the page and repeat the process to enable the authenticator app.
+    </Trans>
   ),
 };

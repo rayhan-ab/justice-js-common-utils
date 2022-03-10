@@ -24,7 +24,11 @@ export const IAMAdminErrorTranslationMap: { [key: string]: React.ReactNode } = {
   10152: <Trans i18nKey="adminServiceError.10152">Something went wrong. Please contact Administrator.</Trans>,
   10137: <Trans i18nKey="adminServiceError.10137">Verification code is expired</Trans>,
   // tslint:disable-next-line:max-line-length
-  10136: <Trans i18nKey="adminServiceError.10136">Sorry, you've entered the codes incorrectly too many times. Please request a new one</Trans>,
+  10136: (
+    <Trans i18nKey="adminServiceError.10136">
+      Sorry, you've entered the codes incorrectly too many times. Please request a new one
+    </Trans>
+  ),
   10138: <Trans i18nKey="adminServiceError.10138">Verification code does not match</Trans>,
   10170: <Trans i18nKey="adminServiceError.10170">User already has platform account</Trans>,
   10140: <Trans i18nKey="adminServiceError.10140">User is already verified</Trans>,
@@ -32,7 +36,11 @@ export const IAMAdminErrorTranslationMap: { [key: string]: React.ReactNode } = {
   10171: <Trans i18nKey="adminServiceError.10171">Email address is not registered</Trans>,
   10177: <Trans i18nKey="adminServiceError.10177">Username is already taken. Please try something different.</Trans>,
   // tslint:disable-next-line:max-line-length
-  10190: <Trans i18nKey="adminServiceError.10190">Sorry, the authentication code you entered is expired. Please try again.</Trans>,
+  10190: (
+    <Trans i18nKey="adminServiceError.10190">
+      QR Code expired. Please reload the page and repeat the process to enable the authenticator app.
+    </Trans>
+  ),
   20007: <Trans i18nKey="adminServiceError.20007">You have requested too many codes. Please try again later.</Trans>,
   10365: <Trans i18nKey="adminServiceError.10365">Client does not exist</Trans>,
   10364: <Trans i18nKey="adminServiceError.10364">Client already exists</Trans>,
