@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019. AccelByte Inc. All Rights Reserved
+ * Copyright (c) 2019-2022. AccelByte Inc. All Rights Reserved
  * This is licensed software from AccelByte Inc, for limitations
  * and restrictions contact your company contract manager.
  */
@@ -14,11 +14,12 @@ export type ValidateTagErrorType = Enum<typeof ValidateTagErrorType>;
 
 export interface ValidateTagOptions {
   isRequired?: boolean;
+  allowNumber?: boolean;
 }
 
-export const validateTag = (value: string, { isRequired = true }: ValidateTagOptions = {}) => {
+export const validateTag = (value: string, { isRequired = true, allowNumber = false }: ValidateTagOptions = {}) => {
   const MAXIMUM_TAG_LENGTH = 30;
-  const REGEX = "^[a-zA-Z]+([_:-]{1}[a-zA-Z]+)*$";
+  const REGEX = allowNumber ? "^[a-zA-Z0-9]+([_:-]{1}[a-zA-Z0-9]+)*$" : "^[a-zA-Z]+([_:-]{1}[a-zA-Z]+)*$";
   if (isEmpty(value)) {
     if (!isRequired) {
       return null;

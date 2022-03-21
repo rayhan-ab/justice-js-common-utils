@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019. AccelByte Inc. All Rights Reserved
+ * Copyright (c) 2019-2022. AccelByte Inc. All Rights Reserved
  * This is licensed software from AccelByte Inc, for limitations
  * and restrictions contact your company contract manager.
  */
@@ -85,6 +85,18 @@ describe("validateTag returns correct output", () => {
   // tslint:disable-next-line
   it("returns error string `invalidFormat` when given numeric and lowercase alphabet that is separated with invalid separator `$`", () => {
     mockValidateTag("123$abc");
+    expect(mockValidateTag).toHaveBeenCalledTimes(1);
+    expect(mockValidateTag).toHaveReturnedWith(ValidateTagErrorType.invalidFormat);
+  });
+  // tslint:disable-next-line
+  it("returns empty error string when given valid input with number when `allowNumber` is true", () => {
+    mockValidateTag("12abc3", { allowNumber: true });
+    expect(mockValidateTag).toHaveBeenCalledTimes(1);
+    expect(mockValidateTag).toHaveReturnedWith(null);
+  });
+  // tslint:disable-next-line
+  it("returns error string `invalidFormat` when given valid input with number when `allowNumber` is true and an invalid separator `$`", () => {
+    mockValidateTag("12abc$3", { allowNumber: true });
     expect(mockValidateTag).toHaveBeenCalledTimes(1);
     expect(mockValidateTag).toHaveReturnedWith(ValidateTagErrorType.invalidFormat);
   });
