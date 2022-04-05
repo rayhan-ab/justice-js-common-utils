@@ -18,6 +18,7 @@ export const EcommerceAdminErrorTranslationMap: { [key: string]: React.ReactNode
       Payment configuration for the selected namespace and region already exists.
     </Trans>
   ),
+  37171: <Trans i18nKey="adminServiceError.37171">Code Redemption Name already exists. Try again.</Trans>,
   37271: <Trans i18nKey="adminServiceError.37271">Key Group Name is already exists.</Trans>,
   37221: (
     <Trans i18nKey="adminServiceError.37221">
