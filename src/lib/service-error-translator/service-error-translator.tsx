@@ -4,6 +4,8 @@
  * and restrictions contact your company contract manager.
  */
 
+import { flatten } from "flat";
+import { ResourceKey } from "i18next";
 import * as React from "react";
 import { I18nextProvider, Trans } from "react-i18next";
 import { AugmentsAdminErrorTranslationMap } from "./error-translation-map/augments-admin-error-translation-map";
@@ -29,6 +31,17 @@ interface ServiceErrorProps {
   errorCode: number;
 }
 
+export const serviceErrorI18nInstance = i18nInstance
+
+export const addI18nResourceServiceError = (
+  languageCode: string,
+  resource: ResourceKey,
+  deep?: boolean,
+  overwrite?: boolean
+  ) => {
+  i18nInstance.addResourceBundle(languageCode, "translation", flatten.unflatten(resource), deep, overwrite)
+}
+
 // tslint:disable-next-line no-any
 const isValidServiceError = (errorCode: number): errorCode is number => {
   return typeof errorCode === "number";
@@ -42,7 +55,7 @@ export const ServiceErrorTranslator = (props: ServiceErrorProps) => {
 };
 
 export const Withi18nProvider = ({ children, lang }: { children: React.ReactNode; lang?: string }) => {
-  i18nInstance.changeLanguage(lang || getLocalStorageLanguage());
+  i18nInstance.changeLanguage(lang || getLocalStorageLanguage(i18nInstance));
   return <I18nextProvider i18n={i18nInstance}>{children}</I18nextProvider>;
 };
 

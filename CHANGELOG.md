@@ -5,6 +5,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [1.28.0]
+## Added
+- Add `serviceErrorI18nInstance`
+- Add helper function `addI18nResourceServiceError` to allow language translation injection from external source
+
 ## [1.27.1]
 ### Added
 - Error translation for code `37171`
@@ -47,7 +52,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [1.24.1]
 ### Fixed
 - Fixed `validateDomain` regex constructor need to be double escaped
-  otherwise it will be parsed as literal character 
+  otherwise it will be parsed as literal character
 
 ## [1.24.0]
 ### Fixed

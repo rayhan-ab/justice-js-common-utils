@@ -5,7 +5,7 @@
  */
 
 import flatten from "flat";
-import i18next, { Resource } from "i18next";
+import i18next, { i18n, Resource } from "i18next";
 import { initReactI18next } from "react-i18next";
 import config from "./config.json";
 import enUS from "./translations/en-US.json";
@@ -38,11 +38,15 @@ const translationResource = availableLanguageCodes.reduce((resources: Resource, 
   return resources;
 }, {});
 
-export function getLocalStorageLanguage(): string {
+export function getLocalStorageLanguage(instance?: i18n): string {
   if (isOnBrowser()) {
     const currentLanguageCode = localStorage.getItem(languageLocalStorageKey);
-    if (currentLanguageCode && availableLanguageCodes.includes(currentLanguageCode)) {
-      return currentLanguageCode;
+    if (currentLanguageCode) {
+      const hasResource = instance && instance.hasResourceBundle(currentLanguageCode, "translation");
+      const isAvailable = availableLanguageCodes.includes(currentLanguageCode);
+      if (hasResource || isAvailable) {
+        return currentLanguageCode;
+      }
     }
   }
   return config.defaultLanguage;
