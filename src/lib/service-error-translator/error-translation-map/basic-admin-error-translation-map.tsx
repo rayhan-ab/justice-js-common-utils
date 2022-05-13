@@ -12,6 +12,7 @@ export const BasicAdminErrorTranslationMap: { [key: string]: React.ReactNode } =
   11233: <Trans i18nKey="adminServiceError.11233">Region does not exist</Trans>,
   11337: <Trans i18nKey="adminServiceError.11337">Namespace does not exist</Trans>,
   11440: <Trans i18nKey="adminServiceError.11440">User profile does not exist</Trans>,
+  11469: <Trans i18nKey="adminServiceError.11469">User does not exist</Trans>,
   11540: <Trans i18nKey="adminServiceError.11540">User profile does not exist</Trans>,
   11132: <Trans i18nKey="adminServiceError.11132">You've reached the maximum upload limit.</Trans>,
   11235: <Trans i18nKey="adminServiceError.11235">Region already exists</Trans>,
@@ -33,5 +34,5 @@ export const BasicAdminErrorTranslationMap: { [key: string]: React.ReactNode } =
     <Trans i18nKey="adminServiceError.20017">
       The user must be linked to the item's namespace before entitled to the selected item
     </Trans>
-  )
+  ),
 };
