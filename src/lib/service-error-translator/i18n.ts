@@ -8,7 +8,12 @@ import flatten from "flat";
 import i18next, { i18n, Resource } from "i18next";
 import { initReactI18next } from "react-i18next";
 import config from "./config.json";
+import deDE from "./translations/de-DE.json";
 import enUS from "./translations/en-US.json";
+import esES from "./translations/es-ES.json";
+import frFR from "./translations/fr-FR.json";
+import itIT from "./translations/it-IT.json";
+import jaJP from "./translations/ja-JP.json";
 import zhCN from "./translations/zh-CN.json";
 
 function isOnBrowser() {
@@ -25,6 +30,11 @@ function isOnBrowser() {
 
 const loadedLanguages: { [key: string]: { [key: string]: string } } = {
   "en-US": enUS,
+  "fr-FR": frFR,
+  "it-IT": itIT,
+  "de-DE": deDE,
+  "es-ES": esES,
+  "ja-JP": jaJP,
   "zh-CN": zhCN,
 };
 const languageLocalStorageKey = "i18nextLng";
