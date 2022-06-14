@@ -14,9 +14,10 @@ export type ValidatePathErrorType = Enum<typeof ValidatePathErrorType>;
 
 export interface ValidatePathSizeOptions {
   isRequired?: boolean;
+  maxLength?: number;
 }
 
-export const validatePath = (value: string, { isRequired = true }: ValidatePathSizeOptions = {}) => {
+export const validatePath = (value: string, { isRequired = true, maxLength }: ValidatePathSizeOptions = {}) => {
   const REGEX = "^(\\/[a-zA-Z0-9_-]+)+$";
   if (isEmpty(value)) {
     if (!isRequired) {
@@ -27,5 +28,5 @@ export const validatePath = (value: string, { isRequired = true }: ValidatePathS
   if (!matches(value, REGEX)) {
     return ValidatePathErrorType.invalidFormat;
   }
-  return validateLength(value);
+  return validateLength(value, { max: maxLength });
 };

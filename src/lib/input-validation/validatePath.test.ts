@@ -76,6 +76,19 @@ describe("validatePath returns correct output", () => {
     expect(mockValidatePath).toHaveReturnedWith(ValidatePathErrorType.invalidFormat);
   });
 
+  it("returns error string containing exceedLengthLimit when given alphanumeric with length of 64", () => {
+    mockValidatePath(
+      "/abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyza" +
+      "bcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghij" +
+      "klmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcde",
+      {
+        maxLength: 64
+      }
+    );
+    expect(mockValidatePath).toHaveBeenCalledTimes(1);
+    expect(mockValidatePath).toHaveReturnedWith(ValidatePathErrorType.exceedLengthLimit);
+  });
+
   it("returns error string containing exceedLengthLimit when given alphanumeric with length of 257", () => {
     mockValidatePath(
       "/abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyza" +
