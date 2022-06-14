@@ -139,7 +139,7 @@
   "serviceError.20019": "Something went wrong. For more information please contact our support team",
   "serviceError.20022": "Something went wrong. For more information please contact our support team",
   "serviceError.30121": "Failed to import store. Imported file is invalid. Please try again.",
-  "serviceError.30122": "Failed to publish store. Language/Region does not match. Please try again.",
+  "serviceError.30122": "Failed to import store. Language, Region, or Namespace does not match. Please try again.",
   "serviceError.30171": "Failed to update store. Language/Region does not match. Please try again.",
   "serviceError.30172": "Failed to update store. Language/Region does not match. Please try again.",
   "serviceError.31177": "You cannot make this purchase because it includes one or more items you already own.",
