@@ -79,10 +79,10 @@ describe("validatePath returns correct output", () => {
   it("returns error string containing exceedLengthLimit when given alphanumeric with length of 64", () => {
     mockValidatePath(
       "/abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyza" +
-      "bcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghij" +
-      "klmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcde",
+        "bcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghij" +
+        "klmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcde",
       {
-        maxLength: 64
+        maxLength: 64,
       }
     );
     expect(mockValidatePath).toHaveBeenCalledTimes(1);
