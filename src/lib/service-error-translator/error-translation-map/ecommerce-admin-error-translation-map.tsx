@@ -8,9 +8,19 @@ import * as React from "react";
 import { Trans } from "react-i18next";
 
 export const EcommerceAdminErrorTranslationMap: { [key: string]: React.ReactNode } = {
+  30071: (
+    <Trans i18nKey="adminServiceError.30071">
+      This item cannot be deselected while the associated bundle is still selected
+    </Trans>
+  ),
   30072: (
     <Trans i18nKey="adminServiceError.30072">
       This category cannot be deselected while there are still items selected within it.
+    </Trans>
+  ),
+  30074: (
+    <Trans i18nKey="adminServiceError.30074">
+      This item cannot be deselected while the associated subscription is still selected
     </Trans>
   ),
   30141: <Trans i18nKey="adminServiceError.30141">The draft store does not exist or deleted in namespace</Trans>,
