@@ -5,13 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [1.31.0]
+## Added
+- Extension permission guard utils
+
 ## [1.30.2]
 ## Added
-- Error translation for `30071` and `30074` 
+- Error translation for `30071` and `30074`
 
 ## [1.30.1]
 ## Added
-- Error translation for `30072` 
+- Error translation for `30072`
 
 ## [1.30.0]
 ## Added
@@ -23,7 +27,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [1.28.1]
 ## Added
-- Error translation for code `11469` 
+- Error translation for code `11469`
 
 ## [1.28.0]
 ## Added
