@@ -125,6 +125,7 @@
   "serviceError.10173": "Sorry, platform account has already linked with another user account.",
   "serviceError.10174": "Oops, the platform you are trying to connect does not exist. Please try another platform.",
   "serviceError.10177": "That username has been taken. Please choose another.",
+  "serviceError.10180": "The invitation link has expired. Please request a new link.",
   "serviceError.10190": "QR Code expired. Please reload the page and repeat the process to enable the authenticator app.",
   "serviceError.11132": "You've reached the maximum upload limit.",
   "serviceError.11233": "Error: Country group does not exist. If you see this error, please contact our support team for immediate assistance",

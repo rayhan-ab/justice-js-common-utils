@@ -66,6 +66,11 @@ export const IAMErrorTranslationMap: { [key: string]: React.ReactNode } = {
       Something went wrong. For more information please contact our support team
     </Trans>
   ),
+  10180: (
+    <Trans i18nKey="serviceError.10180">
+      The invitation link has expired. Please request a new link.
+    </Trans>
+  ),
   10190: (
     <Trans i18nKey="serviceError.10190">
       QR Code expired. Please reload the page and repeat the process to enable the authenticator app.
