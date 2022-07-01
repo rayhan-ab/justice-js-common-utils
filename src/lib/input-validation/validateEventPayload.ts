@@ -24,7 +24,7 @@ export const validateEventPayload = (
   value: string,
   { maxLength = 255, isRequired = true }: ValidateEventPayloadOptions = {}
 ) => {
-  const REGEX = `^\\b((?=[\\w])[\\w]+(\\.[\\w]+)*:)+[\\w]{1,${maxLength - 2}}\\b$`;
+  const REGEX = "^\\b((?=[\\w])[\\w]+(\\.[\\w]+)*:)+[\\w]{1,255}\\b$";
   if (isEmpty(value)) {
     if (!isRequired) {
       return null;
