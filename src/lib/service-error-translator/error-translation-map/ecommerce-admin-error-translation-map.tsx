@@ -10,7 +10,7 @@ import { Trans } from "react-i18next";
 export const EcommerceAdminErrorTranslationMap: { [key: string]: React.ReactNode } = {
   30071: (
     <Trans i18nKey="adminServiceError.30071">
-      This item cannot be deselected while the associated bundle is still selected
+      This item cannot be deselected while the associated bundle/option box is still selected
     </Trans>
   ),
   30072: (
