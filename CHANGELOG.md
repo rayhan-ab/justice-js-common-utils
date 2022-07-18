@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [1.33.0]
+### Added
+- `sideEffects: false` in `package.json` to tell bundlers this package has no side effect so that it can be tree-shaken
+
+### Changed
+- `compilerOptions.target` from `es5` to `esnext`
+
 ## [1.32.2]
 ### Changed
 - Error translation for `30071` to support both bundle and option items

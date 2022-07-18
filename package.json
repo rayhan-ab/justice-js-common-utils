@@ -1,6 +1,6 @@
 {
   "name": "justice-js-common-utils",
-  "version": "1.32.2",
+  "version": "1.33.0",
   "description": "AccelByte's Justice Common Javascript Utilities",
   "main": "build/main/index.js",
   "typings": "build/main/index.d.ts",
@@ -91,5 +91,6 @@
     "@types/xregexp": "^3.0.30",
     "naughty-words": "^1.1.0",
     "xregexp": "^4.3.0"
-  }
+  },
+  "sideEffects": false
 }
