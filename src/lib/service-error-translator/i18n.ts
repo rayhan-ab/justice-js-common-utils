@@ -18,7 +18,7 @@ import zhCN from "./translations/zh-CN.json";
 
 function isOnBrowser() {
   try {
-    if (window) {
+    if (typeof window !== "undefined") {
       return true;
     }
     // eslint-disable-next-line
